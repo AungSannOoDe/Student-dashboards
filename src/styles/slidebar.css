@@ -1,0 +1,62 @@
+@layer utilities {
+    .slider-img,.track-img {
+      @apply relative rounded-lg cursor-pointer transition-all duration-700 ease-in-out overflow-hidden;
+    }
+    .slider-img h1,.track-img h1 {
+      @apply font-bold text-4xl text-white uppercase absolute top-1/2 -left-10 origin-left;
+      transform: rotate(270deg);
+    }
+    .left-container-arrow {
+      @apply  h-0 w-0  absolute top-[28px] border-t-[15px] border-l-[15px] -right-[15px] border-l-blue-500  border-solid border-b-transparent  border-t-transparent z-1;
+    }
+    .right-container-arrow {
+      @apply  h-0 w-0  absolute top-[28px] border-t-[15px] border-r-[15px] -left-[15px] border-r-blue-500  border-solid border-b-transparent  border-t-transparent z-1;
+    }
+    .details {
+      @apply absolute bottom-10 left-10;
+    }
+    .details h2 {
+      @apply font-bold text-xl md:text-2xl text-white uppercase leading-tight hidden;
+    }
+    .details p {
+      @apply font-bold text-lg md:text-xl text-white uppercase leading-tight hidden;
+    }
+    .slider-img.active {
+      @apply w-[300px] sm:w-[400px] md:w-[500px] lg:w-[766px] !h-[500px] sm:h-[600px] md:h-[700px] lg:h-[750px];
+    }
+    .slider-img.active h1 {
+      @apply hidden;
+    }
+    .slider-img.active .details p, 
+    .slider-img.active .details h2,.track-img.active .details p, 
+    .track-img.active .details h2 {
+      @apply block;
+    }
+     .slider-img {
+      @apply relative rounded-lg cursor-pointer transition-all duration-700 ease-in-out overflow-hidden;
+    }
+    .slider-img h1 {
+      @apply font-bold text-4xl text-white uppercase absolute top-1/2 -left-10 origin-left;
+      transform: rotate(270deg);
+    }
+    .details {
+      @apply absolute bottom-10 left-10;
+    }
+    .details h2 {
+      @apply font-bold text-xl md:text-2xl text-white uppercase leading-tight hidden;
+    }
+    .details p {
+      @apply font-bold text-lg md:text-xl text-white uppercase leading-tight hidden;
+    }
+    .slider-img.active,.track-img.active {
+      @apply w-[300px] sm:w-[400px] md:w-[500px] lg:w-[766px] !h-[500px] sm:h-[600px] md:h-[700px] lg:h-[750px];
+    }
+    .slider-img.active h1,.track-img.active h1 {
+      @apply hidden;
+    }
+    .slider-img.active .details p, 
+    .slider-img.active .details h2, .track-img.active .details p, 
+    .track-img.active .details h2 {
+      @apply block;
+    }
+  }
