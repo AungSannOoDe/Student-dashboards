@@ -4,6 +4,7 @@
 @import "tw-animate-css";
 @import "./slidebar.css";
 @import "./gallery.css";
+@import "./font.css";
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

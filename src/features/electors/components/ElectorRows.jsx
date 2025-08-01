@@ -36,7 +36,6 @@ const ElectorRows = ({elector:{
     toast.error(error.message)
   console.log(error.message)
   }
-
   }
   return (
 <tr className=" odd:bg-gray-100 even:bg-white hover:bg-blue-100 duration-200">

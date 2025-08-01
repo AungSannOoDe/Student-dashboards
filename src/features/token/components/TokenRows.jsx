@@ -42,7 +42,13 @@ const TokenRows = ({token:{
     <th scope="row" className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{id}</th>
     <td className="px-4 py-3">{token_name}</td>
     <td className="px-4 py-3">{
-      archived_at==0 ? <p className="bg-red-400  w-fit text-white px-2 py-1 rounded-full">Unused</p>:<p className="bg-green-400  w-fit text-white px-2 py-1 rounded-full">finished</p>
+      archived_at==0 ? <div className="flex gap-3">
+         <div className="bg-red-400  w-3 h-3 self-center  text-white  rounded-full"></div>
+          <p className="text-xs">Uncomplete</p>
+      </div> :<div className="flex gap-3">
+         <div className="bg-green-400  w-3 h-3 self-center  text-white  rounded-full"></div>
+          <p className="text-xs">Completed</p>
+      </div>
      }</td>
     <td className="px-4 py-3 flex gap-3">
     <Link  href={`/dashboard/token/${id}/edit`} className=' size-10 flex justify-center items-center  bg-white border border-stone-200    hover:bg-stone-100 hover:text-blue-500 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:text-blue-500 dark:bg-stone-800 dark:border-stone-700 dark:text-white dark:hover:text-white dark:hover:bg-stone-700 dark:focus:ring-blue-500 dark:focus:text-white'>

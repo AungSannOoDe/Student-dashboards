@@ -1,10 +1,10 @@
 "use client";
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect,useState } from "react";
 import { BookMarked } from 'lucide-react'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from 'next/link'
-
+import { motion } from "motion/react"
 import LoginButton from './LoginButton'
 import useAccountStore from '@/stores/useAccountStore'
 import {
@@ -17,9 +17,32 @@ import {
 } from "@/components/ui/dropdown-menu"
 gsap.registerPlugin(ScrollTrigger);
 const ClientHeader = () => {
+  const[hover,setIsHover]=useState(false)
   const headerRef = useRef(null);
   const{account,token,logout}=useAccountStore()
-useEffect(() => {
+
+  const handletoggle=()=>{
+    setIsHover(!hover)
+  }
+  const subMenuAnimate={
+    enter:{
+      opacity:1,
+      rotateX:0,
+      transition:{
+        duration:0.5
+      },
+      display:"block"
+    },
+    exist:{
+      opacity:0,
+      rotateX:-15,
+      transition:{
+        duration:0.5
+      },
+      display:"none"
+    }
+  }
+  useEffect(() => {
   if (!headerRef.current) return;
   gsap.to(headerRef.current, {
     height: 60, 
@@ -47,19 +70,23 @@ useEffect(() => {
         <div className="">
           <img src="../images/Culogo-removebg-preview.png" ref={headerRef} className="h-25"  />
         </div>
-        <ul className="flex justify-center gap-4">
+        <ul className="flex justify-center   gap-4">
           <li>
             <Link href={`/`}>Home</Link>
           </li>
           <li>
             <Link href={`/clients/gallery`}>Gallery</Link>
           </li>
-          <li>
-            <Link href={`/dashboard`}>Admin</Link>
-          </li>
+         
           {
             token &&  (
               <>
+              <li>
+                <Link href={`/clients/votes`}>
+                   Votes
+                </Link>
+               
+              </li>
                  <li>
                     <Link href={`/clients/cards`}>Selection</Link>
                   </li>
@@ -73,12 +100,38 @@ useEffect(() => {
           {
           token ? ( 
           <ul className="flex justify-center gap-3">
+             <motion.li onHoverStart={handletoggle} onHoverEnd={handletoggle} className=" self-center -translate-y-1
+             ">
+               <BookMarked className="size-7 group/link" />
+             </motion.li>
+             <motion.div 
+              initial="exist"
+              animate={hover ? "enter":"exist"}
+              variants={subMenuAnimate}
+             className="absolute w-1/5 right-10  backdrop-blur-sm bg-white rounded-sm origin-[50%,-170px] space-y-4
+               top-[6.2rem] p-[15px] ">
+                <div className="text-center text-sm">
+                  <p >Cart</p>
+                </div>
+               <div className="text-xs flex items-center justify-between ">
+                 <p>7</p>
+                 <div className="w-7 h-7 rounded-full bg-amber-100"></div>
+                <p>Aung Sann Oo</p>
+                <p>Male</p>
+               </div>
+               <div className="text-xs flex items-center justify-between ">
+                 <p>7</p>
+                 <div className="w-7 h-7 rounded-full bg-amber-100"></div>
+                <p>Aung Sann Oo</p>
+                <p>Male</p>
+               </div>
+             </motion.div>
              <li className='w-13 h-13  rounded-ful'>
              <DropdownMenu>
              {
                   account.map((acc,index)=>(
                   acc.profile_image===null ? (
-                    <DropdownMenuTrigger className="-mt-1"><img src={`/images/user.png`} alt=""  className="object-cover w-[100%] " /></DropdownMenuTrigger>
+                    <DropdownMenuTrigger  key={index} className="-mt-1"><img src={`/images/user.png`} alt=""  className="object-cover w-[100%] " /></DropdownMenuTrigger>
                     ) :(
                     <img src={`/images/user.png`} alt="" className="object-cover w-[100%] " />
                   )))
@@ -92,7 +145,8 @@ useEffect(() => {
                 </DropdownMenuContent>
               </DropdownMenu>
             </li>
-          </ul>)  :(
+          </ul>
+          )  :(
             <ul className="flex justify-center gap-3">
             <li className='self-center'>
             <Link   href={'/clients/login'} className='underline cursor-pointer pointer-events-auto '>
