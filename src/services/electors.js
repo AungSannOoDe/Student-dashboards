@@ -1,5 +1,5 @@
 import useAccountStore from "@/stores/useAccountStore";
-export  const electorApiUrl=`${process.env.NEXT_PUBLIC_API_URL}/electors`
+export  const electorApiUrl=`${process.env.NEXT_PUBLIC_API_URL}/get-elector`
 
 export const  fetchElectors=(...args)=>{
     return fetch(...args,{

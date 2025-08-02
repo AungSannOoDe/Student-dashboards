@@ -10,7 +10,18 @@ const CardSection = () => {
   console.log(data);
   return (
          <section className="max-w-7xl   mx-auto">
-          <MaleCard/>
+          <div className="mt-10 space-y-10">
+          <h1 className="text-center font-bold text-4xl">Select for Male</h1>
+          <div className="grid lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-10 sm:gap-y-20 sm:px-6">
+          {
+              data?.data.map((item)=>(
+                <MaleCard male={item} key={item.id}/>
+              ))
+            }
+            </div>
+          </div>
+         
+          
           <FemaleCard/>
          </section>
   )
