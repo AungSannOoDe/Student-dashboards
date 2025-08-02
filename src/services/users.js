@@ -19,11 +19,13 @@ export const loginVoters=(data)=>{
     })
 }
 export const storeVoters=(data)=>{
-    return fetch(`${process.env.NEXT_PUBLIC_API_URL}/voter-register`,{
+    console.log(data);
+    return fetch(`${process.env.NEXT_PUBLIC_API_URL}/voter-reg`,{
         method:"POST",
         body:JSON.stringify(data),
         headers:{
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Accept": "application/json",
         }
     })
 }

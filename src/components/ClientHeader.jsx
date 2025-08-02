@@ -20,7 +20,7 @@ const ClientHeader = () => {
   const[hover,setIsHover]=useState(false)
   const headerRef = useRef(null);
   const{account,token,logout}=useAccountStore()
-
+   console.log(account);
   const handletoggle=()=>{
     setIsHover(!hover)
   }
@@ -77,7 +77,13 @@ const ClientHeader = () => {
           <li>
             <Link href={`/clients/gallery`}>Gallery</Link>
           </li>
-         
+          {
+            !account  &&   <li>
+            <Link href={`/dashboard`}>Admin</Link>
+        
+            </li>
+          }
+        
           {
             token &&  (
               <>
@@ -129,12 +135,11 @@ const ClientHeader = () => {
              <li className='w-13 h-13  rounded-ful'>
              <DropdownMenu>
              {
-                  account.map((acc,index)=>(
-                  acc.profile_image===null ? (
-                    <DropdownMenuTrigger  key={index} className="-mt-1"><img src={`/images/user.png`} alt=""  className="object-cover w-[100%] " /></DropdownMenuTrigger>
+                  account.profile_image===null ? (
+                    <DropdownMenuTrigger   className="-mt-1"><img src={`/images/user.png`} alt=""  className="object-cover w-[100%] " /></DropdownMenuTrigger>
                     ) :(
                     <img src={`/images/user.png`} alt="" className="object-cover w-[100%] " />
-                  )))
+                  )
                 }
                 <DropdownMenuContent>
                   <DropdownMenuLabel className={`flex flex-col space-y-4`}>

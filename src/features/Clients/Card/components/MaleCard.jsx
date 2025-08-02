@@ -14,7 +14,7 @@ const MaleCard = () => {
              <button className="outline-1 px-3 py-1 self-center bg-stone-50 outline-stone-600"><BookMarked /></button>
           </div>
           <div className="flex justify-between">
-            <Link href={'/clients/details'} className="underline text-stone-600">View Details</Link>
+            <Link href={'/clients/${id}'} className="underline text-stone-600">View Details</Link>
             <button className="bg-blue-400  text-white px-3 py-1 rounded-xs">Select</button>
           </div>
          </div>

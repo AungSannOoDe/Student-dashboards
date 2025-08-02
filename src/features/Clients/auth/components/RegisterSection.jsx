@@ -4,7 +4,7 @@ import useRegister from "../hooks/useRegister";
 
 
 const RegisterSection = () => {
-   const{isSubmitting,errors,onSubmit,register,reset,password,setError}=useRegister();
+   const{isSubmitting,errors,onSubmit,register,reset,password,setError,handleSubmit}=useRegister();
   return (
     <section className="relative h-screen overflow-hidden ">
         <div className="w-[500px] h-[500px] bg-blue-400  rounded-r-full  rounded-b-full  absolute top-0 -translate-y-30 leading-[0] rotate-y-180  right-0"></div>

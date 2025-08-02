@@ -11,6 +11,7 @@ export const  fetchElectors=(...args)=>{
         }
     }).then(res=>res.json())
 }
+
 export const destoryElectors=(id)=>{
 return fetch(`${electorApiUrl}/${id}`,{
     method:"DELETE",

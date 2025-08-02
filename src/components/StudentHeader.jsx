@@ -19,7 +19,7 @@ gsap.registerPlugin(ScrollTrigger);
 const StudentHeader = () => {
   const headerRef = useRef(null);
   const[hover,setIsHover]=useState(false)
-  const{account,token}=useAccountStore()
+  const{account,token,logout}=useAccountStore()
   useEffect(() => {
     if (!headerRef.current) return;
     gsap.to(headerRef.current, {
@@ -123,16 +123,14 @@ const StudentHeader = () => {
            
            </motion.div>
          </motion.li>
-        
          <li className='w-13 h-13  rounded-ful'>
          <DropdownMenu>
          {
-              account.map((acc,index)=>(
-              acc.profile_image===null ? (
-                <DropdownMenuTrigger  key={index} className="-mt-1"><img src={`/images/user.png`} alt=""  className="object-cover w-[100%] " /></DropdownMenuTrigger>
+                account.profile_image===null ? (
+                <DropdownMenuTrigger   className="-mt-1"><img src={`/images/user.png`} alt=""  className="object-cover w-[100%] " /></DropdownMenuTrigger>
                 ) :(
-                <img src={`/images/user.png`} alt="" className="object-cover w-[100%] " />
-              )))
+                  <DropdownMenuTrigger   className="-mt-1"><img src={`/images/user.png`} alt=""  className="object-cover w-[100%] " /></DropdownMenuTrigger>
+              )
             }
             <DropdownMenuContent>
               <DropdownMenuLabel className={`flex flex-col space-y-4`}>

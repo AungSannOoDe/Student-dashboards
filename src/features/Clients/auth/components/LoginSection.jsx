@@ -20,8 +20,8 @@ try{
     if(!res.ok){
         throw  new  Error(json.message || "Undefined  Error")
     }
-    setToken(json.voters.token_name)
-    setAccount(json.voters.voters)
+    setToken(json.token)
+    setAccount(json.data)
     router.push(`/clients/home`)
     toast.error("Login Successfully")
 }catch(error){

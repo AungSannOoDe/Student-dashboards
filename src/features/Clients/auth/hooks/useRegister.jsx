@@ -17,8 +17,7 @@ const router=useRouter();
     const res=await storeVoters({
      voter_name:data.name,
       voter_email:data.email,
-      voter_password:data.password,
-      token_id:SpecifyId
+      voter_password:data.password
     })
     const json=await res.json();
     if(!res.ok){
@@ -27,11 +26,11 @@ const router=useRouter();
     toast.success("You have registered successfully");
     reset();
      setSpecifyId({});
-    setToken(json.voters.token_name);
+    setToken(json.token);
     setAccount({
-        name:json.voters.voters.voter_name,
-        email:json.voters.voters.voter_email,
-        id:json.voters.voters.voter_id,
+        name:json.voters.voter_name,
+        email:json.voters.voter_email,
+        id:json.voters.id,
     })
     router.push("/clients/home");
   }
@@ -46,6 +45,7 @@ register,
 errors,
 isSubmitting,
 reset,
+handleSubmit,
 setError,
 control,
 password
