@@ -3,18 +3,29 @@ import Spinner from "@/components/Spinner";
 import useAccountStore from "@/stores/useAccountStore";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import HomePage from "../pages/HomePage";
+import { checkProfile } from "@/services/profile";
 export default function HomeLayout({children}){
     const router=useRouter();
     const{logout,token}=useAccountStore();
     const [isLoading,setIsLoading]=useState(true);
-    console.log(token);
-    useEffect(()=>{
- const currentToken =useAccountStore.getState().token;
- if(!currentToken){
-    router.push("/")
- }
- setIsLoading(false)
-    },[token])
+    const autoLogoutIfTokenExpire = async (currentToken) => {
+      const res = await checkProfile(currentToken);
+      if (res.status === 401) {
+        toast.error("Your token has expired, please login again");
+        logout();
+      }
+    };
+    useEffect(() => {
+      const currentToken = useAccountStore.getState().token;
+
+      if (!currentToken) {
+        router.push("/");
+      } else {
+        autoLogoutIfTokenExpire(currentToken);
+      }
+      setIsLoading(false);
+    }, [token]);
     if (isLoading) {
         return (
           <div className=" h-screen flex items-center justify-center">
@@ -23,7 +34,7 @@ export default function HomeLayout({children}){
         );
       }
     if(!useAccountStore.getState().token){
-        return "Hello";
+        return <HomePage/>
     }
     return<>{children}</>;
 }

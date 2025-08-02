@@ -1,5 +1,5 @@
 import useAccountStore from "@/stores/useAccountStore";
-export const profileApiUrl = `${process.env.NEXT_PUBLIC_API_URL}/user-profile`;
+export const profileApiUrl = `${process.env.NEXT_PUBLIC_API_URL}/voter-profile`;
 
 export const checkProfile = async (updateToken) => {
   return fetch(`${profileApiUrl}/profile`, {
@@ -42,7 +42,7 @@ export const changeImage = (file) => {
   formData.append("profile_image", file); 
 
   return fetch(
-    process.env.NEXT_PUBLIC_API_URL + "/user-profile/change-profile-image",
+    process.env.NEXT_PUBLIC_API_URL + "/change-profile-image",
     {
       method: "POST",
       body: formData,
