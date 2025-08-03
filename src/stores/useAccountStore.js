@@ -7,6 +7,8 @@ const useAccountStore = create(
       token: null,
       SpecifyId:{},
       account: {},
+      refreshTrigger: 0,
+      triggerRefresh: () => set((state) => ({ refreshTrigger: state.refreshTrigger + 1 })),
       setAccount: (account) => set({ account }),
       setSpecifyId: (id) => set({ SpecifyId: id }),
       setToken: (token) => set({ token }),

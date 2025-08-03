@@ -15,11 +15,21 @@ import useAccountStore from '@/stores/useAccountStore'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { BookMarked } from "lucide-react";
+import useSWR, { useSWRConfig } from "swr";
+import { fetchtemp, tempoApiUrl } from "@/services/tempo";
+import { useTempStore } from "@/stores/usetemp";
 gsap.registerPlugin(ScrollTrigger);
 const StudentHeader = () => {
   const headerRef = useRef(null);
-  const[hover,setIsHover]=useState(false)
+  const[hover,setIsHover]=useState(false);
+  const { refreshTrigger } = useTempStore();
   const{account,token,logout}=useAccountStore()
+  const{mutate}=useSWRConfig()
+const{data,isLoading,error}=useSWR(`${tempoApiUrl}/${account.id}`,fetchtemp,{
+  revalidateOnFocus: true,
+  refreshWhenHidden: true,
+})
+
   useEffect(() => {
     if (!headerRef.current) return;
     gsap.to(headerRef.current, {
@@ -32,12 +42,16 @@ const StudentHeader = () => {
         end: "+=100", 
         scrub: true, 
       },
+
     });
     // Cleanup
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
   }, []);
+  useEffect(() => {
+    mutate(`${tempoApiUrl}/${account.id}`);
+  }, [refreshTrigger]);
   const handletoggle=()=>{
     setIsHover(!hover)
   }
@@ -108,18 +122,21 @@ const StudentHeader = () => {
             variants={subMenuAnimate}
            className="absolute w-[300px]   cursor-pointer right-1 translate-x-20 backdrop-blur-sm bg-white rounded-sm origin-[50%,-170px] space-y-4
              top-[3.2rem] p-[15px] ">
-              <div>
+              {
+                data?.data.map((temp)=>(
+                  <div key={temp.id}>
                   <div className=" relative cursor-pointer ">
                     <div className="text-sm   group-hover/menu:bg-white  flex  gap-4  ">
-                       <p className="self-center">7</p>
+                       <p className="self-center">{temp.id}</p>
                        <div className="w-10 h-10 self-top  rounded-full bg-amber-100"></div>
-                      <p className="text-nowrap self-center">Aung Sann Oo</p>
+                      <p className="text-nowrap self-center">{temp.elector.elector_name}</p>
                       <p className="self-center">Male</p>
                      </div>
                   </div>
-                 
-                
               </div>
+                ))
+              }
+              
            
            </motion.div>
          </motion.li>

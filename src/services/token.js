@@ -44,6 +44,7 @@ export const storeToken=(data)=>{
     method:"POST",
     body:JSON.stringify(data),
     headers:{
+        Accept:"application/json",
         "Content-Type": "application/json",
         Authorization: `Bearer ${useAccountStore.getState().token}`
     }
