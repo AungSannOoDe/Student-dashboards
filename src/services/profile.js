@@ -1,5 +1,5 @@
 import useAccountStore from "@/stores/useAccountStore";
-export const profileApiUrl = `${process.env.NEXT_PUBLIC_API_URL}/voter-profile`;
+export const profileApiUrl = `${process.env.NEXT_PUBLIC_API_URL}/user-profile`;
 
 export const checkProfile = async (updateToken) => {
   return fetch(`${profileApiUrl}/profile`, {

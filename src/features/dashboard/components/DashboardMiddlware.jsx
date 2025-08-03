@@ -20,7 +20,6 @@ export default function DashboardMiddlware ({children}){
       logout();
     }
   };
-
   useEffect(() => {
     const currentToken = useAccountStore.getState().token;
 

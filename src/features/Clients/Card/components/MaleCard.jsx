@@ -1,39 +1,12 @@
 "use client";
-import { fetchtemp, storetemp } from '@/services/tempo';
-import useAccountStore from '@/stores/useAccountStore';
-import { useTempStore } from '@/stores/usetemp';
 import { BookMarked } from 'lucide-react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import React,{useRef} from 'react'
-import { useForm } from 'react-hook-form'
-import { toast } from 'sonner';
-import { useSWRConfig } from 'swr';
+import useCreateTemp from '../hooks/useCreateTemp';
 const MaleCard = ({male:{id:elector_id,
   elector_name
 }}) => {
- const{account}  = useAccountStore();
- const { triggerRefresh } = useTempStore();
- const ref=useRef(account.id);
- 
-  const{handleSubmit,register}=useForm();
-  const{mutate}=useSWRConfig()
-  const onSubmit=async(data)=>{
-    try{
-      const res=await storetemp(data);
-      const json=await res.json();
-      if(!res.ok){
-        throw new  Error(json.message||"Undefined Error")
-      }
-      toast.success(json.message)
-      mutate(`${fetchtemp}/${account.id}`,fetchtemp)
-      triggerRefresh()
-    }
-    catch(error){
- toast.error(error.message)
-    }
-    
-  }
+  const{handleSubmit,onSubmit,register,ref
+  }=useCreateTemp();
   return (
     <div className="  w-full ">
       <form  onSubmit={handleSubmit(onSubmit)}>

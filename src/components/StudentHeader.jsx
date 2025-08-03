@@ -29,7 +29,7 @@ const{data,isLoading,error}=useSWR(`${tempoApiUrl}/${account.id}`,fetchtemp,{
   revalidateOnFocus: true,
   refreshWhenHidden: true,
 })
-
+console.log(account);
   useEffect(() => {
     if (!headerRef.current) return;
     gsap.to(headerRef.current, {
@@ -122,22 +122,24 @@ const{data,isLoading,error}=useSWR(`${tempoApiUrl}/${account.id}`,fetchtemp,{
             variants={subMenuAnimate}
            className="absolute w-[300px]   cursor-pointer right-1 translate-x-20 backdrop-blur-sm bg-white rounded-sm origin-[50%,-170px] space-y-4
              top-[3.2rem] p-[15px] ">
-              {
-                data?.data.map((temp)=>(
-                  <div key={temp.id}>
-                  <div className=" relative cursor-pointer ">
-                    <div className="text-sm   group-hover/menu:bg-white  flex  gap-4  ">
-                       <p className="self-center">{temp.id}</p>
-                       <div className="w-10 h-10 self-top  rounded-full bg-amber-100"></div>
-                      <p className="text-nowrap self-center">{temp.elector.elector_name}</p>
-                      <p className="self-center">Male</p>
-                     </div>
+             {isLoading ? (
+              <div className="text-center py-2">Loading...</div>
+            ) : error ? (
+              <div className="text-center py-2 text-red-500">Error loading data</div>
+            ) : data?.data?.length > 0 ? (
+              data.data.map((temp) => (
+                <div key={temp.id} className="hover:bg-gray-50 p-2 rounded">
+                  <div className="text-sm flex gap-4 items-center">
+                    <p className="self-center">{temp.id}</p>
+                    <div className="w-10 h-10 self-top rounded-full bg-amber-100"></div>
+                    <p className="text-nowrap self-center">{temp.elector?.elector_name || 'Unknown'}</p>
+                    <p className="self-center">Male</p>
                   </div>
-              </div>
-                ))
-              }
-              
-           
+                </div>
+              ))
+            ) : (
+              <p className="text-center py-2">No data available</p>
+            )}
            </motion.div>
          </motion.li>
          <li className='w-13 h-13  rounded-ful'>
@@ -151,8 +153,8 @@ const{data,isLoading,error}=useSWR(`${tempoApiUrl}/${account.id}`,fetchtemp,{
             }
             <DropdownMenuContent>
               <DropdownMenuLabel className={`flex flex-col space-y-4`}>
-                <p className='text-lg'>Aung Sann Oo</p>
-                <p className='text-xs'>aungsannoo962@gmail.com</p>
+                <p className='text-lg'>{account.name}</p>
+                <p className='text-xs'>{account.email}</p>
                 <button  className=' bg-blue-500 text-white px-3 py-1 rounded-md' onClick={handlelogout}>logout</button>
                 </DropdownMenuLabel>
             </DropdownMenuContent>

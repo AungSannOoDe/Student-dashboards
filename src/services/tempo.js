@@ -7,6 +7,7 @@ export  const storetemp=(paylooad)=>{
         method:"POST",
         body:JSON.stringify(paylooad),
         headers:{
+              Accept:"application/json",
              "Content-Type": "application/json",
             Authorization: `Bearer ${useAccountStore.getState().token}`
         }
