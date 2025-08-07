@@ -14,9 +14,9 @@ import {
 import useAccountStore from '@/stores/useAccountStore'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { BookMarked } from "lucide-react";
+import { BookMarked, X } from "lucide-react";
 import useSWR, { useSWRConfig } from "swr";
-import { fetchtemp, tempoApiUrl } from "@/services/tempo";
+import { destorytemp, fetchtemp, tempoApiUrl } from "@/services/tempo";
 import { useTempStore } from "@/stores/usetemp";
 gsap.registerPlugin(ScrollTrigger);
 const StudentHeader = () => {
@@ -29,7 +29,18 @@ const{data,isLoading,error}=useSWR(`${tempoApiUrl}/${account.id}`,fetchtemp,{
   revalidateOnFocus: true,
   refreshWhenHidden: true,
 })
-console.log(account);
+const handleDelete=async(id)=>{
+  try{
+   const res=await destorytemp(id)
+   const json=await res.json()
+   if(!res.ok){
+    throw new Error(json.message||"Undefined Error")
+   }
+   
+  }catch(error){
+     
+  }
+}
   useEffect(() => {
     if (!headerRef.current) return;
     gsap.to(headerRef.current, {
@@ -113,14 +124,16 @@ console.log(account);
          <motion.li onHoverStart={() => {
           handletoggle()}} onHoverEnd={handletoggle} className="group/link translate-y-2 
          ">
-          <div className="">
-            <BookMarked className="size-7 " />
+          <div  onClick={(e) => e.stopPropagation()} className="  relative">
+             <Link href={`/clients/tempo`}>
+             <BookMarked className="size-7 " />
+             </Link>
           </div>
            <motion.div 
             initial="exist"
             animate={hover ? "enter":"exist"}
             variants={subMenuAnimate}
-           className="absolute w-[300px]   cursor-pointer right-1 translate-x-20 backdrop-blur-sm bg-white rounded-sm origin-[50%,-170px] space-y-4
+           className="absolute w-[400px]   cursor-pointer right-1 translate-x-20 backdrop-blur-sm bg-white rounded-sm origin-[50%,-170px] space-y-4
              top-[3.2rem] p-[15px] ">
              {isLoading ? (
               <div className="text-center py-2">Loading...</div>
@@ -129,11 +142,12 @@ console.log(account);
             ) : data?.data?.length > 0 ? (
               data.data.map((temp) => (
                 <div key={temp.id} className="hover:bg-gray-50 p-2 rounded">
-                  <div className="text-sm flex gap-4 items-center">
+                  <div className="text-sm flex gap-3 justify-between">
                     <p className="self-center">{temp.id}</p>
-                    <div className="w-10 h-10 self-top rounded-full bg-amber-100"></div>
-                    <p className="text-nowrap self-center">{temp.elector?.elector_name || 'Unknown'}</p>
-                    <p className="self-center">Male</p>
+                    <div className="w-8 h-8 self-top rounded-full bg-amber-100"></div>
+                    <p className="text-nowrap self-center text-xs">{temp.elector?.elector_name || 'Unknown'}</p>
+                    <p className="self-center text-xs">{temp.elector?.gender}</p>
+                 <button  onClick={() => handleDelete(temp.id)}><X className="size-5 text-red-500  cursor-pointer "/></button>
                   </div>
                 </div>
               ))

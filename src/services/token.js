@@ -29,6 +29,7 @@ export const destoryToken=(id)=>{
         }
     })
 }
+
 export const updateToken=(data,id)=>{
     return fetch(`${tokenApiUrl}/${id}`,{
       method:"PUT",

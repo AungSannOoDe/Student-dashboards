@@ -2,11 +2,15 @@
 import { BookMarked } from 'lucide-react'
 import Link from 'next/link'
 import useCreateTemp from '../hooks/useCreateTemp';
+import useSWR from 'swr';
+import { fetchvote, voteapiUrl } from '@/services/votes';
+import useAccountStore from '@/stores/useAccountStore';
 const MaleCard = ({male:{id:elector_id,
   elector_name
 }}) => {
   const{handleSubmit,onSubmit,register,ref
   }=useCreateTemp();
+  
   return (
     <div className="  w-full ">
       <form  onSubmit={handleSubmit(onSubmit)}>
@@ -19,7 +23,6 @@ const MaleCard = ({male:{id:elector_id,
         </div>
         <div className="flex justify-between  mt-3">
           <Link href={`/clients/${elector_id}`} className="underline text-stone-600">View Details</Link>
-          <button  type='submit' className="bg-blue-400  text-white px-3 py-1 rounded-xs">Select</button>
         </div>
       </form>
    

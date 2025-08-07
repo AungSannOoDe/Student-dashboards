@@ -24,12 +24,12 @@ const ElectorSection = () => {
     if(error){
       return <NotFound/>
     }
-    
   return (
 <section  className='pl-10'>
     <h1 className="text-3xl font-bold">Electors</h1>
     <section className="w-full   mt-3">
   <div>
+
      <ElectorInventoryAction searchRef={searchRef} clearSearchInput={clearSearchInput} handleSearchInput={handleSearchInput} searchParams={searchParams} />
     {
           isLoading ? <ElectorSkeletonSection/> : <ElectorTable electors={data?.data}/>

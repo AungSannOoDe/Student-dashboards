@@ -13,6 +13,16 @@ export  const storetemp=(paylooad)=>{
         }
     })
 }
+export const destorytemp=(id)=>{
+    return fetch(`${tempoApiUrl}/${id}`,{
+        method:"DELETE",
+       headers:{
+        Accept:"application/json",
+        "Content-Type":"application/json",
+        Authorization: `Bearer ${useAccountStore.getState().token}`
+       }
+    })
+}
 export const fetchtemp=(...args)=>{
  return  fetch(...args,{
     headers:{
