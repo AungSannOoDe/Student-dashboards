@@ -167,8 +167,8 @@ const handleDelete=async(id)=>{
             }
             <DropdownMenuContent>
               <DropdownMenuLabel className={`flex flex-col space-y-4`}>
-                <p className='text-lg'>{account.name}</p>
-                <p className='text-xs'>{account.email}</p>
+                <p className='text-lg'>{account.voter_name}</p>
+                <p className='text-xs'>{account.voter_email}</p>
                 <button  className=' bg-blue-500 text-white px-3 py-1 rounded-md' onClick={handlelogout}>logout</button>
                 </DropdownMenuLabel>
             </DropdownMenuContent>
