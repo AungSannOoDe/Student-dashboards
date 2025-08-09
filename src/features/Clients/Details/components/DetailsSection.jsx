@@ -8,7 +8,6 @@ import useAccountStore from '@/stores/useAccountStore';
 const DetailsSection = () => {
   const{data,isLoading,isSubmitting,register,handleSubmit,onSubmit,account,id}=useDetails()
 const{data:votes,isLoading:voteLoading,error}=useSWR(`${voteapiUrl}/${useAccountStore.getState().account.id}`,fetchvote)
-console.log(votes);
 if(isLoading || voteLoading){
   return <DetailSkeleton/>
 }
@@ -31,7 +30,7 @@ if(isLoading || voteLoading){
            <p className='text-2xl'>{data?.phone}</p>
          <p >{data?.address}</p>
          {
-           votes.data.archived_at==="1" ?  (
+           votes.data[0].archived_at==="1" ?  (
           " "
            ):(
             <button type='submit' className='bg-blue-500 py-3 text-white'>
