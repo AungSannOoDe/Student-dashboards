@@ -1,6 +1,9 @@
 import useAccountStore from "@/stores/useAccountStore";
 export  const electorApiUrl=`${process.env.NEXT_PUBLIC_API_URL}/get-elector`
-export  const electorDeailsApiUrl=`${process.env.NEXT_PUBLIC_API_URL}/get-details`
+export const electorUrl=`${process.env.NEXT_PUBLIC_API_URL}/electors`
+export  const ablumsApiUrl=`${process.env.NEXT_PUBLIC_API_URL}/ablums`
+export const detailsUrl=`${process.env.NEXT_PUBLIC_API_URL}/electors`
+export const electorDeailsApiUrl=`${process.env.NEXT_PUBLIC_API_URL}/get-details`
 export const  fetchElectors=(...args)=>{
     return fetch(...args,{
         method:"GET",
@@ -13,7 +16,7 @@ export const  fetchElectors=(...args)=>{
 }
 
 export const destoryElectors=(id)=>{
-return fetch(`${electorApiUrl}/${id}`,{
+return fetch(`${electorUrl}/${id}`,{
     method:"DELETE",
     headers:{
         "Content-Type":"application/json",
@@ -22,7 +25,7 @@ return fetch(`${electorApiUrl}/${id}`,{
 })
 }
 export const storeElector=(data)=>{
-    return fetch(electorApiUrl,{
+    return fetch(electorUrl,{
         method:"POST",
         headers: {
             "Content-Type": "application/json",

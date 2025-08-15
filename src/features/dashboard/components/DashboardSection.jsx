@@ -20,8 +20,7 @@ const DashboardSection = () => {
   </div>
   <DashboardCard dashboardData={dashboardData}/>
   <DashboardTeamSection dashboardData={dashboardData}/>
-  <DashboardCharts/>
-  <DashboardTableSection/>
+  <DashboardTableSection dashboardData={dashboardData} />
   </section>
   )
 }

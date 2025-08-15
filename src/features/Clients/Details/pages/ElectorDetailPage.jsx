@@ -8,6 +8,7 @@ import DashboardLayout from '@/components/DashboardLayout'
 import Header from '@/components/Header'
 import DashboardMiddlware from '@/features/dashboard/components/DashboardMiddlware'
 import ElectorDetailsSection from '../components/ElectorDetailsSection';
+import BreadCrumb from '@/components/BreadCrumb';
 const ElectorDetailPage = () => {
   return (
     <>
@@ -16,6 +17,7 @@ const ElectorDetailPage = () => {
               <Navbar/>
               <DashboardLayout>
              <Header/>
+             <BreadCrumb currentPage='Ablum' links={[{title:"elector",path:"/dashboard/elector/100"}]}/>
                  <ElectorDetailsSection/>
               </DashboardLayout>
           </Container>

@@ -14,7 +14,7 @@ import {
 import useAccountStore from '@/stores/useAccountStore'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { BookMarked, X } from "lucide-react";
+import { BookMarked, Crown, X } from "lucide-react";
 import useSWR, { useSWRConfig } from "swr";
 import { destorytemp, fetchtemp, tempoApiUrl } from "@/services/tempo";
 import { useTempStore } from "@/stores/usetemp";
@@ -23,7 +23,7 @@ const StudentHeader = () => {
   const headerRef = useRef(null);
   const[hover,setIsHover]=useState(false);
   const { refreshTrigger } = useTempStore();
-  const{account,token,logout}=useAccountStore()
+  const{account,token,logout}=useAccountStore();
   const{mutate}=useSWRConfig()
 const{data,isLoading,error}=useSWR(`${tempoApiUrl}/${account.id}`,fetchtemp,{
   revalidateOnFocus: true,
@@ -36,7 +36,6 @@ const handleDelete=async(id)=>{
    if(!res.ok){
     throw new Error(json.message||"Undefined Error")
    }
-   
   }catch(error){
      
   }
@@ -59,6 +58,8 @@ const handleDelete=async(id)=>{
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
+   
+    // eslint-disable-next-line react-hooks/exhaustive-dep
   }, []);
   useEffect(() => {
     mutate(`${tempoApiUrl}/${account.id}`);
@@ -121,6 +122,9 @@ const handleDelete=async(id)=>{
     {
       token ? ( 
       <ul className="flex justify-center gap-3">
+         <li className="self-center -mt-1">
+        <Crown />
+        </li>
          <motion.li onHoverStart={() => {
           handletoggle()}} onHoverEnd={handletoggle} className="group/link translate-y-2 
          ">

@@ -8,6 +8,7 @@ const DetailsPage = () => {
   return (
    <HomeLayout>
      <StudentHeader/>
+     
      <DetailsSection/>
      <Footer/>
    </HomeLayout>

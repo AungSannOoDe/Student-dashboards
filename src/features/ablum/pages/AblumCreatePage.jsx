@@ -1,3 +1,4 @@
+
 import React from 'react'
 import BreadCrumb from '@/components/BreadCrumb'
 import Container from '@/components/Container'
@@ -6,12 +7,13 @@ import Header from '@/components/Header'
 import Navbar from '@/components/navbar'
 import AblumCreateSection from '../components/AblumCreateSection'
 const AblumCreatePage = () => {
+
   return (
 <Container>
     <Navbar/>
         <DashboardLayout>
        <Header/>
-       <BreadCrumb currentPage='Ablum Create' links={[{title:"elector",path:"/dashboard/elector"},{title:"Ablum",path:"/dashboard/elector/ablum"}]}/>
+       <BreadCrumb currentPage='Ablum Create' links={[{title:"elector",path:"/dashboard/elector"},{title:"Ablum",path:"/dashboard/elector/100"}]}/>
        <AblumCreateSection/>
         </DashboardLayout>
    </Container>

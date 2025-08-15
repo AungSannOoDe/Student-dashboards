@@ -17,7 +17,6 @@ const DashboardPage = () => {
        <Header/>
        <BreadCrumb/>
        <DashboardSection/>
-       <TextEditor/>
         </DashboardLayout>
         </Container>
     </DashboardMiddlware>

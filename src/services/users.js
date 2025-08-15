@@ -19,7 +19,6 @@ export const loginVoters=(data)=>{
     })
 }
 export const storeVoters=(data)=>{
-    console.log(data);
     return fetch(`${process.env.NEXT_PUBLIC_API_URL}/voter-reg`,{
         method:"POST",
         body:JSON.stringify(data),

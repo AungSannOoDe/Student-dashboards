@@ -9,7 +9,7 @@ import { toast } from "sonner";
 
 export default function HomeLayout({ children }) {
   const router = useRouter();
-  const { logout, token } = useAccountStore();
+  const { logout, token} = useAccountStore();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -34,11 +34,7 @@ export default function HomeLayout({ children }) {
         setIsLoading(false);
       }
     };
-
-    // Initial check
     verifyToken();
-
-    // Set up periodic checks (every 5 minutes)
     const interval = setInterval(verifyToken, 5 * 60 * 1000);
 
     return () => clearInterval(interval);

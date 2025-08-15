@@ -8,7 +8,7 @@ import {
   convertSearchPramsToObject,
   extractSearchPramsObjectFromUrl,
 } from "../../../utils/url";
-import { electorApiUrl, fetchElectors } from "@/services/electors";
+import { detailsUrl, fetchElectors } from "@/services/electors";
 const useElector = () => {
  const searchParams = useSearchParams();
   const router = useRouter();
@@ -17,14 +17,14 @@ const useElector = () => {
   const updateUrlParams = (newParams) => {
     const updatedSearch = new URLSearchParams(newParams).toString();
     router.push(`?${updatedSearch}`);
-    setFetchUrl(`${electorApiUrl}?${updatedSearch}`);
+    setFetchUrl(`${detailsUrl}?${updatedSearch}`);
   };
   
 
   useEffect(() => {
     const currentParams = convertSearchPramsToObject(searchParams);
     const queries = new URLSearchParams(currentParams).toString();
-    setFetchUrl(`${electorApiUrl}?${queries}`);
+    setFetchUrl(`${detailsUrl}?${queries}`);
 
     if (currentParams.q) {
       searchRef.current.value = currentParams.q;

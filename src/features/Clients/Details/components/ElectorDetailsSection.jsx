@@ -1,5 +1,8 @@
+"use client";
 import Spinner from '@/components/Spinner';
-import { electorApiUrl, fetchElectors } from '@/services/electors';
+import { ablumsApiUrl, detailsUrl, electorApiUrl, electorDeailsApiUrl, fetchElectors } from '@/services/electors';
+
+import { LucideCircleUser } from 'lucide-react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation'
 import React from 'react'
@@ -7,27 +10,91 @@ import useSWR from 'swr';
 
 const ElectorDetailsSection = () => {
   const {id}=useParams();
-  const{data,isLoading,error}=useSWR(`${electorApiUrl}/${id}`,fetchElectors)
-  if (isLoading) {
-    return <Spinner />;
-  }
-  console.log(data);
+  const{data:ablums,isLoading,error}=useSWR(`${ablumsApiUrl}/${id}`,fetchElectors)
+  const{data:electors,isLoading:detailsLoading,error:detailsError}=useSWR(`${detailsUrl}/${id}`,fetchElectors)
+  console.log(electors);
   return (
- <section className='max-w-7xl mx-auto grid  px-5 grid-cols-2 mt-10 gap-x-10'>
-    <div className="">
-        <img src="../images/1.png" className='w-full h-[450px]  object-cover' />
-        <div className="flex  justify-between mt-4 ">
-        <img src="../images/4.png" className='w-1/4' />
-            <img src="../images/2.png" className='w-1/4'  />
-            <img src="../images/3.png" className='w-1/4'/>
+ <section className='pl-6 grid grid-cols-2 gap-10'>
+    {
+      isLoading ? (
+        <Spinner />
+      ) : ablums.data.length > 0 ? (
+        ablums.data.map((item) => (
+          <div className="space-y-5" key={item.id}>
+            <div className="h-[300px] w-full">
+              <img src={item.image_1_url} alt="" className='h-[300px] w-full object-cover' />
+            </div>
+            <div className="flex gap-4">
+              <div className="h-[100px] w-full">
+                <img src={item.image_2_url} alt=""   className='h-[100px] w-full object-cover' />
+              </div>
+              <div className="h-[100px] w-full">
+                <img src={item.image_3_url} alt="" className="h-[100px] w-full  object-cover"  />
+              </div>
+              <div className="h-[100px] w-full bg-blue-400"></div>
+            </div>
+            <div>
+              <button className="bg-blue-600 px-3  py-2 w-full text-white rounded-sm">
+                Update Album
+              </button>
+            </div>
+          </div>
+        ))
+      ) : (
+        <div className="space-y-5">
+          <div className="h-[300px] w-full">
+            <img src={`/images/image-not-found.png`} alt="" />
+          </div>
+          <div className="flex gap-4">
+            <div className="h-[100px] w-full">
+              <img src={`/images/image-not-found.png`} alt="" />
+            </div>
+            <div className="h-[100px] w-full">
+              <img src={`/images/image-not-found.png`} alt="" />
+            </div>
+            <div className="h-[100px] w-full">
+              <img src={`/images/image-not-found.png`} alt="" />
+            </div>
+          </div>
+          <div>
+            <Link href={`/dashboard/ablum/create`} className="bg-blue-600 px-3  py-2 w-full text-white rounded-sm">
+              Create Album
+            </Link>
+          </div>
         </div>
+      )
+    }
+
+    <div className="p-6 max-w-lg order-1 space-y-4.5">
+    <div className="flex items-center gap-2">
+      <LucideCircleUser className="size-5 text-blue-500" />
+      <h4 className="font-medium text-xl">Elector Information</h4>
     </div>
-    <div className="flex flex-col space-y-10">
-     <p className='text-4xl font-bold'>Mg Mg</p>
-     <p className='text-2xl'>Male</p>
-     <p className='text-2xl'>09-677513378</p>
-   <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus optio illum magni soluta aliquid nobis, dolorem consequatur possimus nesciunt pariatur rerum dolorum aut perferendis tempore id! Deleniti ratione quo vel modi ab ex id repellendus laboriosam tenetur impedit fugit maxime aliquam necessitatibus perspiciatis ipsam explicabo cupiditate possimus, repudiandae asperiores? Tempora, saepe eligendi vero, accusamus, debitis totam iste esse explicabo incidunt error itaque. Sed doloribus tempore deserunt nihil, itaque voluptatum iure repudiandae nobis consequatur libero eum optio in odio aut tempora laboriosam perferendis esse eveniet. Vero numquam possimus, quasi, accusamus harum odio odit facilis sapiente itaque distinctio similique? Corrupti, officiis architecto.</p>
-   <Link href={`/dashboard/elector/${id}/edit`} className='bg-blue-500 py-3 text-white text-center'>Edit</Link>
+    {
+        detailsLoading ? (
+          "loading..."
+        ) :  (
+          <>
+            <div className="space-y-5">
+              <dl className="flex items-center">
+                <dt className="text-stone-500 w-[150px] text-sm dark:text-white">User Name</dt>
+                <dd className="text-sm dark:text-stone-400">{electors.data.elector_name}</dd>
+              </dl>
+              <dl className="flex items-center">
+                <dt className="text-stone-500 w-[150px] text-sm dark:text-white">Email Address</dt>
+                <dd className="text-sm dark:text-stone-400">{electors.data.address}</dd>
+              </dl>
+              <dl className="flex items-center">
+                <dt className="text-stone-500 w-[150px] text-sm dark:text-white">gender</dt>
+                <dd className="text-sm dark:text-stone-400">{electors.data.gender}</dd>
+              </dl>
+            </div>
+            <Link href={`/dashboard/elector/${id}/edit`} className="bg-blue-500 text-white text-center px-3 py-2 w-full">
+              Edit
+            </Link>
+            </>
+        ) 
+    }
     </div>
    </section>
   )

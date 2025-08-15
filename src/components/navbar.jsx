@@ -1,4 +1,4 @@
-import { Clipboard, LayoutDashboard, Settings, SquareUser, Tag, User, UserPen, Users2 } from 'lucide-react'
+import { Camera, Clipboard, LayoutDashboard, Settings, SquareUser, Tag, User, UserPen, Users2 } from 'lucide-react'
 import React from 'react'
 import ModuleButton from './ModuleButton'
 
@@ -21,6 +21,11 @@ const navbar = () => {
           name:"token",
           icon:<Tag className='text-2xl text-stone-600' />,
           url:"/dashboard/token"
+        },
+        {
+          name:"Gallery",
+          icon:<Camera className='text-2xl text-stone-600' />,
+          url:"/dashboard/gallery"
         },
         {
           name:"Elector",

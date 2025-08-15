@@ -27,11 +27,7 @@ const router=useRouter();
     reset();
      setSpecifyId({});
     setToken(json.token);
-    setAccount({
-        name:json.voters.voter_name,
-        email:json.voters.voter_email,
-        id:json.voters.id,
-    })
+    setAccount(json.voters)
     router.push("/clients/home");
   }
   catch(error){

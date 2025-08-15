@@ -11,7 +11,7 @@ const AblumPage = () => {
     <Navbar/>
         <DashboardLayout>
        <Header/>
-       <BreadCrumb currentPage='Ablum' links={[{title:"elector",path:"/dashboard/elector"}]}/>
+       <BreadCrumb currentPage='Ablum' links={[{title:"elector",path:"/dashboard/elector/100"}]}/>
        <AblumSection/>
         </DashboardLayout>
    </Container>

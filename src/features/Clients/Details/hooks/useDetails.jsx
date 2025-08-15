@@ -1,5 +1,5 @@
-"use client"
-import React from 'react'
+"use client";
+
 import { electorDeailsApiUrl, fetchElectors } from '@/services/electors';
 import { useParams } from 'next/navigation'
 import useSWR, { useSWRConfig } from 'swr';
@@ -7,12 +7,13 @@ import { useForm } from 'react-hook-form';
 import useAccountStore from '@/stores/useAccountStore';
 import { fetchvote, storevote, voteapiUrl } from '@/services/votes';
 import { toast } from 'sonner';
+import { updateMale } from '@/services/voters';
 const useDetails = () => {
     const{triggerVote}=useAccountStore();
     const {id}=useParams();
     const{mutate}=useSWRConfig();
     const  {data,isLoading,error}=useSWR(`${electorDeailsApiUrl}/${id}`,fetchElectors)
-    const{account}=useAccountStore()
+    const{account,token,setAccount, setVoteMale, VoteMale,VoteFemale}=useAccountStore()
     const{handleSubmit,formState:{
       errors,isSubmitting
     },register,reset}=useForm();
@@ -28,8 +29,10 @@ const useDetails = () => {
           if(!res.ok){
            throw new Error(json.message|| "Undefined  Error")
           }
-         toast.success(json.message)
+        toast.success(json.message)
+        setAccount(json?.data.voter)
         triggerVote()
+       setVoteMale(1)
       mutate(`${voteapiUrl}/${id}`,fetchvote)
         }
         catch(error){
@@ -40,10 +43,12 @@ const useDetails = () => {
   register,
   isSubmitting,
   reset,
+  VoteFemale,
   onSubmit,
   handleSubmit,
   account,
   id,
+   VoteMale,
   data,
  isLoading
  }

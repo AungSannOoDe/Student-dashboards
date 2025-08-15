@@ -1,5 +1,6 @@
 "use client"
 
+import { X } from 'lucide-react'
 import usetemp from '../hooks/usetemp'
 import Tempskeleton from './Tempskeleton'
 
@@ -44,6 +45,9 @@ const TempSection = () => {
             <th scope="col" className="px-4 py-3 font-bold text-lg">
                  phone
               </th>
+              <th  scope="col" className="px-4 py-3 font-bold text-lg">
+
+              </th>
         </tr>
       </thead>
       <tbody>
@@ -70,10 +74,17 @@ const TempSection = () => {
                         <th scope="col" className="px-4 py-3">
                        {temp?.elector?.phone}
                     </th>
+                    <th  scope="col" className="px-4 py-3">
+                       <X/>
+                    </th>
                   </tr>
                 ))
             ):(
-                <tr className="col-span-5">No data available</tr>
+                <tr className="col-span-5 ">
+                  <td colSpan={6} className='text-center'>
+                     <p className='text-xl font-bold'> No data available  </p> 
+                  </td>
+                </tr>
             )
         }
        <tr>

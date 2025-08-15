@@ -21,7 +21,6 @@ const useChangeName = () => {
     try {
       const res = await changeName(data);
       const json = await res.json();
-
       if (!res.ok) {
         throw new Error(json.message || "Name Change failed");
       }

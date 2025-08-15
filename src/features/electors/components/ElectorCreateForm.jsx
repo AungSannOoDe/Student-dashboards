@@ -58,7 +58,6 @@ const router=useRouter();
     }catch(error){
         toast.error(error.message || "Something went wrong");
     }
-   
   };
   return (
     <form action="" className="mt-3" onSubmit={handleSubmit(onSubmit)}>

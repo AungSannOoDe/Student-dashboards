@@ -1,6 +1,6 @@
 "use client";
 import React, { useRef, useEffect,useState } from "react";
-import { BookMarked } from 'lucide-react'
+import { BookMarked, Crown } from 'lucide-react'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from 'next/link'
@@ -19,8 +19,8 @@ gsap.registerPlugin(ScrollTrigger);
 const ClientHeader = () => {
   const[hover,setIsHover]=useState(false)
   const headerRef = useRef(null);
-  const{account,token,logout}=useAccountStore()
-   console.log(account);
+  const{account,token,logout,setVoteMale,setVoteFemale}=useAccountStore()
+  console.log(account);
   const handletoggle=()=>{
     setIsHover(!hover)
   }
@@ -43,6 +43,8 @@ const ClientHeader = () => {
     }
   }
   useEffect(() => {
+   account.vote_male==1 ? setVoteMale(1) : setVoteMale(0)
+   account.vote_female==1 ? setVoteFemale(1) : setVoteFemale(0)
   if (!headerRef.current) return;
   gsap.to(headerRef.current, {
     height: 60, 
@@ -59,7 +61,8 @@ const ClientHeader = () => {
   return () => {
     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
   };
-}, []);
+
+}, [ account.vote_male,account.vote_female]);
  const handlelogout=()=>{
    logout()
  }
@@ -106,6 +109,9 @@ const ClientHeader = () => {
           {
           token ? ( 
           <ul className="flex justify-center gap-3">
+            <li className="self-center -mt-1">
+            <Crown />
+            </li>
              <motion.li onHoverStart={handletoggle} onHoverEnd={handletoggle} className=" self-center -translate-y-1
              ">
                <BookMarked className="size-7 group/link" />
@@ -132,6 +138,7 @@ const ClientHeader = () => {
                 <p>Male</p>
                </div>
              </motion.div>
+
              <li className='w-13 h-13  rounded-ful'>
              <DropdownMenu>
              {

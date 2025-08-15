@@ -19,7 +19,7 @@ const FemaleCard = ({female:{
          <button className="outline-1 px-3 py-1 self-center bg-stone-50 outline-stone-600"><BookMarked /></button>
       </div>
       <div className="flex justify-between  mt-3">
-        <Link href={`/clients/${elector_id}`} className="underline text-stone-600">View Details</Link>
+        <Link href={`/clients/female/${elector_id}`} className="underline text-stone-600">View Details</Link>
       </div>
     </form>
  
