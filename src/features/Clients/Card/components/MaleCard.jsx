@@ -10,7 +10,7 @@ const MaleCard = ({male:{id:elector_id,
 }}) => {
   const{handleSubmit,onSubmit,register,ref
   }=useCreateTemp();
-  
+  const{VoteMale}=useAccountStore()
   return (
     <div className="  w-full ">
       <form  onSubmit={handleSubmit(onSubmit)}>
@@ -19,7 +19,13 @@ const MaleCard = ({male:{id:elector_id,
       <img src={`/images/1.png`} alt="" className="object-cover w-[100%] " />
         <div className="flex justify-between  mt-2">
           <p className='text-md  font-bold '>{elector_name}</p>
-           <button className="outline-1 px-3 py-1 self-center bg-stone-50 outline-stone-600"><BookMarked /></button>
+{
+  VoteMale=="1"  ?(
+    " "
+  ):(
+    <button className="outline-1 px-3 py-1 self-center bg-stone-50 outline-stone-600"><BookMarked /></button>
+  )
+}
         </div>
         <div className="flex justify-between  mt-3">
           <Link href={`/clients/${elector_id}`} className="underline text-stone-600">View Details</Link>

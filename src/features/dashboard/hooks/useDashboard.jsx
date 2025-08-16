@@ -6,7 +6,7 @@ const useDashboard = () => {
     const [dashboardData, setDashboardData] = useState(null);
     const [error, setError] = useState(null);
     const [status, setStatus] = useState('disconnected'); // 'connecting', 'connected', 'error'
-   console.log(useAccountStore.getState().token);
+
     useEffect(() => {
       let isMounted = true;
       const controller = new AbortController();

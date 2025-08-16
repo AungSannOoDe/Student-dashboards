@@ -2,12 +2,14 @@ import { BookMarked } from 'lucide-react'
 import React from 'react'
 import useCreateTemp from '../hooks/useCreateTemp';
 import Link from 'next/link';
+import useAccountStore from '@/stores/useAccountStore';
 
 const FemaleCard = ({female:{
   elector_name,id:elector_id
 }}) => {
   const{handleSubmit,onSubmit,register,ref
   }=useCreateTemp();
+  const{VoteFemale}=useAccountStore()
   return (
     <div className="  w-full ">
     <form  onSubmit={handleSubmit(onSubmit)}>
@@ -16,7 +18,13 @@ const FemaleCard = ({female:{
     <img src={`/images/1.png`} alt="" className="object-cover w-[100%] " />
       <div className="flex justify-between  mt-2">
         <p className='text-md  font-bold '>{elector_name}</p>
-         <button className="outline-1 px-3 py-1 self-center bg-stone-50 outline-stone-600"><BookMarked /></button>
+        {
+          VoteFemale=="1" ?(
+            " "
+          ):(
+            <button className="outline-1 px-3 py-1 self-center bg-stone-50 outline-stone-600"><BookMarked /></button>
+          )
+        }  
       </div>
       <div className="flex justify-between  mt-3">
         <Link href={`/clients/female/${elector_id}`} className="underline text-stone-600">View Details</Link>

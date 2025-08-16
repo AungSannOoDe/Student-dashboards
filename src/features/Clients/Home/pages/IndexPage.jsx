@@ -1,3 +1,4 @@
+
 import ClientHeader from '@/components/ClientHeader'
 import Footer from '@/components/Footer'
 import React from 'react'
@@ -10,6 +11,7 @@ import IndexPosterSection from '../components/IndexPosterSection'
 import IndexAdversit from '../components/IndexAdversit'
 import IndexWelcome from '../components/IndexWelcome'
 import IntroSection from '../components/IntroSection'
+import TimeComponent from '../components/TimeComponent'
 
 const IndexPage = () => {
   return (

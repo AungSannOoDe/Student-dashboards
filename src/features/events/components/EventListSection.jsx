@@ -1,12 +1,31 @@
 "use client";
 import React from 'react'
 import EventAction from './EventAction'
+import { useState } from 'react';
 import EventSkeletonSection from './EventSkeletonSection'
 import EventTable from './EventTable'
 import useEvent from '../hooks/useEvent'
 import Pagnition from '@/components/Pagnition';
-
+import { fetchTime, timerapiUrl } from '@/services/timer'
+import useSWR from 'swr'
+import CountdownTimer from './CountdownTimer';
+import useTimer from '../hooks/useTimer';
+import useAccountStore from '@/stores/useAccountStore';
+import { formatTime } from '@/lib/Timer';
 const EventListSection = () => {
+  const{setTimeValue}=useAccountStore()
+  const { 
+    remaining, 
+    isActive, 
+    Loading, 
+    startTimer, 
+    resetTimer ,
+    fetchTimer
+  } = useTimer();
+  const handleCustomStart = () => {
+    startTimer(customTime);
+    setTimeValue(1);
+  };
     const {
         searchRef,
         data,
@@ -19,9 +38,38 @@ const EventListSection = () => {
         updateUrlParams,
         searchParams,
       } = useEvent();
+      const [customTime, setCustomTime] = useState(300);
   return (
     <section className='pl-10'>
-         <h1 className="text-3xl font-bold">Events</h1>
+      <div className="flex justify-between">
+      {formatTime(remaining)}
+      <h1 className="text-3xl font-bold">Events</h1> 
+      {
+        Loading  ?(<p>loading...</p>) :(
+          <div>
+            <p>Enter minutes</p>
+             <div className="flex items-center space-x-3">
+              <input
+                type="number"
+                min="1"
+                value={customTime}
+                onChange={(e) => setCustomTime(parseInt(e.target.value) || 0)}
+                className="flex-1 px-3 py-2 border rounded"
+                placeholder="Seconds"
+              />
+              <button
+                onClick={handleCustomStart}
+                disabled={isActive}
+                className={`px-4 py-2 rounded transition ${isActive ? 'bg-gray-300 cursor-not-allowed' : 'bg-purple-600 hover:bg-purple-700 text-white'}`}
+              >
+                Start
+              </button>
+            </div> 
+          </div>
+         
+        )
+      }
+      </div>
          <div className="w-full mt-3  space-y-10">
             <EventAction searchRef={searchRef} clearSearchInput={clearSearchInput} handleSearchInput={handleSearchInput} searchParams={searchParams} />
             {

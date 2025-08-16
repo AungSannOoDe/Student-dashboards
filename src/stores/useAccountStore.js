@@ -11,6 +11,8 @@ const useAccountStore = create(
       refreshVote:0,
       VoteMale:0,
       VoteFemale:0,
+      TimeValue:0,
+      setTimeValue:(timeValue) => set({ TimeValue: timeValue }),
       setVoteFemale: (voteFemale) => set({ VoteFemale: voteFemale }),
       setVoteMale: (voteMale) => set({ VoteMale: voteMale }), 
       triggerVote:() => set((state) => ({ refreshTrigger: state.refreshTrigger + 1 })),

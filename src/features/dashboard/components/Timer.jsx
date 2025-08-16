@@ -1,4 +1,5 @@
 // components/Timer.jsx
+import { getTime, timerapiUrl } from '@/services/timer';
 import { useState, useEffect } from 'react';
 
 export default function Timer() {
@@ -6,11 +7,8 @@ export default function Timer() {
 
   useEffect(() => {
     const fetchTimer = async () => {
-      const response = await fetch('/api/timer');
-      const data = await response.json();
       setRemaining(data.remaining);
     };
-
     // Initial fetch
     fetchTimer();
     

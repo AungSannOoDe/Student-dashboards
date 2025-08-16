@@ -1,3 +1,4 @@
+"use client";
 import React from 'react'
 import HomeLayout from '../components/HomeLayout'
 import ClientHeader from '@/components/ClientHeader'
@@ -11,6 +12,8 @@ import IndexSelectionGril from '../components/IndexSelectionGril'
 import IndexReview from '../components/IndexReview'
 import Footer from '@/components/Footer'
 import IntroSection from '../components/IntroSection'
+import useTimer from '@/features/events/hooks/useTimer'
+import TimeComponent from '../components/TimeComponent'
 
 const HomePage = () => {
   return (
