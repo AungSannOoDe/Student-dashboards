@@ -149,7 +149,7 @@ const router=useRouter();
             })}
             className="block w-full border border-stone-200 py-1 px-3"
           >
-            <option value="">Select..</option>
+            <option value="0">Select..</option>
             <option value="1">King</option>
             <option value="1">Queen</option>
             <option value="2">Prince</option>

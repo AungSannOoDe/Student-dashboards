@@ -17,7 +17,7 @@ const ElectorDetailPage = () => {
               <Navbar/>
               <DashboardLayout>
              <Header/>
-             <BreadCrumb currentPage='Ablum' links={[{title:"elector",path:"/dashboard/elector/100"}]}/>
+             <BreadCrumb currentPage='Ablum' links={[{title:"elector",path:"/dashboard/elector"}]}/>
                  <ElectorDetailsSection/>
               </DashboardLayout>
           </Container>

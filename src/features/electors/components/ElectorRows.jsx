@@ -16,6 +16,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import Link from 'next/link'
+import { destory } from '@/services/ablum'
 const ElectorRows = ({elector:{
     id,elector_name,address,phone,gender,Years,won_status
 }}) => {
@@ -24,11 +25,17 @@ const ElectorRows = ({elector:{
   const searchParams = useSearchParams();
   const handleDelete=async()=>{
     try{
-      const res=await destoryElectors(id)
-      const json=await res.json()
-      if(!res.ok){
-        throw new Error(json.message || "Undefined Error")
+      const [electorRes, albumRes] = await Promise.all([
+        destoryElectors(id),
+        destory(id)
+      ]);
+      const electorJson = await electorRes.json();
+      const albumJson = await albumRes.json();
+      if (!electorRes.ok || !albumRes.ok) {
+        const errorMessage = electorJson.message || albumJson.message || "Failed to delete records";
+        throw new Error(errorMessage);
       }
+      toast.success("Both elector and album deleted successfully");
       toast.success(json.message);
       mutate(`${electorApiUrl}?${searchParams.toString()}`);
     }

@@ -40,7 +40,6 @@ export const changePassword = (data) => {
 export const changeImage = (file) => {
   const formData = new FormData();
   formData.append("profile_image", file); 
-
   return fetch(
     process.env.NEXT_PUBLIC_API_URL + "/change-profile-image",
     {

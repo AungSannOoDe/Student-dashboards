@@ -1,6 +1,8 @@
 "use client"
+import { storeAblum } from '@/services/ablum'
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { toast } from 'sonner'
 
 const AblumCreateForm = ({ electorId }) => {
   const { 
@@ -18,31 +20,19 @@ const AblumCreateForm = ({ electorId }) => {
   })
 
   const onSubmit = async (data) => {
-    console.log('Form data:', data)
-    console.log('Elector ID:', electorId)
-    const formData = new FormData()
-    formData.append('electorId', electorId)
-    formData.append('photo1', data.photo1[0])
-    formData.append('photo2', data.photo2[0])
-    formData.append('photo3', data.photo3[0])
-    formData.append('photo4', data.photo4[0])
-
     try {
-      // Replace with your actual API call
-      // const response = await fetch('/api/albums', {
-      //   method: 'POST',
-      //   body: formData
-      // })
-      // const result = await response.json()
-      
-      alert('Album created successfully!')
+      const res=await storeAblum(data,electorId)
+      const json=await res.json()
+      if(!res.ok){
+        throw new  Error(json.message || "Undefined  error")
+      }
+     toast.success(json.message)
       reset()
     } catch (error) {
+  toast.error(error.message)
       console.error('Error creating album:', error)
-      alert('Failed to create album')
     }
   }
-
   const validateFile = (file) => {
     if (!file || file.length === 0) return 'Photo is required'
     const allowedTypes = ['image/jpeg', 'image/png', 'image/gif']
@@ -54,9 +44,8 @@ const AblumCreateForm = ({ electorId }) => {
     }
     return true
   }
-
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)}     >
       <div className="grid grid-cols-3 gap-10 grid-rows-3 gap-y-15">
         {/* Photo 1 */}
         <div className="space-y-2">
@@ -74,7 +63,6 @@ const AblumCreateForm = ({ electorId }) => {
             <p className="text-red-500 text-sm mt-1">{errors.photo1.message}</p>
           )}
         </div>
-
         {/* Photo 2 */}
         <div className="space-y-2">
           <label htmlFor="photo2" className='block'>Photo 2 *</label>
@@ -83,7 +71,7 @@ const AblumCreateForm = ({ electorId }) => {
             type="file" 
             className='block border border-stone-200 py-1 px-3' 
             {...register('photo2', { 
-                required:"photo1 is required",
+                required:"photo2 is required",
                 validate: (file) => file.length === 0 || validateFile(file)
             })}
           />
@@ -100,7 +88,7 @@ const AblumCreateForm = ({ electorId }) => {
             type="file" 
             className='block border border-stone-200 py-1 px-3' 
             {...register('photo3', { 
-                required:"photo1 is required",
+                required:"photo3 is required",
                 validate: (file) => file.length === 0 || validateFile(file)
             })}
           />
@@ -117,7 +105,7 @@ const AblumCreateForm = ({ electorId }) => {
             type="file" 
             className='block border border-stone-200 py-1 px-3' 
             {...register('photo4', { 
-                required:"photo1 is required",
+                required:"photo4 is required",
               validate: (file) => file.length === 0 || validateFile(file)
             })}
           />

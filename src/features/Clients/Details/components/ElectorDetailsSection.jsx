@@ -12,7 +12,7 @@ const ElectorDetailsSection = () => {
   const {id}=useParams();
   const{data:ablums,isLoading,error}=useSWR(`${ablumsApiUrl}/${id}`,fetchElectors)
   const{data:electors,isLoading:detailsLoading,error:detailsError}=useSWR(`${detailsUrl}/${id}`,fetchElectors)
-  console.log(electors);
+  console.log(ablums);
   return (
  <section className='pl-6 grid grid-cols-2 gap-10'>
     {
@@ -31,12 +31,14 @@ const ElectorDetailsSection = () => {
               <div className="h-[100px] w-full">
                 <img src={item.image_3_url} alt="" className="h-[100px] w-full  object-cover"  />
               </div>
-              <div className="h-[100px] w-full bg-blue-400"></div>
+              <div className="h-[100px] w-full bg-blue-400">
+              <img src={item.image_4_url} alt="" className="h-[100px] w-full  object-cover"  />
+              </div>
             </div>
             <div>
-              <button className="bg-blue-600 px-3  py-2 w-full text-white rounded-sm">
+              <Link  href={`/dashboard/ablum/${id}/edit`} className="bg-blue-600 px-3  py-2 w-full text-white rounded-sm">
                 Update Album
-              </button>
+              </Link>
             </div>
           </div>
         ))
