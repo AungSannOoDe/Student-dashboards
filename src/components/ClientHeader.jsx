@@ -81,7 +81,7 @@ const ClientHeader = () => {
             <Link href={`/clients/gallery`}>Gallery</Link>
           </li>
           {
-            !account  &&   <li>
+            !token  &&   <li>
             <Link href={`/dashboard`}>Admin</Link>
         
             </li>

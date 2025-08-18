@@ -6,14 +6,11 @@ import EventSkeletonSection from './EventSkeletonSection'
 import EventTable from './EventTable'
 import useEvent from '../hooks/useEvent'
 import Pagnition from '@/components/Pagnition';
-import { fetchTime, timerapiUrl } from '@/services/timer'
-import useSWR from 'swr'
-import CountdownTimer from './CountdownTimer';
 import useTimer from '../hooks/useTimer';
 import useAccountStore from '@/stores/useAccountStore';
 import { formatTime } from '@/lib/Timer';
 const EventListSection = () => {
-  const{setTimeValue}=useAccountStore()
+  const{setTimeValue,TimeValue}=useAccountStore()
   const { 
     remaining, 
     isActive, 
@@ -24,7 +21,7 @@ const EventListSection = () => {
   } = useTimer();
   const handleCustomStart = () => {
     startTimer(customTime);
-    setTimeValue(1);
+    setTimeValue(TimeValue);
   };
     const {
         searchRef,
