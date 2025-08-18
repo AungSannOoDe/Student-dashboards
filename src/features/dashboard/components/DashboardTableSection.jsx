@@ -45,6 +45,7 @@ const DashboardTableSection = ({dashboardData:{
                )
             }
           </tbody>
+
         </table>
       </div>
     </div>

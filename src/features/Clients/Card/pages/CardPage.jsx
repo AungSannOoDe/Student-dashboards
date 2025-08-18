@@ -5,11 +5,13 @@ import React from 'react'
 import CardSection from '../components/CardSection'
 import HomeLayout from '../../Home/components/HomeLayout'
 import TimeComponent from '../../Home/components/TimeComponent'
+import SuccessSection from '@/components/SuccessSection'
 
 const CardPage = () => {
   return (
 <HomeLayout>
 <StudentHeader/>
+<SuccessSection/>
   <CardSection/>
      <Footer/>
 </HomeLayout>

@@ -12,10 +12,12 @@ import IndexAdversit from '../components/IndexAdversit'
 import IndexWelcome from '../components/IndexWelcome'
 import IntroSection from '../components/IntroSection'
 import TimeComponent from '../components/TimeComponent'
+import SuccessSection from '@/components/SuccessSection'
 
 const IndexPage = () => {
   return (
     <>
+    <SuccessSection/>
     <ClientHeader/>
     <IntroSection/>
     <IndexHeroSection/>

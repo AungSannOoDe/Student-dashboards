@@ -14,11 +14,13 @@ import Footer from '@/components/Footer'
 import IntroSection from '../components/IntroSection'
 import useTimer from '@/features/events/hooks/useTimer'
 import TimeComponent from '../components/TimeComponent'
+import SuccessSection from '@/components/SuccessSection';
 
 const HomePage = () => {
   return (
    <HomeLayout>
     <ClientHeader/>
+    <SuccessSection/>
     <IntroSection/>
     <IndexHeroSection/>
     <IndexWelcome/>
