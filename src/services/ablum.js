@@ -17,6 +17,16 @@ export  const storeAblum=(data,id)=>{
     }
   })
 }
+export const  fetchablum=(id)=>{
+  return fetch(`${ablumApiUrl}/${id}`,{
+     method:"GET",
+    headers:{
+      "Accept":"application/json",
+      Authorization: `Bearer ${useAccountStore.getState().token}`,
+      "Content-Type":"application/json"
+    }
+  }).then(res=>res.json())
+}
 export const updateAlbum = (data, electorId) => {
     const formData = new FormData();
     formData.append('elector_id', electorId);

@@ -110,7 +110,9 @@ const ClientHeader = () => {
           token ? ( 
           <ul className="flex justify-center gap-3">
             <li className="self-center -mt-1">
-            <Crown />
+              <Link href={`clients/success`}>
+              <Crown  className="text-amber-400" />
+              </Link>
             </li>
              <motion.li onHoverStart={handletoggle} onHoverEnd={handletoggle} className=" self-center -translate-y-1
              ">
@@ -138,7 +140,6 @@ const ClientHeader = () => {
                 <p>Male</p>
                </div>
              </motion.div>
-
              <li className='w-13 h-13  rounded-ful'>
              <DropdownMenu>
              {

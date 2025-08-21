@@ -4,10 +4,10 @@ import React from 'react'
 import HistorySkeleton from './HistorySkeleton';
 import useSWR from 'swr';
 import { fetchHistory, historyApiUrl } from '@/services/history';
+import Link from 'next/link';
 
 const HistorySection = () => {
   const{data,isLoading,error}=useSWR(`${historyApiUrl}`,fetchHistory)
-  console.log(data);
   return (
     <section className='max-w-7xl mx-auto  '>
         <div className="">
@@ -22,21 +22,24 @@ const HistorySection = () => {
           <p>2024</p>
         </div>
         <div className="mt-10 space-y-10">
-            <h1 className="text-center font-bold text-4xl">2024's King Queen  selections</h1>
             <div className="grid lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-10 sm:gap-y-20 sm:px-6">
               {
+
                 isLoading ?(
                   <HistorySkeleton/>
                 ) :(
+
+                  data && data.data.length > 0 ? 
                   data.data.map((item,index)=>(
                     <div className="   w-full" key={index}>
                     <img src={`/images/3.png`} alt="" className="object-cover w-[100%]" />
                     <div className="flex justify-between">
-                      <h1>Mg Mg</h1>
-                      <button className="underline text-stone-600">View Details</button>
+                      <h1>{item.elector_name}</h1>
+                      <Link href={`/clients/${item.id}`} className="underline text-stone-600">View Details</Link>
                     </div>
                    </div>
                   ))
+                  : <p className='text-center   col-span-4  text-red-500'>No history found</p>
                 )
               } 
             </div>

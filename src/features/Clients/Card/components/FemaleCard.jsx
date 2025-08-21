@@ -5,7 +5,7 @@ import Link from 'next/link';
 import useAccountStore from '@/stores/useAccountStore';
 
 const FemaleCard = ({female:{
-  elector_name,id:elector_id
+  elector_name,id:elector_id,image_1_url
 }}) => {
   const{handleSubmit,onSubmit,register,ref
   }=useCreateTemp();
@@ -15,7 +15,14 @@ const FemaleCard = ({female:{
     <form  onSubmit={handleSubmit(onSubmit)}>
       <input type="hidden"defaultValue={ref.current} {...register("voter_id")} />
     <input type="hidden" defaultValue={elector_id} {...register("elector_id")} />
-    <img src={`/images/1.png`} alt="" className="object-cover w-[100%] " />
+     {
+      image_1_url==null ? (
+        <img src={`../image-not-found.png`} alt="" className="object-cover w-[100%] h-[280px]" />
+      ) : (
+       <img src={image_1_url} alt="" className="object-cover w-[100%] " />
+      )
+    }
+   
       <div className="flex justify-between  mt-2">
         <p className='text-md  font-bold '>{elector_name}</p>
         {

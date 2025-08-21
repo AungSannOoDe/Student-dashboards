@@ -1,0 +1,81 @@
+"use client";
+import { useRef } from 'react';
+import { fetchSuccess, successApiUrl } from '@/services/history';
+import React from 'react'
+import useSWR from 'swr';
+import HistorySkeleton from '../../history/components/HistorySkeleton';
+import Link from 'next/link';
+const SuccessListSection = () => {
+    const sectionRef = useRef(null)
+    const crownsRef = useRef([])
+    const imagesRef = useRef([])
+
+    const{data,isLoading,error}=useSWR(`${successApiUrl}`,fetchSuccess)
+ console.log(data);
+    const  getTitle=(gender, won_status)=> {
+        if(gender === "male" && won_status === 1){
+            return "King";
+        }
+        else if(gender === "male" && won_status === 2){
+            return "Prince";
+        }
+        else if(gender === "female" && won_status === 1){
+            return "Queen";
+        } 
+       else if (gender === "female" && won_status === 2){
+        return "Princess";
+       } 
+       else{
+        return "Unknown";
+       }
+     
+      }
+  return (
+    <section className='max-w-7xl mx-auto mt-10 mb-20 '>
+    <div className="">
+        <h1 className='text-center font-bold'>Success of Section</h1>
+    <p className="text-stone-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi assumenda praesentium quas rem eveniet eum aut repudiandae, natus est modi provident, suscipit, tempora corporis facere? Tenetur qui consequuntur eius deleniti error fugit officiis provident aut esse aperiam ipsa, accusamus rerum vero cumque vel! Hic quam minima incidunt rerum, qui perferendis, autem pariatur illum soluta quibusdam voluptatem animi commodi provident, natus at iusto! Laudantium iste totam obcaecati magni illo, earum perferendis itaque rerum suscipit eligendi! Sunt beatae temporibus recusandae eveniet veritatis ex rem doloribus expedita enim labore ad corporis, similique laudantium quas corrupti laboriosam nemo quo id hic quae facilis. Officia.</p>
+    </div>
+    <div className="mt-10 space-y-10">
+        <div className="grid lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-10 sm:gap-y-20 sm:px-6">
+          {
+            isLoading ?(
+              <HistorySkeleton/>
+            ) :(
+
+              data && data.data.length > 0 ? 
+              data.data.map((title,index)=>(
+                <div key={index} className="w-[200px] h-50 relative">
+                <div 
+                    className="absolute top-[-20px] left-0   z-10"
+                >
+
+                    <div className="relative inline-block left-[-12px]">
+                        <div className="border-[15px] border-solid border-amber-300 inline-block absolute top-[10px] border-l-transparent"></div>
+                        <div className="bg-yellow-300 h-[30px] text-center line-clamp-4 w-[165px] inline-block relative z-100 ml-[30px] before:border-[5px] before:inline-block before:absolute before:border-solid before:left-0 before:bottom-[-9px] before:border-amber-200 before:content-[' ']">
+                            <p className='text-white text-lg font-extrabold'>{
+                                  getTitle(title.gender, title.won_status)
+                                }</p>
+                        </div>
+                        <div className="border-[15px] border-solid border-amber-300 inline-block absolute top-[10px] border-r-transparent"></div>
+                    </div>
+                </div>
+                <img
+                    src={`../image-not-found.png`}
+                className="object-cover w-[100%] h-[200px]"
+                />
+                {
+                    title.elector_name
+                }
+            </div>
+              ))
+              : <p className='text-center   col-span-4  text-red-500'>No Access Found</p>
+            )
+          } 
+        </div>
+      </div>
+</section>
+  )
+}
+
+export default SuccessListSection

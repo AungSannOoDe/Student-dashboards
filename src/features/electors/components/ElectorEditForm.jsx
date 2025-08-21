@@ -10,25 +10,30 @@ import { useSWRConfig } from 'swr';
 import { json } from 'zod';
 
 const ElectorEditForm = ({elector:{
-  elector_name,id,Years,phone,gender,won_status,address
+  elector_name,id,years,phone,gender,won_status,address
 }}) => {
-  console.log(address);
   const editorRef = useRef();
   const { mutate } = useSWRConfig();
   const router = useRouter();
   const {setValue,register,handleSubmit,reset,formState:{
     errors,isSubmitting
   },}=useForm({
-    defaultValue:{
-      address:"Default Address",
+    defaultValues:{
+      elector_name,
+      phone,
+      gender,
+      years,
+      won_status,
+      address: address || "Default Address",
     }
   });
+  
 const onSubmit=async(data)=>{
   try{
     const res=await updateElector(id,{
         elector_name:data.elector_name,
         phone:data.phone,
-        Years:data.Years,
+        Years:data.years,
         gender:data.gender,
         address:data.address,
         won_status:data.won_status
@@ -47,6 +52,7 @@ const onSubmit=async(data)=>{
    toast.error(error.message)
   }
 }
+
   return (
  <form action="" className="mt-3" onSubmit={handleSubmit(onSubmit)} >
       <div className="grid  grid-cols-3 gap-x-10  grid-rows-5 ">
@@ -55,7 +61,6 @@ const onSubmit=async(data)=>{
             Elector Name
           </label>
           <input
-            defaultValue={elector_name}
             type="text"
             {...register("elector_name",{
               required: "Elector name is required",
@@ -84,9 +89,17 @@ const onSubmit=async(data)=>{
           </label>
           <input
             type="text"
-            defaultValue={phone}
-            {...register("phone",{
+            {...register("phone", {
               required: "Phone number is required",
+              validate: (value) => {
+                if (!value) return "Phone number is required";
+                const cleanedPhone = value.replace(/\D/g, '');
+                const myanmarRegex = /^(\+?95|0)?(9|7|6)\d{7,9}$/;
+                if (!myanmarRegex.test(cleanedPhone)) {
+                  return "Please enter a valid Myanmar phone number";
+                }
+                return true;
+              }
             })}
             className="block w-full border border-stone-200 py-1 px-3"
           />
@@ -103,71 +116,48 @@ const onSubmit=async(data)=>{
             Gender
           </label>
           <select
-            defaultValue={gender}
-            {...register("gender")}
+            {...register("gender",{
+              required:"Gender is required"
+            })}
             className="block w-full border border-stone-200 py-1 px-3"
           >
             <option value="">Select..</option>
-            <option value="male" selected={gender === 'male'}>Male</option>
-            <option value="female" selected={gender === 'female'}>Female</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
           </select>
         </div>
         <div className=" ">
           <label htmlFor="" className="block">
             Years
           </label>
-          <input
-            type="date" 
-             {...register("Years",{
-              required: "Years is required"
-             })}
-            defaultValue={Years} 
-            className="block w-full border border-stone-200 py-1 px-3"
-          />
-        </div>
-        <div className=" col-start-1">
-          <label htmlFor="" className="block">
-            Gender
-          </label>
-          <select
-            name=""
-            id=""
-            className="block w-full border border-stone-200 py-1 px-3"
-          >
-            <option value="">Select..</option>
+
+          <select {...register("years",{
+                required:"year is required"
+            })}   className="block w-full border border-stone-200 py-1 px-3" id=""  >
+            <option value="">select year...</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
           </select>
+             {errors.years && (
+                <span className="text-red-500 text-xs">{errors.years.message}</span>
+              )}
         </div>
-        <div>
+        <div className='col-start-1 col-span-2'>
           <label htmlFor="" className="block">
             Won Status
           </label>
-{
-  gender==="male" ? (
-  <select
-  {...register("won_status")}
-  defaultValue={won_status}
-    name=""
-    id=""
-    className="block w-full border border-stone-200 py-1 px-3"
-  >
-    <option value="0">Select..</option>
-    <option value="1">King</option>
-    <option value="2">Prince</option>
-  </select>
-  ):(
-  <select
-    name=""
-    id=""
-    className="block w-full border border-stone-200 py-1 px-3"
-  >
-    <option value="0">Select..</option>
-    <option value="1">Queen</option>
-    <option value="2">Princencess</option>
-  </select>
-  )
-}
-
-          
+          <select
+            {...register("won_status")}
+            className="block w-full border border-stone-200 py-1 px-3"
+          >
+            <option value="0">Select..</option>
+            <option value="1">{gender === "male" ? "King" : "Queen"}</option>
+            <option value="2">{gender === "male" ? "Prince" : "Princess"}</option>
+          </select>
         </div>
         <div className="col-start-1 col-span-2 row-span-5">
            <label htmlFor="" className="font-bold">
@@ -176,7 +166,6 @@ const onSubmit=async(data)=>{
           <CommentEditing  ref={editorRef} address={address}  onChange={(value) => setValue("address", value)} />
           <input
             type="hidden"
-            defaultValue={address}
             {...register("address", { required: "Address is required" })}
           />
           {errors.address && (
@@ -213,7 +202,6 @@ const onSubmit=async(data)=>{
       </label>
     </div>
 </div>
-
 
         <div className="col-start-1 col-span-2 mt-2  w-[105%]">
           <button className="  bg-blue-600 w-full py-2 hover:opacity-90  duration-300  disabled:opacity-75  active:scale-95 text-white  ">

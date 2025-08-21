@@ -1,10 +1,12 @@
 "use client"
+import parse from 'html-react-parser';
 import React from 'react'
 import DetailSkeleton from './DetailSkeleton';
 import useDetails from '../hooks/useDetails';
 import useSWR from 'swr';
 import { fetchvote, voteapiUrl } from '@/services/votes';
 import useAccountStore from '@/stores/useAccountStore';
+import striptags from 'striptags';
 const DetailsSection = () => {
   const{data,isLoading,isSubmitting,register,handleSubmit,onSubmit,account,id, VoteMale}=useDetails()
   console.log( VoteMale);
@@ -23,13 +25,18 @@ if(isLoading || voteLoading){
           </div>
       </div>
       <form action="" onSubmit={handleSubmit(onSubmit)}>
-      <div className="flex flex-col space-y-10">
+      <div className="flex flex-col space-y-6">
         <input type="hidden" defaultValue={account.id} {...register('voter_id')} />
          <input type="hidden" defaultValue={id} {...register('elector_id')}/>
            <p className='text-4xl font-bold'>{data?.elector_name}</p>
            <p className='text-2xl'>{data?.gender}</p>
            <p className='text-2xl'>{data?.phone}</p>
          <p >{data?.address}</p>
+         <div className="ProseMirror">
+           {
+            parse(data?.description)
+           }
+         </div>
          {
            VoteMale=="1" ?  (
           " "

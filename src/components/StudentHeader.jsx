@@ -123,7 +123,9 @@ const handleDelete=async(id)=>{
       token ? ( 
       <ul className="flex justify-center gap-3">
          <li className="self-center -mt-1">
-        <Crown />
+         <Link href={`/clients/success`}>
+        <Crown  className="text-amber-400" />
+        </Link>
         </li>
          <motion.li onHoverStart={() => {
           handletoggle()}} onHoverEnd={handletoggle} className="group/link translate-y-2 

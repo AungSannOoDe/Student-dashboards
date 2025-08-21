@@ -18,7 +18,7 @@ import {
 import Link from 'next/link'
 import { destory } from '@/services/ablum'
 const ElectorRows = ({elector:{
-    id,elector_name,address,phone,gender,Years,won_status
+    id,elector_name,address,phone,gender,years,won_status
 }}) => {
   
    const { mutate } = useSWRConfig();
@@ -51,7 +51,7 @@ const ElectorRows = ({elector:{
     <td className="px-4 py-3 text-nowrap">{phone}</td>
      <td className="px-4 py-3" dangerouslySetInnerHTML={{ __html: address }}></td>
     <td className="px-4 py-3">{gender}</td>
-    <td className="px-4 py-3">{Years}</td>
+    <td className="px-4 py-3">{years}</td>
     <td className="px-4 py-3">{won_status}</td>
     <td className="px-4 py-3 flex gap-6">
      <Link href={`/dashboard/elector/${id}/edit`} className=' size-10 flex justify-center items-center  bg-white border border-stone-200    hover:bg-stone-100 hover:text-blue-500 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:text-blue-500 dark:bg-stone-800 dark:border-stone-700 dark:text-white dark:hover:text-white dark:hover:bg-stone-700 dark:focus:ring-blue-500 dark:focus:text-white'><Pencil className='size-4'/></Link>

@@ -17,24 +17,6 @@ const ElectorCreateForm = () => {
   } = useForm();
 const editorRef = useRef();
 const router=useRouter();
-//  const handlePhoneCheck = debounce(async (event) => {
-//     const currentPhone = event.target.value;
-//     const res = await checkCustomerPhone(currentPhone);
-//     const json = await res.json();
-//     if (res.ok) {
-//       toast.warning(`Number already exist for`, {
-//         description: `${json.data.name} : ${json.data.phone}`,
-//         action: (
-//           <Button
-//             variant="outline"
-//             onClick={() => router.push(`/dashboard/customer/${json.data.id}`)}
-//           >
-//             Detail
-//           </Button>
-//         ),
-//       });
-//     }
-//   }, 500);
   const onSubmit =async (data) => {
     try{
         const res=await storeElector({
@@ -43,7 +25,8 @@ const router=useRouter();
             Years:data.year,
             address:data.address,
             gender:data.gender,
-            won_status:data.won_status
+            won_status:data.won_status,
+            description:data.description,
         });
         const json= await res.json();
         if(!res.ok){
@@ -84,11 +67,15 @@ const router=useRouter();
           <input
             type="text"
             {...register("phone", {
-              required: "phone is required",
-              min: {
-                value: 3,
-                message: "phone is at least 3 characters",
-              },
+              validate: (value) => {
+                if (!value) return "Phone number is required";
+                const cleanedPhone = value.replace(/\D/g, '');
+                const myanmarRegex = /^(\+?95|0)?(9|7|6)\d{7,9}$/;
+                if (!myanmarRegex.test(cleanedPhone)) {
+                  return "Please enter a valid Myanmar phone number";
+                }
+                return true;
+              }
             })}
             className="block w-full border border-stone-200 py-1 px-3"
           />
@@ -115,27 +102,36 @@ const router=useRouter();
           <label htmlFor="" className="block">
             Years
           </label>
-          <input
-            type="date"  {...register("year",{
+
+          <select {...register("year",{
                 required:"year is required"
-            })}
-            className="block w-full border border-stone-200 py-1 px-3"
-          />
+            })}   className="block w-full border border-stone-200 py-1 px-3" id="">
+            <option value="">select year...</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+          </select>
              {errors.year && (
                 <span className="text-red-500 text-xs">{errors.year.message}</span>
               )}
         </div>
         <div className=" col-start-1">
           <label htmlFor="" className="block">
-            Gender
+            Address
           </label>
-          <select
-            name=""
-            id=""
-            className="block w-full border border-stone-200 py-1 px-3"
-          >
-            <option value="">Select..</option>
-          </select>
+         <input type="text" {...register("address",{
+          required:"Address is required",
+          minLength: {
+            value: 3,
+            message: "Address must be at least 3 characters",
+          },
+         })} className="block w-full border border-stone-200 py-1 px-3"  />
+          {errors.address && (
+            <span className="text-red-500 text-xs">{errors.address.message}</span>
+          )}
         </div>
         <div>
           <label htmlFor="" className="block">
@@ -160,13 +156,13 @@ const router=useRouter();
           <label htmlFor="" className="font-bold">
             Address
           </label>
-          <CommentEditing  ref={editorRef} onChange={(value) => setValue("address", value)} />
+          <CommentEditing  ref={editorRef} onChange={(value) => setValue("description", value)} />
           <input
             type="hidden"
-            {...register("address", { required: "Address is required" })}
+            {...register("description", { required: "Address is required" })}
           />
-          {errors.address && (
-            <span className="text-red-500 text-xs">{errors.address.message}</span>
+          {errors.description && (
+            <span className="text-red-500 text-xs">{errors.description.message}</span>
           )}
         </div>
         <div className="col-span-full mt-5">

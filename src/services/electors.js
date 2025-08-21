@@ -14,7 +14,16 @@ export const  fetchElectors=(...args)=>{
         }
     }).then(res=>res.json())
 }
-
+ export const fetchElectorEdit=(...args)=>{
+    return fetch(...args,{
+        method:"GET",
+        headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+              Authorization: `Bearer ${useAccountStore.getState().token}`,
+        }
+    }).then(res=>res.json())
+ }
 export const destoryElectors=(id)=>{
 return fetch(`${electorUrl}/${id}`,{
     method:"DELETE",
@@ -36,7 +45,7 @@ export const storeElector=(data)=>{
     })
 }
 export const updateElector=(id,data)=>{
-    return fetch(`${electorApiUrl}/${id}`,{
+    return fetch(`${electorUrl}/${id}`,{
         method:"PUT",
         headers: {
             "Content-Type": "application/json",

@@ -5,6 +5,7 @@ import FemaleCard from './FemaleCard'
 import useSWR from 'swr'
 import { electorApiUrl, fetchElectors } from '@/services/electors'
 import SkeletonSection from './SkeletonSection'
+import { ablumApiUrl } from '@/services/ablum'
 
 const CardSection = () => {
   const{data,isLoading,error}=useSWR(`${electorApiUrl}`,fetchElectors);

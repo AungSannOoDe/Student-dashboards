@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function useTimer() {
-  const { setVoteMale, setVoteFemale } = useAccountStore();
+  const { setVoteMale, setVoteFemale,setVoteFinal } = useAccountStore();
   const [remaining, setRemaining] = useState(0);
   const [isActive, setIsActive] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -46,6 +46,7 @@ export default function useTimer() {
       await fetchTimer();
       setVoteFemale(1);
       setVoteMale(1);
+      setVoteFinal(1);
     } catch (error) {
       console.error('Error resetting timer:', error);
     }

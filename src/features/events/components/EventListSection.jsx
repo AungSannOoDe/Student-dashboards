@@ -39,7 +39,6 @@ const EventListSection = () => {
   return (
     <section className='pl-10'>
       <div className="flex justify-between">
-      {formatTime(remaining)}
       <h1 className="text-3xl font-bold">Events</h1> 
       {
         Loading  ?(<p>loading...</p>) :(
@@ -57,7 +56,7 @@ const EventListSection = () => {
               <button
                 onClick={handleCustomStart}
                 disabled={isActive}
-                className={`px-4 py-2 rounded transition ${isActive ? 'bg-gray-300 cursor-not-allowed' : 'bg-purple-600 hover:bg-purple-700 text-white'}`}
+                className={`px-4 py-2 rounded transition ${isActive ? 'bg-gray-300 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700 text-white'}`}
               >
                 Start
               </button>
