@@ -11,7 +11,7 @@ const LoginSection = () => {
     const{register,reset,formState:{
         isSubmitting,errors
     },handleSubmit}=useForm();
-    const{setAccount,setToken}=useAccountStore();
+    const{setAccount,setToken,setPart}=useAccountStore();
     const router=useRouter();
     const onSubmit=async(data)=>{
 try{
@@ -22,6 +22,7 @@ try{
     }
     setToken(json.token)
     setAccount(json.data)
+    setPart(2)
     router.push(`/clients/home`)
     toast.error("Login Successfully")
 }catch(error){

@@ -9,7 +9,7 @@ import useAccountStore from '@/stores/useAccountStore';
 import striptags from 'striptags';
 const DetailsSection = () => {
   const{data,isLoading,isSubmitting,register,handleSubmit,onSubmit,account,id, VoteMale}=useDetails()
-  console.log( VoteMale);
+  console.log(data);
 const{data:votes,isLoading:voteLoading,error}=useSWR(`${voteapiUrl}/${useAccountStore.getState().account.id}`,fetchvote)
 if(isLoading || voteLoading){
   return <DetailSkeleton/>
@@ -17,11 +17,19 @@ if(isLoading || voteLoading){
   return (
    <section className='max-w-7xl mx-auto grid  px-5 grid-cols-2 mt-10 gap-x-10'>
     <div className="">
-          <img src="../images/1.png" className='w-full h-[450px]  object-cover' />
+      {
+      data.image_1_url ?  <img src={data.image_1_url} className='w-full h-[450px]  object-cover' /> :<img src="../image-not-found.png" className='w-full h-[450px]  object-cover' />
+      }
           <div className="flex  justify-between mt-4 ">
-          <img src="../images/4.png" className='w-1/4' />
-              <img src="../images/2.png" className='w-1/4'  />
-              <img src="../images/3.png" className='w-1/4'/>
+          {
+          data.image_2_url ?  <img src={data.image_2_url} className='w-1/4  ' /> :<img src="../image-not-found.png" className='w-1/4' />
+          }
+           {
+          data.image_3_url ?  <img src={data.image_3_url} className='w-1/4' /> :<img src="../image-not-found.png" className='w-1/4' />
+          }
+           {
+          data.image_4_url ?  <img src={data.image_4_url} className='w-1/4' /> :<img src="../image-not-found.png" className='w-1/4' />
+          }
           </div>
       </div>
       <form action="" onSubmit={handleSubmit(onSubmit)}>
@@ -34,7 +42,7 @@ if(isLoading || voteLoading){
          <p >{data?.address}</p>
          <div className="ProseMirror">
            {
-            parse(data?.description)
+            parse(data?.description || "Hello")
            }
          </div>
          {

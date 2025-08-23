@@ -1,51 +1,95 @@
 "use client";
 import { BookMarked } from 'lucide-react';
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import HistorySkeleton from './HistorySkeleton';
 import useSWR from 'swr';
 import { fetchHistory, historyApiUrl } from '@/services/history';
 import Link from 'next/link';
+import { useSearchParams, useRouter } from "next/navigation";
+import { convertSearchPramsToObject } from '@/utils/url';
+ 
 
 const HistorySection = () => {
-  const{data,isLoading,error}=useSWR(`${historyApiUrl}`,fetchHistory)
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const [fetchUrl, setFetchUrl] = useState(historyApiUrl);
+  const currentYear = searchParams.get('year') || "All";
+  const years = ["All", "2021", "2022", "2023", "2024"];
+  const updateUrlParams = (newParams) => {
+    const updatedSearch = new URLSearchParams(newParams).toString();
+    router.push(`?${updatedSearch}`);
+    setFetchUrl(`${historyApiUrl}?${updatedSearch}`);
+  };
+
+  useEffect(() => {
+    const currentParams = convertSearchPramsToObject(searchParams);
+    const queries = new URLSearchParams(currentParams).toString();
+    setFetchUrl(`${historyApiUrl}?${queries}`);
+  }, [searchParams]);
+
+  const {data, isLoading, error} = useSWR(fetchUrl, fetchHistory);
+
+  const handleYearChange = (year) => {
+    if (year === "All") {
+      // Remove year filter if "All" is selected
+      const newParams = {...convertSearchPramsToObject(searchParams)};
+      delete newParams.year;
+      updateUrlParams(newParams);
+    } else {
+      // Add year filter
+      updateUrlParams({
+        ...convertSearchPramsToObject(searchParams),
+        year,
+      });
+    }
+  };
+
   return (
-    <section className='max-w-7xl mx-auto  '>
-        <div className="">
-            <h1 className='text-center font-bold'>History of Section</h1>
+    <section className='max-w-7xl mx-auto'>
+      <div className="">
+        <h1 className='text-center font-bold'>History of Section</h1>
         <p className="text-stone-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi assumenda praesentium quas rem eveniet eum aut repudiandae, natus est modi provident, suscipit, tempora corporis facere? Tenetur qui consequuntur eius deleniti error fugit officiis provident aut esse aperiam ipsa, accusamus rerum vero cumque vel! Hic quam minima incidunt rerum, qui perferendis, autem pariatur illum soluta quibusdam voluptatem animi commodi provident, natus at iusto! Laudantium iste totam obcaecati magni illo, earum perferendis itaque rerum suscipit eligendi! Sunt beatae temporibus recusandae eveniet veritatis ex rem doloribus expedita enim labore ad corporis, similique laudantium quas corrupti laboriosam nemo quo id hic quae facilis. Officia.</p>
+      </div>
+      
+      <div className="w-3/4 mx-auto flex text-lg pointer-events-auto text-stone-500 justify-around mt-4">
+        {years.map((year) => (
+          <button
+            key={year}
+            onClick={() => handleYearChange(year)}
+            className={`px-2 ${currentYear === year ? "text-black font-bold underline" : ""}`}
+          >
+            {year}
+          </button>
+        ))}
+      </div>
+      
+      <div className="mt-10 space-y-10">
+        <div className="grid lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-10 sm:gap-y-20 sm:px-6">
+          {isLoading ? (
+            <HistorySkeleton/>
+          ) : error ? (
+            <p className='text-center col-span-4 text-red-500'>Error loading history</p>
+          ) : data && data.data && data.data.length > 0 ? (
+            data.data.map((item, index) => (
+              <div className="w-full" key={index}>
+                {item.image_url_1 ? (
+                  <img src={item.image_url_1} alt="" className="object-cover w-full h-48" />
+                ) : (
+                  <img src={"../image-not-found.png"} alt="" className="object-cover w-full h-48" />
+                )}
+                <div className="flex justify-between mt-2">
+                  <p className='font-bold'>{item.elector_name}</p>
+                  <Link href={`/clients/history/${item.id}`} className="underline text-stone-600">View Details</Link>
+                </div>
+              </div>
+            ))
+          ) : (
+            <p className='text-center col-span-4 text-red-500'>No history found</p>
+          )}
         </div>
-        <div className="w-3/4 mx-auto flex text-lg pointer-events-auto   text-stone-500 justify-around  mt-4">
-          <p>All</p>
-          <p>2021</p>
-          <p>2022</p>
-          <p>2023</p>
-          <p>2024</p>
-        </div>
-        <div className="mt-10 space-y-10">
-            <div className="grid lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-10 sm:gap-y-20 sm:px-6">
-              {
-
-                isLoading ?(
-                  <HistorySkeleton/>
-                ) :(
-
-                  data && data.data.length > 0 ? 
-                  data.data.map((item,index)=>(
-                    <div className="   w-full" key={index}>
-                    <img src={`/images/3.png`} alt="" className="object-cover w-[100%]" />
-                    <div className="flex justify-between">
-                      <h1>{item.elector_name}</h1>
-                      <Link href={`/clients/${item.id}`} className="underline text-stone-600">View Details</Link>
-                    </div>
-                   </div>
-                  ))
-                  : <p className='text-center   col-span-4  text-red-500'>No history found</p>
-                )
-              } 
-            </div>
-          </div>
+      </div>
     </section>
   )
 }
 
-export default HistorySection
+export default HistorySection;

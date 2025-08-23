@@ -18,6 +18,7 @@ import { BookMarked, Crown, X } from "lucide-react";
 import useSWR, { useSWRConfig } from "swr";
 import { destorytemp, fetchtemp, tempoApiUrl } from "@/services/tempo";
 import { useTempStore } from "@/stores/usetemp";
+import { toast } from "sonner";
 gsap.registerPlugin(ScrollTrigger);
 const StudentHeader = () => {
   const headerRef = useRef(null);
@@ -37,7 +38,7 @@ const handleDelete=async(id)=>{
     throw new Error(json.message||"Undefined Error")
    }
   }catch(error){
-     
+     toast.error(error.message)
   }
 }
   useEffect(() => {
@@ -94,11 +95,11 @@ const handleDelete=async(id)=>{
 <nav className=" w-full  bg-slate-50     z-30 sticky top-0 ">
   <div className="max-w-7xl text-xl  text-stone-500 mx-auto items-center py-5 font-bold flex justify-between px-6">
     <div className="">
-      <img src="../images/Culogo-removebg-preview.png"  ref={headerRef} className="h-25"  />
+      <img src="/images/Culogo-removebg-preview.png"  ref={headerRef} className="h-25"  />
     </div>
     <ul className="flex justify-center   gap-4">
       <li>
-        <Link href={`/`}>Home</Link>
+        <Link href={`/clients/home`}>Home</Link>
       </li>
       <li>
         <Link href={`/clients/gallery`}>Gallery</Link>

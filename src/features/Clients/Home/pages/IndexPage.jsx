@@ -13,12 +13,13 @@ import IndexWelcome from '../components/IndexWelcome'
 import IntroSection from '../components/IntroSection'
 import TimeComponent from '../components/TimeComponent'
 import SuccessSection from '@/components/SuccessSection'
+import NavBarHeader from '@/components/NavBarHeader'
 
 const IndexPage = () => {
   return (
     <>
     <SuccessSection/>
-    <ClientHeader/>
+    <NavBarHeader/>
     <IntroSection/>
     <IndexHeroSection/>
     <IndexWelcome/>

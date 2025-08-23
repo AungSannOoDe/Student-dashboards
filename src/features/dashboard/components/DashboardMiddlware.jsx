@@ -7,10 +7,11 @@ import { checkProfile } from "@/services/profile";
 import useAccountStore from "@/stores/useAccountStore";
 import BackToLogin from "./BackToLogin";
 import Spinner from "@/components/Spinner";
+import NotFound from '@/components/NotFound';
 export default function DashboardMiddlware ({children}){
 
  const router = useRouter();
-  const { logout, token } = useAccountStore();
+  const { logout, token,Part } = useAccountStore();
   const [isLoading, setIsLoading] = useState(true);
 
   const autoLogoutIfTokenExpire = async (currentToken) => {
@@ -22,14 +23,14 @@ export default function DashboardMiddlware ({children}){
   };
   useEffect(() => {
     const currentToken = useAccountStore.getState().token;
-
+              
     if (!currentToken) {
       router.push("/login");
     } else {
       autoLogoutIfTokenExpire(currentToken);
     }
     setIsLoading(false);
-  }, [token]);
+  }, [token,Part]);
 
   if (isLoading) {
     return (
@@ -42,7 +43,10 @@ export default function DashboardMiddlware ({children}){
   if (!useAccountStore.getState().token) {
     return <BackToLogin />;
   }
-
+  if(Part!=1){
+    return <NotFound/>;
+  }
+     
   return <>{children}</>;
 }
 

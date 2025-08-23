@@ -6,10 +6,12 @@ import { useEffect, useState } from "react";
 import HomePage from "../pages/HomePage";
 import { checkProfile } from "@/services/voters";
 import { toast } from "sonner";
+import NotFound from "@/components/NotFound";
+import IndexPage from "../pages/IndexPage";
 
 export default function HomeLayout({ children }) {
   const router = useRouter();
-  const { logout, token} = useAccountStore();
+  const { logout, token,Part} = useAccountStore();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -17,7 +19,6 @@ export default function HomeLayout({ children }) {
       router.push("/");
       return;
     }
-
     const verifyToken = async () => {
       try {
         const res = await checkProfile(token);
@@ -29,17 +30,15 @@ export default function HomeLayout({ children }) {
       } catch (error) {
         console.error("Token verification failed:", error);
         logout();
-        router.push("/");
+        router.push("/notfound");
       } finally {
         setIsLoading(false);
       }
     };
     verifyToken();
     const interval = setInterval(verifyToken, 5 * 60 * 1000);
-
     return () => clearInterval(interval);
-  }, [token]); // Now safe to include token in dependencies
-
+  }, [token,Part]);
   if (isLoading) {
     return (
       <div className="h-screen flex items-center justify-center">
@@ -47,10 +46,11 @@ export default function HomeLayout({ children }) {
       </div>
     );
   }
-
   if (!token) {
-    return <HomePage />;
+    return <IndexPage />;
   }
-
+  if(Part!=2){
+    return <NotFound/>;
+  }
   return <>{children}</>;
 }

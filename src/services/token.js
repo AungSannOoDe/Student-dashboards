@@ -1,10 +1,10 @@
 import useAccountStore from "@/stores/useAccountStore";
 
-export const tokenApiUrl=`${process.env.NEXT_PUBLIC_API_URL}/tokens`
- export const tokenlogin=`${process.env.NEXT_PUBLIC_API_URL}/token-login`
+export const AdminTokenApiUrl=`${process.env.NEXT_PUBLIC_API_URL}/AdminTokens`
+ export const AdminTokenlogin=`${process.env.NEXT_PUBLIC_API_URL}/AdminToken-login`
 
  export const  login=(payload)=>{
-  return fetch(tokenlogin,{
+  return fetch(AdminTokenlogin,{
     method:"POST",
     body:JSON.stringify(payload),
     headers:{
@@ -21,7 +21,7 @@ export const fetchToken=(...args)=>{
     }).then((res)=>res.json());
 }
 export const destoryToken=(id)=>{
-    return fetch(`${tokenApiUrl}/${id}`,{
+    return fetch(`${AdminTokenApiUrl}/${id}`,{
         method:"DELETE",
         headers:{
             "Content-Type": "application/json",
@@ -31,7 +31,7 @@ export const destoryToken=(id)=>{
 }
 
 export const updateToken=(data,id)=>{
-    return fetch(`${tokenApiUrl}/${id}`,{
+    return fetch(`${AdminTokenApiUrl}/${id}`,{
       method:"PUT",
       body:JSON.stringify(data),
       headers:{
@@ -41,7 +41,7 @@ export const updateToken=(data,id)=>{
     })
 }
 export const storeToken=(data)=>{
- return fetch(`${tokenApiUrl}`,{
+ return fetch(`${AdminTokenApiUrl}`,{
     method:"POST",
     body:JSON.stringify(data),
     headers:{

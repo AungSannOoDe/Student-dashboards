@@ -75,7 +75,7 @@ const ClientHeader = () => {
         </div>
         <ul className="flex justify-center   gap-4">
           <li>
-            <Link href={`/`}>Home</Link>
+            <Link href={`/clients/home`}>Home</Link>
           </li>
           <li>
             <Link href={`/clients/gallery`}>Gallery</Link>

@@ -7,7 +7,7 @@ const EventEmptyRows = () => {
     <td colSpan={7} className="px-6 py-4 text-center">
       There is no Employee .{" "}
       <Link
-        href="/dashboard/user/create"
+        href={`/dashboard/events/create`}
         className=" text-blue-500 underline"
       >
         create Events

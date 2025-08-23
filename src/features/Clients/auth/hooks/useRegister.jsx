@@ -9,7 +9,7 @@ const useRegister = () => {
  const {formState:{
     errors,isSubmitting,
 },register,reset,handleSubmit,setError,control}=useForm();
-const{SpecifyId,setSpecifyId,setToken,setAccount}=useAccountStore();
+const{SpecifyId,setSpecifyId,setToken,setAccount,setPart}=useAccountStore();
 const password = useWatch({ control, name: "password" });
 const router=useRouter();
  const onSubmit=async(data)=>{
@@ -28,7 +28,8 @@ const router=useRouter();
      setSpecifyId({});
     setToken(json.token);
     setAccount(json.voters)
-    router.push("/clients/home");
+    setPart(2)
+    router.push("/");
   }
   catch(error){
     toast.error(error.message);

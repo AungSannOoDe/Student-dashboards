@@ -6,8 +6,7 @@ import { toast } from "sonner";
 import useAccountStore from "@/stores/useAccountStore";
 const useLogin = () => {
   const route = useRouter();
-  const { setToken, setAccount } = useAccountStore();
-
+  const { setToken, setAccount,setPart } = useAccountStore();
   const {
     register,
     handleSubmit,
@@ -22,6 +21,7 @@ const useLogin = () => {
       }
       setToken(json?.token);
       setAccount(json?.user);
+      setPart(1);
       toast.success("Login Successfully");
       route.push("/dashboard");
     } catch (error) {
@@ -29,7 +29,6 @@ const useLogin = () => {
       toast.error(error.message);
     }
   };
-
   return {
     handleLogin,
     handleSubmit,

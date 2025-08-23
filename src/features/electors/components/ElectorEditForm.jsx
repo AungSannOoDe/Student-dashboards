@@ -27,7 +27,6 @@ const ElectorEditForm = ({elector:{
       address: address || "Default Address",
     }
   });
-  
 const onSubmit=async(data)=>{
   try{
     const res=await updateElector(id,{
