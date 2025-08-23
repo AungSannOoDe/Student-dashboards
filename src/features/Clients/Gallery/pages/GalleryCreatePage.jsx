@@ -5,21 +5,20 @@ import DashboardMiddlware from '@/features/dashboard/components/DashboardMiddlwa
 import Header from '@/components/Header'
 import BreadCrumb from '@/components/BreadCrumb'
 import DashboardLayout from '@/components/DashboardLayout'
-import GalleryListSection from '../components/GalleryListSection'
-
-const GalleryManagePage = () => {
+import GalleryCreateSection from '../components/GalleryCreateSection'
+const GalleryCreatePage = () => {
   return (
     <DashboardMiddlware>
     <Container>
         <Navbar/>
         <DashboardLayout>
        <Header/>
-       <BreadCrumb currentPage='Events'/>
-       <GalleryListSection/>
+       <BreadCrumb currentPage='Create' links={[{title:"gallery",path:"/dashboard/gallery"}]}/>
+      <GalleryCreateSection/>
         </DashboardLayout>
     </Container>
   </DashboardMiddlware>
   )
 }
 
-export default GalleryManagePage
+export default GalleryCreatePage

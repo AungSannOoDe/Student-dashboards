@@ -3,6 +3,7 @@ import useAccountStore from "@/stores/useAccountStore";
 export const  eventApiUrl=`${process.env.NEXT_PUBLIC_API_URL}/events`;
 export const  fechEvent=(...args)=>{
     return fetch(...args,{
+      method:"GET",
         headers:{
              "Content-Type":"application/json"
         }
