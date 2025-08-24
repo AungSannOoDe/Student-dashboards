@@ -24,7 +24,7 @@ const StudentHeader = () => {
   const headerRef = useRef(null);
   const[hover,setIsHover]=useState(false);
   const { refreshTrigger } = useTempStore();
-  const{account,token,logout}=useAccountStore();
+  const{account,token,logout,setVoteMale,setVoteFemale}=useAccountStore();
   const{mutate}=useSWRConfig()
 const{data,isLoading,error}=useSWR(`${tempoApiUrl}/${account.id}`,fetchtemp,{
   revalidateOnFocus: true,
@@ -42,6 +42,8 @@ const handleDelete=async(id)=>{
   }
 }
   useEffect(() => {
+    account.vote_male==1 ? setVoteMale(1) : setVoteMale(0)
+    account.vote_female==1 ? setVoteFemale(1) : setVoteFemale(0)
     if (!headerRef.current) return;
     gsap.to(headerRef.current, {
       height: 60, 

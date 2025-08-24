@@ -17,11 +17,24 @@ import {
 } from "@/components/ui/alert-dialog"
 import Link from 'next/link';
 import { usTimeformat } from '@/lib/Timer';
+import { destoryGallery, galleryApiUrl } from '@/services/gallery';
 const GalleryRows = ({gallery:{id,
-    title,description,created_at
+    title,description,created_at,image_url
 }}) => {
- const handleDelete=(id)=>{
-    console.log(id);
+  const {mutate}=useSWRConfig()
+ const handleDelete=async()=>{
+    try{
+const res=await destoryGallery(id)
+const json=await res.json()
+if(!res.ok){
+  throw new Error(`${json.message}`||"Undefined Error") 
+}
+toast.success("Gallery Deleted Successfully")
+mutate(`/dashboard/gallery`)
+    }
+    catch(error){
+toast.error(error.message)
+    }
  }
   return (
 <tr className=" odd:bg-gray-100 even:bg-white hover:bg-blue-100 duration-200">
@@ -30,7 +43,7 @@ const GalleryRows = ({gallery:{id,
      <td className="px-4 py-3" dangerouslySetInnerHTML={{ __html: description }}></td>
     <td className="px-4 py-3">{usTimeformat(created_at)}</td>
     <td className="px-4 py-3 flex gap-6">
-     <Link href={`/dashboard/elector/${id}/edit`} className=' size-10 flex justify-center items-center  bg-white border border-stone-200    hover:bg-stone-100 hover:text-blue-500 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:text-blue-500 dark:bg-stone-800 dark:border-stone-700 dark:text-white dark:hover:text-white dark:hover:bg-stone-700 dark:focus:ring-blue-500 dark:focus:text-white'><Pencil className='size-4'/></Link>
+     <Link href={`/dashboard/gallery/${id}/edit`} className=' size-10 flex justify-center items-center  bg-white border border-stone-200    hover:bg-stone-100 hover:text-blue-500 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:text-blue-500 dark:bg-stone-800 dark:border-stone-700 dark:text-white dark:hover:text-white dark:hover:bg-stone-700 dark:focus:ring-blue-500 dark:focus:text-white'><Pencil className='size-4'/></Link>
     <AlertDialog>
       <AlertDialogTrigger asChild>
         <button  className=' size-10 flex justify-center items-center  bg-white border border-stone-200    hover:bg-stone-100 hover:text-blue-500 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:text-blue-500 dark:bg-stone-800 dark:border-stone-700 dark:text-white dark:hover:text-white dark:hover:bg-stone-700 dark:focus:ring-blue-500 dark:focus:text-white'><Trash className='size-4'/></button>
@@ -49,7 +62,7 @@ const GalleryRows = ({gallery:{id,
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
-     <Link href={`/dashboard/elector/${id}`}  className=' size-10 flex justify-center items-center  bg-white border border-stone-200    hover:bg-stone-100 hover:text-blue-500 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:text-blue-500 dark:bg-stone-800 dark:border-stone-700 dark:text-white dark:hover:text-white dark:hover:bg-stone-700 dark:focus:ring-blue-500 dark:focus:text-white'><ChevronRight className='size-4'/></Link>
+     <Link href={`/dashboard/gallery/${id}`}  className=' size-10 flex justify-center items-center  bg-white border border-stone-200    hover:bg-stone-100 hover:text-blue-500 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:text-blue-500 dark:bg-stone-800 dark:border-stone-700 dark:text-white dark:hover:text-white dark:hover:bg-stone-700 dark:focus:ring-blue-500 dark:focus:text-white'><ChevronRight className='size-4'/></Link>
     </td>
   </tr>
   )

@@ -26,10 +26,10 @@ const router=useRouter();
     toast.success("You have registered successfully");
     reset();
      setSpecifyId({});
-    setToken(json.token);
-    setAccount(json.voters)
+     setToken(json.token)
+    setAccount(json?.voters)
     setPart(2)
-    router.push("/");
+    router.push(`/clients/home`)
   }
   catch(error){
     toast.error(error.message);

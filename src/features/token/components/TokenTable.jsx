@@ -2,8 +2,7 @@ import React from 'react'
 import TokenRows from './TokenRows'
 import TokenEmptyRows from './TokenEmptyRows'
 
-const TokenTable = ({token}) => {
-  console.log(token);
+const TokenTable = ({token,mutate}) => {
   return (
 <div className="overflow-x-auto">
     <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -21,7 +20,7 @@ const TokenTable = ({token}) => {
         {
           token?.length==0 ?<TokenEmptyRows/>: (
             token.map(token=>(
-                <TokenRows token={token} key={token.id}/>
+                <TokenRows token={token} key={token.id} mutate={mutate}/>
                 ))
           )  
         }

@@ -11,34 +11,32 @@ import IndexPage from "../pages/IndexPage";
 
 export default function HomeLayout({ children }) {
   const router = useRouter();
-  const { logout, token,Part} = useAccountStore();
+  const { logout, token,Part,account,setVoteMale, setVoteFemale} = useAccountStore();
   const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    if (!token) {
-      router.push("/");
-      return;
+  const autoLogoutIfTokenExpire = async (currentToken) => {
+    const res = await checkProfile(currentToken);
+    if (res.status === 401) {
+      toast.error("Your token has expired, please login again");
+      logout();
     }
-    const verifyToken = async () => {
-      try {
-        const res = await checkProfile(token);
-        if (res.status === 401) {
-          toast.error("Your session has expired, please login again");
-          logout();
-          router.push("/");
-        }
-      } catch (error) {
-        console.error("Token verification failed:", error);
-        logout();
-        router.push("/notfound");
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    verifyToken();
-    const interval = setInterval(verifyToken, 5 * 60 * 1000);
-    return () => clearInterval(interval);
-  }, [token,Part]);
+  };
+  const autoGenderateMaleVote=()=>{
+     account.vote_male==0  && setVoteMale(0)
+  }
+  const autoGenderateFemaleVote=()=>{
+    account.vote_female==0  && setVoteFemale(0)
+ }
+  useEffect(() => {
+    const currentToken = useAccountStore.getState().token;
+     autoGenderateMaleVote()
+     autoGenderateFemaleVote()
+    if (!currentToken) {
+      router.push("/");
+    } else {
+      autoLogoutIfTokenExpire(currentToken);
+    }
+    setIsLoading(false);
+  }, [token,Part,account]);
   if (isLoading) {
     return (
       <div className="h-screen flex items-center justify-center">
@@ -46,7 +44,7 @@ export default function HomeLayout({ children }) {
       </div>
     );
   }
-  if (!token) {
+  if (!useAccountStore.getState().token) {
     return <IndexPage />;
   }
   if(Part!=2){

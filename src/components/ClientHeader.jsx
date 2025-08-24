@@ -20,7 +20,6 @@ const ClientHeader = () => {
   const[hover,setIsHover]=useState(false)
   const headerRef = useRef(null);
   const{account,token,logout,setVoteMale,setVoteFemale}=useAccountStore()
-  console.log(account);
   const handletoggle=()=>{
     setIsHover(!hover)
   }

@@ -23,7 +23,6 @@ export default function DashboardMiddlware ({children}){
   };
   useEffect(() => {
     const currentToken = useAccountStore.getState().token;
-              
     if (!currentToken) {
       router.push("/login");
     } else {

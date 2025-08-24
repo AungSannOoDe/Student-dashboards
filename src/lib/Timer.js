@@ -14,5 +14,23 @@ export const formatTime = (seconds) => {
     second: "2-digit",
   });
  }
+ export const  getTitle=(gender, won_status)=> {
+  if(gender === "male" && won_status === 1){
+      return "King";
+  }
+  else if(gender === "male" && won_status === 2){
+      return "Prince";
+  }
+  else if(gender === "female" && won_status === 1){
+      return "Queen";
+  } 
+ else if (gender === "female" && won_status === 2){
+  return "Princess";
+ } 
+ else{
+  return "Unknown";
+ }
+ 
+}
 
   

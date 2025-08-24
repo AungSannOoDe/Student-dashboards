@@ -20,6 +20,7 @@ const TokenSection = () => {
     clearSearchInput,
     updateUrlParams,
     searchParams,
+    mutate
   } = useToken();
   return (
     <section className='pl-10 '>
@@ -27,7 +28,7 @@ const TokenSection = () => {
        <div className="w-full   mt-3  space-y-10">
        <TokenInventoryAction searchRef={searchRef} clearSearchInput={clearSearchInput} handleSearchInput={handleSearchInput} searchParams={searchParams} />
        {
-          isLoading ? <TokenSkeletonSection/> :  <TokenTable token={data?.data} />
+          isLoading ? <TokenSkeletonSection/> :  <TokenTable token={data?.data} mutate={mutate} />
         }
         {
            <Pagnition

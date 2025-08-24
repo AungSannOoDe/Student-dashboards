@@ -1,7 +1,7 @@
 import useAccountStore from "@/stores/useAccountStore";
 
-export const AdminTokenApiUrl=`${process.env.NEXT_PUBLIC_API_URL}/AdminTokens`
- export const AdminTokenlogin=`${process.env.NEXT_PUBLIC_API_URL}/AdminToken-login`
+export const AdminTokenApiUrl=`${process.env.NEXT_PUBLIC_API_URL}/tokens`
+ export const AdminTokenlogin=`${process.env.NEXT_PUBLIC_API_URL}/token-login`
 
  export const  login=(payload)=>{
   return fetch(AdminTokenlogin,{

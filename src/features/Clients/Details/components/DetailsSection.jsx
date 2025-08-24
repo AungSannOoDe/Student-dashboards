@@ -9,7 +9,6 @@ import useAccountStore from '@/stores/useAccountStore';
 import striptags from 'striptags';
 const DetailsSection = () => {
   const{data,isLoading,isSubmitting,register,handleSubmit,onSubmit,account,id, VoteMale}=useDetails()
-  console.log(data);
 const{data:votes,isLoading:voteLoading,error}=useSWR(`${voteapiUrl}/${useAccountStore.getState().account.id}`,fetchvote)
 if(isLoading || voteLoading){
   return <DetailSkeleton/>

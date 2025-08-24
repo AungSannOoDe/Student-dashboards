@@ -16,10 +16,13 @@ const TokenCreateSection = () => {
                           className="w-full p-2 border rounded"
                         >
                           <option value="">Random</option>
-                          <option value="API">API</option>
-                          <option value="Mobile">Mobile</option>
-                          <option value="Web">Web</option>
-                          <option value="System">System</option>
+                          <option value='AOY'>AOY</option>
+                          <option value='POT'>POT</option>
+                          <option value='OPYT'>OPYT</option>
+                          <option value="YPY">YPY</option>
+                          <option value="CPC">CPC</option>
+                          <option value="UgtOY">UgtOY</option>
+                         
                         </select>
                       </div>
                       <div>

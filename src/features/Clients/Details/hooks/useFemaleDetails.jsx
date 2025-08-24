@@ -48,7 +48,6 @@ const useFemaleDetails = () => {
       account,
     VoteFemale,
       id,
-       VoteMale,
       data,
      isLoading
      }

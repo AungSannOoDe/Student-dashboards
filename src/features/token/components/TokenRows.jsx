@@ -1,3 +1,4 @@
+"use client";
 import { Pencil, Trash } from 'lucide-react'
 import React from 'react'
 import {
@@ -12,16 +13,15 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import { Button } from "@/components/ui/button"
-import {  destoryToken, tokenApiUrl } from '@/services/token'
+import {  destoryToken, AdminTokenApiUrl } from '@/services/token'
 import { toast } from 'sonner'
 import { useSWRConfig } from 'swr'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 const TokenRows = ({token:{
     id,token_name,archived_at
-}}) => {
+},mutate}) => {
   console.log(archived_at);
-  const { mutate } = useSWRConfig();
   const searchParams = useSearchParams();
   const  deleting=async()=>{
     try {
@@ -31,7 +31,7 @@ const TokenRows = ({token:{
         throw new Error(json.message);
       }
       toast.success(json.message||"Deleting Error");
-      mutate(`${tokenApiUrl}?${searchParams.toString()}`);
+      mutate();
     } catch (err) {
       toast.error(err.message);
       console.error(err);

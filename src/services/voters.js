@@ -11,6 +11,7 @@ export const checkProfile = async (updateToken) => {
       },
     });
   };
+  
   export const updateMale=(data)=>{
     return fetch(`${voterApiUrl}/change-male`,{
       method:"PATCH",

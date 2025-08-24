@@ -34,7 +34,7 @@ const FemaleCard = ({female:{
         }  
       </div>
       <div className="flex justify-between  mt-3">
-        <Link href={`/clients/${elector_id}`} className="underline text-stone-600">View Details</Link>
+        <Link href={`/clients/female/${elector_id}`} className="underline text-stone-600">View Details</Link>
       </div>
     </form>
  

@@ -8,7 +8,7 @@ import {
   convertSearchPramsToObject,
   extractSearchPramsObjectFromUrl,
 } from "../../../utils/url";
-import { fetchToken, tokenApiUrl } from "@/services/token";
+import { fetchToken, AdminTokenApiUrl } from "@/services/token";
 
 const useToken = () => {
   const searchParams = useSearchParams();
@@ -18,14 +18,14 @@ const useToken = () => {
   const updateUrlParams = (newParams) => {
     const updatedSearch = new URLSearchParams(newParams).toString();
     router.push(`?${updatedSearch}`);
-    setFetchUrl(`${tokenApiUrl}?${updatedSearch}`);
+    setFetchUrl(`${AdminTokenApiUrl}?${updatedSearch}`);
   };
   
 
   useEffect(() => {
     const currentParams = convertSearchPramsToObject(searchParams);
     const queries = new URLSearchParams(currentParams).toString();
-    setFetchUrl(`${tokenApiUrl}?${queries}`);
+    setFetchUrl(`${AdminTokenApiUrl}?${queries}`);
 
     if (currentParams.q) {
       searchRef.current.value = currentParams.q;
@@ -34,7 +34,7 @@ const useToken = () => {
     }
   }, [searchParams]);
 
-  const { data, isLoading, error } = useSWR(fetchUrl,fetchToken);
+  const { data, isLoading, error,mutate } = useSWR(fetchUrl,fetchToken);
 
   const handleSearchInput = debounce((e) => {
     const q = e.target.value;
@@ -89,7 +89,8 @@ const useToken = () => {
     handlePaginate,
     handleLimit,
     updateUrlParams,
-    searchParams
+    searchParams,
+    mutate
   };
 };
 
