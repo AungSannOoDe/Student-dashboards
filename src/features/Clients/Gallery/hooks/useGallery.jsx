@@ -23,7 +23,6 @@ const useGallery = () => {
         const currentParams = convertSearchPramsToObject(searchParams);
         const queries = new URLSearchParams(currentParams).toString();
         setFetchUrl(`${galleryApiUrl}?${queries}`);
-
         if (currentParams.q) {
           searchRef.current.value = currentParams.q;
         } else {
@@ -31,7 +30,7 @@ const useGallery = () => {
         }
       }, [searchParams]);
 
-      const { data, isLoading, error } = useSWR(fetchUrl,fetchGallery);
+      const { data, isLoading, error,  mutate } = useSWR(fetchUrl,fetchGallery);
 
       const handleSearchInput = debounce((e) => {
         const q = e.target.value;
@@ -85,8 +84,8 @@ const useGallery = () => {
         handlePaginate,
         handleLimit,
         updateUrlParams,
-        searchParams
-
+        searchParams,
+         mutate
       }
 }
 

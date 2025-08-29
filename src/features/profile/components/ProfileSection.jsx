@@ -5,9 +5,11 @@ import { formattedDate } from '@/utils/dateTime';
 import { ArrowUpFromLine, Key, LogOut, LucideCircleUser, NotebookPen, Plus, Trash } from 'lucide-react'
 import Link from 'next/link';
 import React from 'react'
+import UpdateImageSection from './UpdateImageSection';
 
 const ProfileSection = () => {
-  const {account:{id,name,email,created_at}}=useAccountStore();
+  const {account:{id,name,email,created_at,image}}=useAccountStore();
+console.log(image);
   return (
 <section className="pl-10 flex flex-col space-y-10">
   <div className="flex justify-between">
@@ -22,14 +24,15 @@ const ProfileSection = () => {
       {/* <button className='></button> */}
     </div>
   </div>
-  <div className=" relative inline-block">
+  <div className=" relative inline-block  w-[100px]">
     <img
       className=" size-[100px] rounded-full object-cover border-2 border-blue-600"
       src={
-        "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+        image ? image : `https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png`
       }
       alt="user photo"
     />
+    <UpdateImageSection/>
   </div>
   <div className="bg-blue-50 p-6 max-w-lg  border border-blue-300 space-y-4.5">
     <div className="flex items-center gap-2">
@@ -53,7 +56,7 @@ const ProfileSection = () => {
         <dt className="text-stone-500 w-[150px] text-sm dark:text-white">
           Role
         </dt>
-        <dd className="text-sm dark:text-stone-400">User</dd>
+        <dd className="text-sm dark:text-stone-400">Admin</dd>
       </dl>
     </div>
   </div>

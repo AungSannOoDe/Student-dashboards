@@ -16,12 +16,11 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import Link from 'next/link';
-import { usTimeformat } from '@/lib/Timer';
+import { usDateformat, usTimeformat } from '@/lib/Timer';
 import { destoryGallery, galleryApiUrl } from '@/services/gallery';
 const GalleryRows = ({gallery:{id,
     title,description,created_at,image_url
-}}) => {
-  const {mutate}=useSWRConfig()
+},mutate}) => {
  const handleDelete=async()=>{
     try{
 const res=await destoryGallery(id)
@@ -30,7 +29,7 @@ if(!res.ok){
   throw new Error(`${json.message}`||"Undefined Error") 
 }
 toast.success("Gallery Deleted Successfully")
-mutate(`/dashboard/gallery`)
+ mutate();
     }
     catch(error){
 toast.error(error.message)
@@ -41,6 +40,7 @@ toast.error(error.message)
     <th scope="row" className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{id}</th>
     <td className="px-4 py-3">{title}</td>
      <td className="px-4 py-3" dangerouslySetInnerHTML={{ __html: description }}></td>
+    <td className="px-4 py-3">{usDateformat(created_at)}</td>
     <td className="px-4 py-3">{usTimeformat(created_at)}</td>
     <td className="px-4 py-3 flex gap-6">
      <Link href={`/dashboard/gallery/${id}/edit`} className=' size-10 flex justify-center items-center  bg-white border border-stone-200    hover:bg-stone-100 hover:text-blue-500 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:text-blue-500 dark:bg-stone-800 dark:border-stone-700 dark:text-white dark:hover:text-white dark:hover:bg-stone-700 dark:focus:ring-blue-500 dark:focus:text-white'><Pencil className='size-4'/></Link>

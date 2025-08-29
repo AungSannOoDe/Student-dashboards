@@ -1,149 +1,65 @@
-import React from 'react'
-
+"use client";
+import { fetchGallery, galleryApiUrl } from '@/services/gallery';
+import React,{useState, useEffect,useRef} from 'react'
+import useSWR from 'swr'
+import GallerySectionSkeleton from './GallerySectionSkeleton';
+import gsap from 'gsap';
 const GallerySection = () => {
+  const  {data,isLoading,error}=useSWR(`${galleryApiUrl}`,fetchGallery)
+  const [selectedItem, setSelectedItem] = useState(null);
+   const modalRef = useRef(null);
+  useEffect(() => {
+     if (!selectedItem) return;
+    if (selectedItem && modalRef.current) {
+      gsap.fromTo(
+        modalRef.current,
+        { opacity: 0, scale: 0.8, y: 50 },
+        { opacity: 1, scale: 1, y: 0, duration: 0.4, ease: "power3.out" }
+      );
+    }
+  }, [selectedItem]);
+  if(isLoading){
+    return <GallerySectionSkeleton/>
+  }
   return (
- <main className="main mt-10">
+ <main className="main mt-10 ">
+
   <div className="gallery">
-    <figure>
-      <img src="https://images.unsplash.com/photo-1458668383970-8ddd3927deed" alt="Lorem ipsum dolor sit amet" />
-      <figcaption>
-        <h3>Mountains</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      </figcaption>
-    </figure>
-    <figure>
-      <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8" alt="Lorem ipsum dolor sit amet" />
-      <figcaption>
-        <h3>Automobile</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      </figcaption>
-    </figure>
-    <figure>
-      <img src="https://images.unsplash.com/photo-1466970601638-4e5fb6556584" alt="Lorem ipsum dolor sit amet" />
-      <figcaption>
-        <h3>Mountains</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      </figcaption>
-    </figure>
-    <figure>
-      <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027" alt="Lorem ipsum dolor sit amet" />
-      <figcaption>
-        <h3>Mountains</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      </figcaption>
-    </figure>
-    <figure>
-      <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e" alt="Lorem ipsum dolor sit amet" />
-      <figcaption>
-        <h3>Bicycle</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      </figcaption>
-    </figure>
-    <figure>
-      <img src="https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf" alt="Lorem ipsum dolor sit amet" />
-      <figcaption>
-        <h3>Office</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      </figcaption>
-    </figure>
-    <figure>
-      <img src="https://images.unsplash.com/photo-1532103054090-3491f1a05d0d" alt="Lorem ipsum dolor sit amet" />
-      <figcaption>
-        <h3>Office</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      </figcaption>
-    </figure>
-    <figure>
-      <img src="https://images.unsplash.com/photo-1599033153041-e88627ca70bb" alt="Lorem ipsum dolor sit amet" />
-      <figcaption>
-        <h3>Cityscape</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      </figcaption>
-    </figure>
-    <figure>
-      <img src="https://images.unsplash.com/photo-1507097634215-e82e6b518529" alt="Lorem ipsum dolor sit amet" />
-      <figcaption>
-        <h3>Cityscape</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      </figcaption>
-    </figure>
-    <figure>
-      <img src="https://images.unsplash.com/photo-1458668383970-8ddd3927deed" alt="Lorem ipsum dolor sit amet" />
-      <figcaption>
-        <h3>Mountains</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      </figcaption>
-    </figure>
-    <figure>
-      <img src="https://images.unsplash.com/photo-1528988719300-046ff7faf8cb" alt="Lorem ipsum dolor sit amet" />
-      <figcaption>
-        <h3>Mountains</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      </figcaption>
-    </figure>
-    <figure>
-      <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027" alt="Lorem ipsum dolor sit amet" />
-      <figcaption>
-        <h3>Mountains</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      </figcaption>
-    </figure>
-    <figure>
-      <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21" alt="Lorem ipsum dolor sit amet" />
-      <figcaption>
-        <h3>Mountains</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      </figcaption>
-    </figure>
-    <figure>
-      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Lorem ipsum dolor sit amet" />
-      <figcaption>
-        <h3>Mountains</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      </figcaption>
-    </figure>
-    <figure>
-      <img src="https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf" alt="Lorem ipsum dolor sit amet" />
-      <figcaption>
-        <h3>Office</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      </figcaption>
-    </figure>
-    <figure>
-      <img src="https://images.unsplash.com/photo-1532103054090-3491f1a05d0d" alt="Lorem ipsum dolor sit amet" />
-      <figcaption>
-        <h3>Office</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      </figcaption>
-    </figure>
-    <figure>
-      <img src="https://images.unsplash.com/photo-1599033153041-e88627ca70bb" alt="Lorem ipsum dolor sit amet" />
-      <figcaption>
-        <h3>Cityscape</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      </figcaption>
-    </figure>
-    <figure>
-      <img src="https://images.unsplash.com/photo-1494475673543-6a6a27143fc8" alt="Lorem ipsum dolor sit amet" />
-      <figcaption>
-        <h3>Cityscape</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      </figcaption>
-    </figure>
-    <figure>
-      <img src="https://images.unsplash.com/photo-1528988719300-046ff7faf8cb" alt="Lorem ipsum dolor sit amet" />
-      <figcaption>
-        <h3>Mountains</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      </figcaption>
-    </figure>
-    <figure>
-      <img src="https://images.unsplash.com/photo-1466970601638-4e5fb6556584" alt="Lorem ipsum dolor sit amet" />
-      <figcaption>
-        <h3>Mountains</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      </figcaption>
-    </figure>
+    {
+      data && data?.data.length > 0 ? data?.data.map((item)=>(
+        <figure key={item.id}>
+        <img src={item.images_url} alt={item.title}  onClick={() => setSelectedItem(item)} />
+        <figcaption>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </figcaption>
+      </figure>
+      )) : <p className='text-center text-red-400'>No Gallery Found</p>
+    } 
+    {selectedItem && (
+      <div  ref={modalRef}
+        className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+        onClick={() => setSelectedItem(null)}
+      >
+        <div className="relative max-w-4xl w-full px-4">
+          <button
+            className="absolute top-2 right-4 text-white text-3xl"
+            onClick={() => setSelectedItem(null)}
+          >
+            &times;
+          </button>
+          <img
+            src={selectedItem.images_url}
+            alt="Zoomed"
+            className="rounded-lg max-h-[80vh] w-auto mx-auto object-contain"
+          />
+           <div className="mt-4 text-center">
+            <h3 className="text-xl text-white font-bold">{selectedItem.title}</h3>
+            <p className="text-white mt-2">{selectedItem.description}</p>
+          </div>
+        </div>
+      </div>
+    )}
   </div>
 </main>
   )

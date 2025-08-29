@@ -39,8 +39,8 @@ const ChangePasswordForm = () => {
             className={`bg-stone-50 w-[300px] border ${
               errors.old_password
                 ? "border-red-500 outline-0 focus:ring-red-500 focus:border-red-500"
-                : "border-stone-300 focus:ring-blue-500 outline-0 focus:border-pink-500"
-            } text-stone-900 text-sm   block w-full p-2.5 dark:bg-stone-700 dark:border-stone-600 dark:placeholder-stone-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-pink-500`}
+                : "border-stone-300 focus:ring-blue-500 outline-0 focus:border-blue-500"
+            } text-stone-900 text-sm   block w-full p-2.5 dark:bg-stone-700 dark:border-stone-600 dark:placeholder-stone-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
           />
           {errors.old_password?.type === "required" && (
             <p className=" text-red-500 text-sm mt-1">
@@ -64,11 +64,11 @@ const ChangePasswordForm = () => {
             {...register("new_password", {
               required: true,
             })}
-            className={`bg-stone-50 w-[300px] border ${
-              errors.new_password
-                ? "border-red-500 focus:ring-red-500 focus:border-red-500"
-                : "border-stone-300 focus:ring-blue-500 focus:border-pink-500"
-            } text-stone-900 text-sm   block w-full p-2.5 dark:bg-stone-700 dark:border-stone-600 dark:placeholder-stone-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-pink-500`}
+           className={`bg-stone-50 w-[300px] border ${
+            errors.old_password
+              ? "border-red-500 outline-0 focus:ring-red-500 focus:border-red-500"
+              : "border-stone-300 focus:ring-blue-500 outline-0 focus:border-blue-500"
+          } text-stone-900 text-sm   block w-full p-2.5 dark:bg-stone-700 dark:border-stone-600 dark:placeholder-stone-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
           />
           {errors.new_password?.type === "required" && (
             <p className=" text-red-500 text-sm mt-1">
@@ -95,11 +95,11 @@ const ChangePasswordForm = () => {
             {...register("new_password_confirmation", {
               required: true,
             })}
-            className={`bg-stone-50 w-[300px] border ${
-              errors.new_password_confirmation
-                ? "border-red-500 focus:ring-red-500 focus:border-red-500"
-                : "border-stone-300 focus:ring-blue-500 focus:border-pink-500"
-            } text-stone-900 text-sm   block w-full p-2.5 dark:bg-stone-700 dark:border-stone-600 dark:placeholder-stone-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-pink-500`}
+           className={`bg-stone-50 w-[300px] border ${
+            errors.old_password
+              ? "border-red-500 outline-0 focus:ring-red-500 focus:border-red-500"
+              : "border-stone-300 focus:ring-blue-500 outline-0 focus:border-blue-500"
+          } text-stone-900 text-sm   block w-full p-2.5 dark:bg-stone-700 dark:border-stone-600 dark:placeholder-stone-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
           />
           {errors.new_password_confirmation?.type === "required" && (
             <p className=" text-red-500 text-sm mt-1">
@@ -109,14 +109,10 @@ const ChangePasswordForm = () => {
         </div>
         <div className=" col-span-full">
           <div className="flex items-center mb-4">
-            <input
-              {...register("all_correct")}
-              required
-              id="all-correct"
-              type="checkbox"
-              value=""
-              className="w-4 h-4 text-pink-600 bg-stone-100 border-stone-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-stone-800 focus:ring-2 dark:bg-stone-700 dark:border-stone-600"
-            />
+             <input type="checkbox"
+                 {...register("correct")}
+                className={`w-4 h-4 border-stone-500 checked:text-blue-500 `}
+              />
             <label
               htmlFor="all-correct"
               className="ms-2 text-sm font-medium text-stone-900 dark:text-stone-300"
@@ -128,8 +124,8 @@ const ChangePasswordForm = () => {
 
         <button
           type="button"
-          onClick={() => router.push("/dashboard/user-profile")}
-          className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-stone-900 focus:outline-none bg-white  border border-stone-200 hover:bg-stone-100 hover:text-pink-700 focus:z-10 focus:ring-4 focus:ring-stone-100 dark:focus:ring-stone-700 dark:bg-stone-800 dark:text-stone-400 dark:border-stone-600 dark:hover:text-white dark:hover:bg-stone-700"
+          onClick={() => router.push("/dashboard/profile")}
+          className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-stone-900 focus:outline-none bg-white  border border-stone-200 hover:bg-stone-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-stone-100 dark:focus:ring-stone-700 dark:bg-stone-800 dark:text-stone-400 dark:border-stone-600 dark:hover:text-white dark:hover:bg-stone-700"
         >
           Cancel
         </button>

@@ -5,7 +5,7 @@ import LogoutButton from './LogoutButton'
 import useAccountStore from '@/stores/useAccountStore'
 
 const Header = () => {
-  const {account:{id,name,email,}}=useAccountStore();
+  const {account:{id,name,email,image}}=useAccountStore();
   return (
 <div className="flex justify-end items-center w-full mb-7">
   <div className="flex justify-end items-center gap-5">
@@ -13,8 +13,9 @@ const Header = () => {
       <div className="flex items-center gap-3 cursor-pointer">
         <div className="w-12 h-12">
           <img  src={
+            image ? image:
             "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
-          } className="rounded-full"  />
+          } className="rounded-full w-full h-full object-cover"  />
         </div>
         <div className=" ">
           <h1 className="text-sm  font-extrabold">{name}</h1>

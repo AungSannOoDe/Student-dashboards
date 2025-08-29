@@ -55,15 +55,12 @@ const handleDelete=async(id)=>{
         end: "+=100", 
         scrub: true, 
       },
-
     });
-    // Cleanup
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
-   
-    // eslint-disable-next-line react-hooks/exhaustive-dep
   }, []);
+
   useEffect(() => {
     mutate(`${tempoApiUrl}/${account.id}`);
   }, [refreshTrigger]);

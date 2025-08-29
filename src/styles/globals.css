@@ -130,5 +130,30 @@
   h3{
       @apply text-lg font-bold;
   }
+  .img{
+    @apply absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[500px]  will-change-transform h-[350px];
+  }
+  .sploitlight{
+    @apply relative w-[100%] h-[100vh] overflow-hidden text-stone-700;
+  }
+  .sploitlight-images,.sploitlight-cover-img{
+    @apply absolute top-0 left-0 w-[100%] h-[100%] transform-3d perspective-[2000px];
+  }
+  .sploitlight-cover-img
+{
+    @apply will-change-transform w-full h-full;
+  }
+    .sploitlight-cover-img  .cover-img{
+    @apply w-[100%] h-[100%] object-cover;
+  }
+  .sploitlight-intro-header ,.sploitlight-outro-header{
+    @apply absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 text-center w-[50%];
+  }
+  .sploitlight-intro-header{
+    @apply z-1;
+  }
+  .sploitlight-outro-header{
+    @apply z-10;
+  }
 }
 

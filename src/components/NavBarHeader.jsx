@@ -58,7 +58,7 @@ const NavBarHeader = () => {
             <Link href={`/clients/home`}>Home</Link>
           </li>
           <li>
-            <Link href={`/clients/gallery`}>Gallery</Link>
+            <Link href={`/clients/guest/gallery`}>Gallery</Link>
           </li>
                <li>
             <Link href={`/dashboard`}>Admin</Link>

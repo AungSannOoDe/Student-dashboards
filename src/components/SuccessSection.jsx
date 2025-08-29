@@ -39,8 +39,6 @@ const SuccessSection = () => {
       if (close || VoteFinal == 0 || isLoading) return;
       
       setIsAnimating(true);
-      
-      // Your GSAP animation code here
       gsap.set([sectionRef.current, ...crownsRef.current, ...imagesRef.current], {
         opacity: 0,
         y: 20

@@ -29,7 +29,6 @@ const IndexHeroSection = () => {
       }
     });
 
-    // School image animation
     tl.from(schoolImgRef.current, {
       scale: 0,
       duration: 0.8,
@@ -46,7 +45,7 @@ const IndexHeroSection = () => {
       duration: 0.3
     });
 
-    // Text animation
+    
     tl.from(split.chars, {
       y: -100,
       opacity: 0,
@@ -63,7 +62,6 @@ const IndexHeroSection = () => {
       yoyo: true
     }, "+=0.5");
 
-    // Cleanup
     return () => {
       split.revert();
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());

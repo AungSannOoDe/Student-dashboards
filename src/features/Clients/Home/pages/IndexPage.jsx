@@ -14,6 +14,7 @@ import IntroSection from '../components/IntroSection'
 import TimeComponent from '../components/TimeComponent'
 import SuccessSection from '@/components/SuccessSection'
 import NavBarHeader from '@/components/NavBarHeader'
+import ScrollAnimationSection from '../components/ScrollAnimationSection'
 
 const IndexPage = () => {
   return (

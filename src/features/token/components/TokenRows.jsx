@@ -21,7 +21,6 @@ import Link from 'next/link'
 const TokenRows = ({token:{
     id,token_name,archived_at
 },mutate}) => {
-  console.log(archived_at);
   const searchParams = useSearchParams();
   const  deleting=async()=>{
     try {

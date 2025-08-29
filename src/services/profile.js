@@ -26,7 +26,7 @@ export const changeName = (data) => {
 
 export const changePassword = (data) => {
   return fetch(profileApiUrl + `/change-password`, {
-    method: "PATCH",
+    method: "POST",
     body: JSON.stringify(data),
     headers: {
       "Content-Type": "application/json",
@@ -39,9 +39,9 @@ export const changePassword = (data) => {
 
 export const changeImage = (file) => {
   const formData = new FormData();
-  formData.append("profile_image", file); 
+  formData.append("image", file); 
   return fetch(
-    process.env.NEXT_PUBLIC_API_URL + "/change-profile-image",
+    profileApiUrl + "/change-profile-image",
     {
       method: "POST",
       body: formData,

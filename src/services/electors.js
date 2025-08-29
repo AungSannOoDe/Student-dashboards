@@ -3,6 +3,8 @@ export  const electorApiUrl=`${process.env.NEXT_PUBLIC_API_URL}/get-elector`
 export const electorUrl=`${process.env.NEXT_PUBLIC_API_URL}/electors`
 export  const ablumsApiUrl=`${process.env.NEXT_PUBLIC_API_URL}/ablums`
 export const detailsUrl=`${process.env.NEXT_PUBLIC_API_URL}/electors`
+export const electorMaleUrl=`${process.env.NEXT_PUBLIC_API_URL}/get-male`
+export const electorFemaleUrl=`${process.env.NEXT_PUBLIC_API_URL}/get-female`
 export const electorDeailsApiUrl=`${process.env.NEXT_PUBLIC_API_URL}/get-details`
 export const  fetchElectors=(...args)=>{
     return fetch(...args,{
