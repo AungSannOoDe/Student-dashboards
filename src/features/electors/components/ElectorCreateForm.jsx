@@ -67,6 +67,10 @@ const router=useRouter();
           <input
             type="text"
             {...register("phone", {
+              min:{
+                value:11,
+                message:"Phone number is at least 11"
+              },
               validate: (value) => {
                 if (!value) return "Phone number is required";
                 const cleanedPhone = value.replace(/\D/g, '');

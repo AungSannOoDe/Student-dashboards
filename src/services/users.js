@@ -1,13 +1,24 @@
 import useAccountStore from "@/stores/useAccountStore";
 
 export  const voterApiUrl=`${process.env.NEXT_PUBLIC_API_URL}/voters`
+export const userApiUrl=`${process.env.NEXT_PUBLIC_API_URL}/users`
 export const fetchVoters=(...args)=>{
     return  fetch(...args,{
+        method:"GET",
         headers:{
             "Content-Type":"application/json",
             Authorization: `Bearer ${useAccountStore.getState().token}`,
         }
     }).then((res)=>res.json());
+}
+export const fetchUsers=(...args)=>{
+    return fetch(...args,{
+        method:"GET",
+        headers:{
+            "Content-Type":"application/json",
+            Authorization: `Bearer ${useAccountStore.getState().token}`,
+        }
+    }).then((res)=>res.json())
 }
 export const loginVoters=(data)=>{
     return fetch(`${process.env.NEXT_PUBLIC_API_URL}/voter-login`,{

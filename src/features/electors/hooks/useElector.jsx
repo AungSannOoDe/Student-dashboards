@@ -13,7 +13,7 @@ const useElector = () => {
  const searchParams = useSearchParams();
   const router = useRouter();
   const searchRef = useRef();
-  const [fetchUrl, setFetchUrl] = useState(fetchElectors);
+  const [fetchUrl, setFetchUrl] = useState(detailsUrl);
   const updateUrlParams = (newParams) => {
     const updatedSearch = new URLSearchParams(newParams).toString();
     router.push(`?${updatedSearch}`);

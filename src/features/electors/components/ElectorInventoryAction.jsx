@@ -7,7 +7,7 @@ import {
 import { Search, SlidersHorizontal, X } from 'lucide-react'
 import Link from 'next/link';
 import ElectorFilterBtn from "./ElectorFilterBtn";
-const ElectorInventoryAction = ({searchRef,searchParams,handleSearchInput,clearSearchInput}) => {
+const ElectorInventoryAction = ({searchRef,searchParams,handleSearchInput,clearSearchInput,t}) => {
   return (
   <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
   <div className="">
@@ -18,7 +18,7 @@ const ElectorInventoryAction = ({searchRef,searchParams,handleSearchInput,clearS
         <input
           type="text"
           className=" w-96 bg-stone-50 border border-stone-300 text-stone-900 text-sm  focus:ring-pink-500 focus:border-pink-500 block ps-10 p-2.5  dark:bg-stone-700 dark:border-stone-600 dark:placeholder-stone-400 dark:text-white dark:focus:ring-pink-500 dark:focus:border-pink-500"
-          placeholder="Search "
+          placeholder={t('search')}
           onChange={handleSearchInput}
           ref={searchRef}
         />
@@ -34,7 +34,7 @@ const ElectorInventoryAction = ({searchRef,searchParams,handleSearchInput,clearS
     </div>
     <div className="flex items-center space-x-3 w-full md:w-auto">
       <div>
-        <Link  href={`/dashboard/elector/create`} className="py-2 px-4 rounded-sm text-white bg-blue-500 outline-0 "><i className="fa fa-plus" />  Create Electors</Link>
+        <Link  href={`/dashboard/elector/create`} className="py-2 px-4 rounded-sm text-white bg-blue-500 outline-0 "><i className="fa fa-plus" />{t('create')}</Link>
       </div>
     </div>
   </div>

@@ -1,5 +1,6 @@
 "use client";
 import { LucideChevronLeft, LucideChevronRight, LucideChevronsLeft, LucideChevronsRight } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { useSearchParams } from 'next/navigation';
 import React from 'react'
 
@@ -16,19 +17,20 @@ const Pagnition = ({
     handlePaginate,
     handleLimit,
   }) => {
+    const t=useTranslations("Pagination")
     const searchParams = useSearchParams();
       const currentLimit = searchParams.get("limit") ?? 5;
       const pageLimits = [5, 10, 20, 50, 100];
     return (
       <div className="flex justify-between items-center flex-wrap gap-4 ">
         <span className="text-sm text-stone-700 dark:text-stone-400">
-          Showing <b>{meta.from ?? 0}</b> to <b>{meta.to ?? 0}</b> of <b>{meta.total ?? 0}</b> Entries
+          {t('showing')} <b>{meta.from ?? 0}</b> {t('to')} <b>{meta.to ?? 0}</b> {t('of')} <b>{meta.total ?? 0}</b> {t('entries')}
         </span>
   
         <div className="flex flex-wrap items-center gap-4">
           <div className="flex items-center gap-2">
             <label htmlFor="limit" className="text-sm text-stone-700 dark:text-white whitespace-nowrap">
-              Rows per page
+             {t('rows')}
             </label>
             <select
               id="limit"
@@ -45,7 +47,7 @@ const Pagnition = ({
           </div>
   
           <span className="text-sm text-stone-700 dark:text-stone-400">
-            Page <b>{meta.current_page ?? 0}</b> of <b>{meta.last_page ?? 0}</b>
+            {t('page')} <b>{meta.current_page ?? 0}</b> {t('of')} <b>{meta.last_page ?? 0}</b>
           </span>
   
           <div className="inline-flex">

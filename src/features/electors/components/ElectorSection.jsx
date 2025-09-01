@@ -6,8 +6,10 @@ import NotFound from '@/components/NotFound'
 import Pagnition from '@/components/Pagnition'
 import useElector from '../hooks/useElector'
 import ElectorSkeletonSection from './ElectorSkeletonSection'
+import { useTranslations } from 'next-intl'
 
 const ElectorSection = () => {
+  const t=useTranslations("ElectorPage")
     const {
       searchRef,
       data,
@@ -26,11 +28,11 @@ const ElectorSection = () => {
     }
   return (
 <section  className='pl-10'>
-    <h1 className="text-3xl font-bold">Electors</h1>
+    <h1 className="text-3xl font-bold">{t('Electors')}</h1>
     <section className="w-full   mt-3">
   <div>
 
-     <ElectorInventoryAction searchRef={searchRef} clearSearchInput={clearSearchInput} handleSearchInput={handleSearchInput} searchParams={searchParams} />
+     <ElectorInventoryAction searchRef={searchRef} t={t} clearSearchInput={clearSearchInput} handleSearchInput={handleSearchInput} searchParams={searchParams} />
     {
           isLoading ? <ElectorSkeletonSection/> : <ElectorTable electors={data?.data}/>
     }

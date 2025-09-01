@@ -4,21 +4,51 @@ import {
   AvatarFallback,
   AvatarImage,
 } from "@/components/ui/avatar"
+import useAccountStore from "@/stores/useAccountStore";
+import { useEffect } from "react";
 const DashboardTableSection = ({dashboardData:{
   electors
-}}) => {
+},t}) => {
+  const{VoteFinal}=useAccountStore()
+  useEffect(()=>{
+    if(VoteFinal>0){
+       const genderGroups = electors.reduce((acc, curr) => {
+        acc[curr.gender] = acc[curr.gender] ? [...acc[curr.gender], curr] : [curr];
+        return acc;
+      }, {});
+
+      const findDuplicates = (list) => {
+        const voteMap = list.reduce((acc, curr) => {
+          acc[curr.votes] = acc[curr.votes] ? [...acc[curr.votes], curr] : [curr];
+          return acc;
+        }, {});
+         return Object.values(voteMap)
+        .filter(group => group.length > 1) 
+        .flat()
+        .map(item => item.id);        
+      };
+       const maleDuplicates = findDuplicates(genderGroups["male"] || []);
+      const femaleDuplicates = findDuplicates(genderGroups["female"] || []);
+      const allDuplicateIds = [...maleDuplicates, ...femaleDuplicates];
+    try{
+        
+    }catch(error){
+      console.error(error.message)
+    }
+    }
+  },[VoteFinal])
   return (
 <section className="w-full   mt-20">
     <div >
       <div className="overflow-x-auto">
-      <h1>Vote table  for Male</h1>
+      <h1>{t('VoteTable')}</h1>
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-              <th scope="col" className="px-4 py-3">Elector Name</th>
-              <th scope="col" className="px-4 py-3">Image</th>
-              <th scope="col" className="px-4 py-3">Gender</th>
-              <th scope="col" className="px-4 py-3">Votes</th>
+              <th scope="col" className="px-4 py-3">{t('EleName')}</th>
+              <th scope="col" className="px-4 py-3">{t('Image')}</th>
+              <th scope="col" className="px-4 py-3">{t('Gender')}</th>
+              <th scope="col" className="px-4 py-3">{t('vote')}</th>
             </tr>
           </thead>
           <tbody>
@@ -41,7 +71,11 @@ const DashboardTableSection = ({dashboardData:{
   </tr>
    ))     
                :(
-                <tr>There is no data</tr>
+                <tr>
+                  <td>
+                     There is no data
+                  </td>
+                 </tr>
                )
             }
           </tbody>

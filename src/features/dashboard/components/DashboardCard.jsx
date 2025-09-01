@@ -4,27 +4,27 @@ import DashboardCardSkeleton from './DashboardCardSkeleton';
 
 const DashboardCard = ({dashboardData:{
   user_count,voter_count,token_count
-}}) => {
+},t}) => {
  const modules=[
   {
-    name:"Admin",
+    name:t('admin'),
     data:user_count,
-    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, nesciunt?"
+    description:t('adminDes')
   },
   {
-    name:"Voter",
+    name:t('voter'),
     data:voter_count,
-     description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, nesciunt?"
+     description:t('voterdes')
   },
   {
-    name:"Token",
+    name:t('token'),
     data:token_count,
-    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, nesciunt?"
+    description:t('tokendes')
   },
   {
-    name:"User",
+    name:t('user'),
     data:voter_count,
-     description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, nesciunt?"
+     description:t('userdes')
   }
  ];
   return (

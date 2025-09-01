@@ -5,7 +5,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
-const EventCreateForm = () => {
+const EventCreateForm = ({t}) => {
   const {
     register,
     reset,
@@ -32,7 +32,7 @@ const EventCreateForm = () => {
       <div className="grid  grid-cols-1  gap-y-8  ">
         <div className="space-y-2">
           <label htmlFor="" className="block">
-            Event Name
+           {t('EventName')}
           </label>
           <input
             type="text"
@@ -54,7 +54,7 @@ const EventCreateForm = () => {
 
         <div className="space-y-2 col-start-1">
           <label htmlFor="" className="block">
-            Event partictant
+           {t('Eventpar')}
           </label>
           <input
             type="text"
@@ -75,7 +75,7 @@ const EventCreateForm = () => {
         </div>
         <div className="space-y-2 col-start-1 ">
           <label htmlFor="" className="block">
-            Years
+            {t('Years')}
           </label>
           <input
             type="datetime-local"
@@ -92,7 +92,7 @@ const EventCreateForm = () => {
         </div>
         <div className="col-start-1 col-span-2  w-[100%]">
           <button className="  bg-blue-600 w-full py-2 hover:opacity-90  duration-300  disabled:opacity-75  active:scale-95 text-white  ">
-            {isSubmitting ? "creating..." : "create"}
+            {isSubmitting ? t('creating...') : t('create')}
           </button>
         </div>
       </div>

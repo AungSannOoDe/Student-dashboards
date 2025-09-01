@@ -18,7 +18,6 @@ const ElectorCreatePage = () => {
             </DashboardLayout>
         </Container>
     </DashboardMiddlware>
-
   )
 }
 

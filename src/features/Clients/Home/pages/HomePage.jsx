@@ -31,7 +31,6 @@ const HomePage = () => {
     <IndexSelectionBoys/>
     <IndexAdversit/>
     <IndexSelectionGril/>
-    <IndexReview/>
     <Footer/>
    </HomeLayout>
   )

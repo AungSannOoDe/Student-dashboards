@@ -1,14 +1,18 @@
 
 "use client";
 import React, { useRef, useEffect,useState } from "react";
-import { BookMarked, Crown } from 'lucide-react'
+import { BookMarked, Crown, Languages } from 'lucide-react'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from 'next/link'
 import { motion } from "motion/react"
 import LoginButton from './LoginButton'
+import LanguageSection from "./LanguageSection";
+import { useTranslations } from "next-intl";
+
 const NavBarHeader = () => {
     const headerRef = useRef(null);
+    const  t=useTranslations("Indexnavbar")
     const subMenuAnimate={
         enter:{
           opacity:1,
@@ -40,7 +44,6 @@ const NavBarHeader = () => {
            scrub: true, 
          },
        });
-       // Cleanup
        return () => {
          ScrollTrigger.getAll().forEach(trigger => trigger.kill());
        };
@@ -55,10 +58,10 @@ const NavBarHeader = () => {
         </div>
         <ul className="flex justify-center   gap-4">
           <li>
-            <Link href={`/clients/home`}>Home</Link>
+            <Link href={`/clients/home`}>{t('list1')}</Link>
           </li>
           <li>
-            <Link href={`/clients/guest/gallery`}>Gallery</Link>
+            <Link href={`/clients/guest/gallery`}>{t('list2')}</Link>
           </li>
                <li>
             <Link href={`/dashboard`}>Admin</Link>
@@ -67,10 +70,13 @@ const NavBarHeader = () => {
             <ul className="flex justify-center gap-3">
             <li className='self-center'>
             <Link   href={'/clients/login'} className='underline cursor-pointer pointer-events-auto '>
-            Login</Link>
+           {t('list3')}</Link>
             </li>
             <li>
             <LoginButton/>
+            </li>
+            <li className="self-center">
+             <LanguageSection/>
             </li>
           </ul>
         

@@ -12,19 +12,19 @@ const IndexPosterSection = () => {
     <div ref={outerScrollRef} id="scroll-section-outer">
       <div ref={innerScrollRef} id="scroll-section-inner" className="h-[100vh] w-[600vw] flex justify-center relative font-bold">
         <div className="h-[100vh] w-[100vw] flex justify-center items-center">
-          <p className="text-[500px] text-stone-600 ">2024-</p>
+          <p className="text-[300px] text-stone-600 ">2024-</p>
         </div>
         <div className="h-[100vh] w-[100vw] flex items-center">
-          <p className="text-[500px] text-stone-600">2025</p>
+          <p className="text-[300px] text-stone-600">2025</p>
         </div>
         <div className="h-[100vh] w-[100vw] flex items-center">
-          <p className="text-[300px] text-stone-600 font-padauk">ပညာသင်</p>
+          <p className="text-[200px] text-stone-600 font-padauk">ပညာသင်</p>
         </div>
         <div className="h-[100vh] w-[100vw] flex justify-center items-center">
           <div> 
-            <span className="text-[400px] inline-block text-stone-600 font-padauk">နှစ်ရဲ့ </span> 
+            <span className="text-[300px] inline-block text-stone-600 font-padauk">နှစ်ရဲ့ </span> 
             <span className="text-[100px] bg-blue-600 pb-12 pt-3 rounded-r-full text-white font-padauk">လူငယ်</span> 
-  <span className="text-[100px] font-padauk">မောင်မယ်များ </span>
+  <span className="text-[100px] font-padauk">မောင်မယ်များ</span>
           </div>
         </div>
         <div className="h-[100vh] w-[100vw] flex items-center">

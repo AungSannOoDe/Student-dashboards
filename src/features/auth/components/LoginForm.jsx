@@ -108,12 +108,12 @@ const LoginForm = ({handleLogin, handleSubmit, isSubmitting, register, errors}) 
         </p>
       )}
       <p className="text-sm font-light text-stone-500 dark:text-stone-400">
-        Don't have an account yet?{" "}
+        Go to the {" "}
         <Link
           href="/"
           className="font-medium text-blue-500 hover:underline dark:text-blue-500"
         >
-          Sign up
+          HomePage
         </Link>
       </p>
     </form>

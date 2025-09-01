@@ -37,7 +37,6 @@ const FemaleCard = ({female:{
         <Link href={`/clients/female/${elector_id}`} className="underline text-stone-600">View Details</Link>
       </div>
     </form>
- 
  </div>
   )
 }

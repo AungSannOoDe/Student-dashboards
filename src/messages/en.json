@@ -1,0 +1,91 @@
+{
+    "TabTitle":{
+        "home":"Create next app"
+    },
+    "Indexnavbar":{
+        "list1":"Home",
+        "list2":"Gallery",
+        "list3":"login"
+      },
+      "AdminDashboard":{
+        "dashoard":"Dashboard",
+        "welcome":"Welcome,to mydashboard This is showing information",
+        "admin":"Admin",
+        "token":"token",
+        "user":"User",
+        "voter":"Voter",
+        "adminDes":"The number of admin",
+         "voterdes":"The number of voters ",
+        "tokendes":"The number of tokens",
+        "userdes":"The number of users ",
+        "VoteTable":"Vote Count Table",
+        "EleName":"Elector Name",
+        "Image":"Image",
+        "Gender":"Gender",
+        "vote":"vote"
+      },
+      "Pagination":{
+       "of":"of",
+        "rows":"Rows per page",
+        "showing":"showing",
+        "to":"to",
+        "entries":"entries",
+        "page":"page"
+      },
+      "ProfilePage":{
+         "Accountdetails":"Accountdetails",
+         "Personal":"Personal Information",
+         "Name":"User Name",
+         "Email":"Email",
+         "Role":"Role",
+         "Registered":"Registered at",
+         "password":"change password",
+         "changeName":"change name",
+         "logout":"logout"
+      },
+      "EventPage":{
+        "Events":"Events",
+        "create":"create",
+        "search":"search",
+    "minutes":"minutes",
+    "start":"start",
+    "eventName":"Event Name",
+    "eventStart":"Event Start Time",
+    "eventPar":"Event Participant",
+    "Action":"Action"
+      },
+      "ElectorPage":{
+       "Electors":"Elector",
+       "create":"create",
+       "search":"search"
+      },
+      "EventCeatePage":{
+         "Event":"Event Create Form",
+         "EventName":"Event Name",
+         "Eventpar":" Event partictant",
+          "Years":"Years",
+          "create":"create"
+      },
+      "UserPage":{
+        "search":"search",
+        "users":"users",
+        "UserName":"UserName",
+        "email":"email",
+        "Major":"Major",
+        "Year":"Year",
+        "Roll Name":"Roll Number"
+      },
+      "AdminNavbar":{
+        "dashboard":"Dashboard",
+        "User":"User",
+        "token":"token",
+        "Gallery":"Gallery",
+        "Elector":"Elector",
+        "Volunteers":"Volunteers",
+        "Events":"Events",
+        "General":"General",
+        "Profile":"profile",
+         "Menu":"Menu",
+        "Voting":"Vote kha mal"
+      }
+}

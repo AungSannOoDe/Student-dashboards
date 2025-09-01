@@ -6,21 +6,22 @@ import { ArrowUpFromLine, Key, LogOut, LucideCircleUser, NotebookPen, Plus, Tras
 import Link from 'next/link';
 import React from 'react'
 import UpdateImageSection from './UpdateImageSection';
+import { useTranslations } from 'next-intl';
 
 const ProfileSection = () => {
   const {account:{id,name,email,created_at,image}}=useAccountStore();
-console.log(image);
+ const t=useTranslations("ProfilePage")
   return (
 <section className="pl-10 flex flex-col space-y-10">
   <div className="flex justify-between">
     <div className="">
-    <h2 className="font-bold  text-3xl">Account Details</h2>
+    <h2 className="font-bold  text-3xl">{t('Accountdetails')}</h2>
     </div>
 
     <div className="flex  gap-10">
-      <Link href={"/dashboard/profile/ChangePassword"} className='inline-flex gap-2 border border-stone-300 px-3 py-1 bg-gray-100 text-stone-600'> <Key/> change  Password</Link>
-      <Link href={"/dashboard/profile/ChangeName"} className='inline-flex gap-2 border border-stone-300 px-3 py-1 bg-gray-100 text-stone-600'> <NotebookPen /> change  Name</Link>
-    <LogoutButton><LogOut />Logout</LogoutButton>
+      <Link href={"/dashboard/profile/ChangePassword"} className='inline-flex gap-2 border border-stone-300 px-3 py-1 bg-gray-100 text-stone-600 text-nowrap '> <Key/> {t('password')}</Link>
+      <Link href={"/dashboard/profile/ChangeName"} className='inline-flex gap-2 border border-stone-300 px-3 py-1 bg-gray-100 text-stone-600'> <NotebookPen /> {t('changeName')}</Link>
+    <LogoutButton><LogOut />{t('logout')}</LogoutButton>
       {/* <button className='></button> */}
     </div>
   </div>
@@ -37,24 +38,24 @@ console.log(image);
   <div className="bg-blue-50 p-6 max-w-lg  border border-blue-300 space-y-4.5">
     <div className="flex items-center gap-2">
       <LucideCircleUser className="size-5 text-blue-500  " />
-      <h4 className="font-medium text-lg">Personal Information</h4>
+      <h4 className="font-medium text-lg">{t('Personal')}</h4>
     </div>
     <div className="space-y-5">
       <dl className=" flex  items-center">
         <dt className="text-stone-500 w-[150px] text-sm  dark:text-white">
-          User Name
+          {t('Name')}
         </dt>
         <dd className="text-sm dark:text-stone-400">{name}</dd>
       </dl>
       <dl className=" flex  items-center">
         <dt className="text-stone-500 w-[150px] text-sm dark:text-white">
-          Email Address
+          {t('Email')}
         </dt>
         <dd className="text-sm dark:text-stone-400">{email}</dd>
       </dl>
       <dl className=" flex  items-center">
         <dt className="text-stone-500 w-[150px] text-sm dark:text-white">
-          Role
+         {t('Role')}
         </dt>
         <dd className="text-sm dark:text-stone-400">Admin</dd>
       </dl>
@@ -62,7 +63,7 @@ console.log(image);
   </div>
   <div className="flex item-center gap-1.5">
     <div>
-      <span className="text-xs mb-2">Registered at</span>
+      <span className="text-xs mb-2">{t('Registered')}</span>
       <p className="text-base font-semibold ">
       {
         formattedDate(created_at)

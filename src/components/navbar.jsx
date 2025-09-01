@@ -1,44 +1,41 @@
-import { Camera, Clipboard, LayoutDashboard, Settings, SquareUser, Tag, User, UserPen, Users2 } from 'lucide-react'
+import { Camera, Clipboard, LayoutDashboard, Settings, SquareUser, Tag, Trophy, User, UserPen, Users2 } from 'lucide-react'
 import React from 'react'
 import ModuleButton from './ModuleButton'
+import { useTranslations } from 'next-intl'
 
 const navbar = () => {
+  const t=useTranslations("AdminNavbar")
   const modules=[
     {
-      title:"Menu",
+      title:t('Menu'),
       lists:[
         {
-          name:"Dashboard",
+          name:t('dashboard'),
           icon: <LayoutDashboard className='text-2xl text-stone-600' />,
           url:"/dashboard"
         },
         {
-          name:"User",
+          name:t('User'),
           icon: <Users2 className='text-2xl text-stone-600'/>,
           url:"/dashboard/users"
         },
         {
-          name:"token",
+          name:t('token'),
           icon:<Tag className='text-2xl text-stone-600' />,
           url:"/dashboard/token"
         },
         {
-          name:"Gallery",
+          name:t('Gallery'),
           icon:<Camera className='text-2xl text-stone-600' />,
           url:"/dashboard/gallery"
         },
         {
-          name:"Elector",
+          name:t('Elector'),
           icon:<UserPen className='text-2xl text-stone-600' />,
           url:"/dashboard/elector"
         },
         {
-          name:"Volunteers",
-          icon:<SquareUser className='text-2xl text-stone-600' />,
-          url:"/dashboard/employee"
-        },
-        {
-          name:"Events",
+          name:t('Events'),
           icon:<Clipboard className='text-2xl text-stone-600' />,
           url:"/dashboard/events"
         }
@@ -46,27 +43,22 @@ const navbar = () => {
       ]
     },
     {
-      title:"General",
+      title:t('General'),
       lists:[
         {
-          name:"profile",
+          name:t('Profile'),
         icon:<User className='text-2xl text-stone-600'/>,
         url:"/dashboard/profile"
-        },
-        {
-          name:"settings",
-          icon:<Settings className='text-2xl text-stone-600'/>,
-          url:"/dashboard/settings"
         }
       ]
     }
 
   ]
   return (
-    <div className=" fixed  flex flex-col   w-72  md:w-64 bg-white shadow-md overflow-hidden transition-all h-full z-40">
+    <div className=" fixed  flex flex-col   w-72  h-[100vh] md:w-64 bg-white shadow-md overflow-hidden  overflow-y-scroll  scrollbar-hide transition-all  z-40">
   <div className="flex justify-center  md:justify-normal gap-6 pt-3 items-center px-8 ">
     <div className="">logo</div>
-    <h1 className="font-extrabold text-lg text-nowrap">Vote kha mal</h1>
+    <h1 className="font-extrabold text-lg text-nowrap">{t('Voting')}</h1>
     <button className="md:hidden px-3 py-2 bg-gray-100   w-10 h-10 rounded-full  hover:bg-blue-100"><i className="fa-solid fa-bars " /></button>
   </div>
   <div className=" flex grow mt-1 w-full">

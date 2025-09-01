@@ -9,8 +9,11 @@ import Pagnition from '@/components/Pagnition';
 import useTimer from '../hooks/useTimer';
 import useAccountStore from '@/stores/useAccountStore';
 import { formatTime } from '@/lib/Timer';
+import { useTranslations } from 'next-intl';
 const EventListSection = () => {
-  const{setTimeValue,TimeValue}=useAccountStore()
+  const t=useTranslations("EventPage")
+
+  const{setTimeValue,TimeValue,setVoteFemale,setVoteMale, setVoteFinal}=useAccountStore()
   const { 
     remaining, 
     isActive, 
@@ -20,6 +23,9 @@ const EventListSection = () => {
     fetchTimer
   } = useTimer();
   const handleCustomStart = () => {
+    setVoteFinal()
+    setVoteFemale(1)
+    setVoteMale(1)
     startTimer(customTime);
     setTimeValue(TimeValue);
   };
@@ -39,11 +45,11 @@ const EventListSection = () => {
   return (
     <section className='pl-10'>
       <div className="flex justify-between">
-      <h1 className="text-3xl font-bold">Events</h1> 
+      <h1 className="text-3xl font-bold">{t('Events')}</h1> 
       {
         Loading  ?(<p>loading...</p>) :(
           <div>
-            <p>Enter minutes</p>
+            <p>{t('minutes')}</p>
              <div className="flex items-center space-x-3">
               <input
                 type="number"
@@ -58,7 +64,7 @@ const EventListSection = () => {
                 disabled={isActive}
                 className={`px-4 py-2 rounded transition ${isActive ? 'bg-gray-300 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700 text-white'}`}
               >
-                Start
+                {t('start')}
               </button>
             </div> 
           </div>
@@ -67,9 +73,9 @@ const EventListSection = () => {
       }
       </div>
          <div className="w-full mt-3  space-y-10">
-            <EventAction searchRef={searchRef} clearSearchInput={clearSearchInput} handleSearchInput={handleSearchInput} searchParams={searchParams} />
+            <EventAction t={t} searchRef={searchRef} clearSearchInput={clearSearchInput} handleSearchInput={handleSearchInput} searchParams={searchParams} />
             {
-              isLoading ? <EventSkeletonSection/> :  <EventTable event={data?.data} />
+              isLoading ? <EventSkeletonSection/> :  <EventTable t={t} event={data?.data} />
             }
             {
                <Pagnition

@@ -15,7 +15,7 @@ const useAccountStore = create(
       TimeValue:0,
       VoteFinal:0,
       setPart:(Part)=>set({Part:Part}),
-      setVoteFinal:(VoteFinal) => set({ VoteFinal: VoteFinal }),
+      setVoteFinal:(VoteFinal) => set({ VoteFinal: VoteFinal+1 }),
       setTimeValue:(timeValue) => set({ TimeValue: timeValue+1 }),
       setVoteFemale: (voteFemale) => set({ VoteFemale: voteFemale }),
       setVoteMale: (voteMale) => set({ VoteMale: voteMale }), 

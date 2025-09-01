@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/sheet"
 import UserFilterButton from './UserFilterButton'
 import { Search, SlidersHorizontal, X } from 'lucide-react'
-const UserInventoryAction = ({handleSearchInput,clearSearchInput,searchParams,searchRef}) => {
+const UserInventoryAction = ({handleSearchInput,clearSearchInput,searchParams,searchRef,t}) => {
   return (
 <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
 <div className="relative ">
@@ -15,8 +15,8 @@ const UserInventoryAction = ({handleSearchInput,clearSearchInput,searchParams,se
     </div>
     <input
       type="text"
-      className=" w-96 bg-stone-50 border border-stone-300 text-stone-900 text-sm  focus:ring-pink-500 focus:border-pink-500 block ps-10 p-2.5  dark:bg-stone-700 dark:border-stone-600 dark:placeholder-stone-400 dark:text-white dark:focus:ring-pink-500 dark:focus:border-pink-500"
-      placeholder="Search "
+      className=" w-96 bg-stone-50 border border-stone-300 text-stone-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block ps-10 p-2.5  dark:bg-stone-700 dark:border-stone-600 dark:placeholder-stone-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      placeholder={t('search')}
       onChange={handleSearchInput}
       ref={searchRef}
     />

@@ -3,7 +3,7 @@ import UserRows from './UserRows';
 import Sortable from '@/components/Sortable';
 import UserEmptyRows from './UserEmptyRows';
 
-const UserTable = ({users}) => {
+const UserTable = ({users,t}) => {
   return (
 <div className="overflow-x-auto">
   <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -12,25 +12,25 @@ const UserTable = ({users}) => {
       <th scope="col" className="px-4 py-3">#</th>
         <th scope="col" className="px-4 py-3">
           <Sortable>
-          User  name
+          {t('UserName')}
           </Sortable>
           </th>
         <th scope="col" className="px-4 py-3">
           <Sortable>
-          email
+         {t('email')}
           </Sortable>
          </th>
         <th scope="col" className="px-4 py-3">
           <Sortable>
-          Major
+         {t('Major')}
           </Sortable>
           </th>
         <th scope="col" className="px-4 py-3">
           <Sortable>
-          Year
+          {t('Year')}
           </Sortable>
          </th>
-        <th scope="col" className="px-4 py-3">Roll Name</th>
+        <th scope="col" className="px-4 py-3">{t('Roll Name')}</th>
         <th scope="col" className="px-4 py-3">
           <span className="sr-only">Actions</span>
         </th>
