@@ -19,13 +19,14 @@ const EmployeeSection = () => {
     handlePaginate,
     handleLimit,
     updateUrlParams,
+    mutate,
     searchParams}=useEmployee()
   return (
    <section className='pl-6 flex flex-col space-y-6'>
     <h1 className='font-bold text-4xl'>Volunteers</h1>
 <EmployeeInventorySection  searchRef={searchRef}  clearSearchInput={clearSearchInput} handleSearchInput={handleSearchInput} searchParams={searchParams} />
 {
-  isLoading ? <EmployeeSkeleton/> : <EmployeeTable employee={data?.data}/>
+  isLoading ? <EmployeeSkeleton/> : <EmployeeTable employee={data?.data} mutate={mutate}/>
 }
 {
        <Pagnition

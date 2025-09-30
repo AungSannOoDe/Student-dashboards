@@ -6,10 +6,13 @@ import useAccountStore from '@/stores/useAccountStore'
 import LanguageSection from './LanguageSection';
 
 const Header = () => {
-  const {account:{id,name,email,image}}=useAccountStore();
+  const {account:{id,name,email,image},setCollapsed,isCollpased}=useAccountStore();
+  const handleCLick=()=>{
+      setCollapsed(isCollpased)
+  }
   return (
 <div className="flex justify-between items-center w-full mb-7 ">
-  <div className="px-2 py-2 rounded-full cursor-pointer hover:bg-blue-400 group transition-colors duration-300">
+  <div  onClick={handleCLick} className="px-2 py-2 rounded-full cursor-pointer hover:bg-blue-400 group transition-colors duration-300">
     <AlignJustify className="size-9 text-gray-500 group-hover:text-white transition-colors duration-300" />
   </div>
   <div className="flex justify-center items-center gap-5">

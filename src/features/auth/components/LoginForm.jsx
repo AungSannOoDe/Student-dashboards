@@ -87,12 +87,6 @@ const LoginForm = ({handleLogin, handleSubmit, isSubmitting, register, errors}) 
             </label>
           </div>
         </div>
-        <a
-          href="#"
-          className="text-sm font-medium text-blue-500 hover:underline dark:text-blue-500"
-        >
-          Forgot password?
-        </a>
       </div>
       <button
         type="submit"

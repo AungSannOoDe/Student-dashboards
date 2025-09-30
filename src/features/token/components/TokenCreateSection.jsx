@@ -1,7 +1,9 @@
 "use client";
 import React ,{useState} from 'react'
 import useCreateToken from '../hooks/useCreateToken';
+import { useTranslations } from 'next-intl';
 const TokenCreateSection = () => {
+    const t = useTranslations('TokenCreateSection');
     const{isSubmitting,register,handleSubmit,error,onSubmit}=useCreateToken()
   return (
     <section  className="pl-6">
@@ -10,7 +12,7 @@ const TokenCreateSection = () => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                       <div>
-                        <label className="block mb-2">Token Type</label>
+                        <label className="block mb-2">{t('fields.tokenType')}</label>
                         <select
                           {...register('type')}
                           className="w-full p-2 border rounded"
@@ -26,7 +28,7 @@ const TokenCreateSection = () => {
                         </select>
                       </div>
                       <div>
-                        <label className="block mb-2">Algorithm</label>
+                        <label className="block mb-2">{t('fields.algorithm')}</label>
                         <select
                           {...register('algorithm')}
                           className="w-full p-2 border rounded"
@@ -45,7 +47,7 @@ const TokenCreateSection = () => {
                       disabled={isSubmitting}
                       className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 disabled:bg-gray-400"
                     >
-                      {isSubmitting ? 'Generating...' : 'Generate Token'}
+                      {isSubmitting ? t('buttons.generating') : t('buttons.generate')}
                     </button>
                   </form>
 

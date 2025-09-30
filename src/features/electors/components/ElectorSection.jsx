@@ -34,7 +34,7 @@ const ElectorSection = () => {
 
      <ElectorInventoryAction searchRef={searchRef} t={t} clearSearchInput={clearSearchInput} handleSearchInput={handleSearchInput} searchParams={searchParams} />
     {
-          isLoading ? <ElectorSkeletonSection/> : <ElectorTable electors={data?.data}/>
+          isLoading ? <ElectorSkeletonSection/> : <ElectorTable electors={data?.data} t={t}/>
     }
     {
        <Pagnition

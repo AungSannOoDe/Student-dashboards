@@ -27,9 +27,9 @@ const HomePage = () => {
     <IndexPosterSection/>
     <IndexAdversit/>
     <IndexEvent/>
-    <IndexAdversit/>
+   
     <IndexSelectionBoys/>
-    <IndexAdversit/>
+  
     <IndexSelectionGril/>
     <Footer/>
    </HomeLayout>

@@ -17,9 +17,24 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import Link from 'next/link'
+import { destoryUsers } from '@/services/users'
 const EmployeeRows = ({employee:{
   id,name,email,role
-}}) => {
+},mutate}) => {
+  const handleDelete=async()=>{
+    
+     try{
+        const res=await destoryUsers(id)
+        const json=await res.json()
+        if(!res.ok){
+          throw new Error(`${json.message}`)
+        }
+        toast.success(json.message)
+        mutate();
+     }catch(error){
+      toast.error(error.message)
+     }
+  }
   return (
     <tr className=" odd:bg-gray-100 even:bg-white hover:bg-blue-100 duration-200">
     <th scope="row" className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{id}</th>
@@ -42,7 +57,7 @@ const EmployeeRows = ({employee:{
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction className={`bg-red-500 `}  >Continue</AlertDialogAction>
+          <AlertDialogAction className={`bg-red-500 `} onClick={handleDelete}  >Continue</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

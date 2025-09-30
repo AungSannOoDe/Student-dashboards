@@ -35,7 +35,7 @@ export const formatTime = (seconds) => {
   return "Princess";
  } 
  else{
-  return "Unknown";
+  return "Selection";
  }
  
 }

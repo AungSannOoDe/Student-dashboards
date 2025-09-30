@@ -4,14 +4,14 @@ import useRegister from "../hooks/useRegister";
 
 
 const RegisterSection = () => {
-   const{isSubmitting,errors,onSubmit,register,reset,password,setError,handleSubmit}=useRegister();
+const{isSubmitting,errors,onSubmit,register,reset,password,setError,handleSubmit}=useRegister();
   return (
     <section className="relative h-screen overflow-hidden ">
         <div className="w-[500px] h-[500px] bg-blue-400  rounded-r-full  rounded-b-full  absolute top-0 -translate-y-30 leading-[0] rotate-y-180  right-0"></div>
         <div className="w-[50px] h-[50px] bg-blue-400 rounded-full top-[100px] absolute left-[100px] "></div>
         <div className="flex justify-center items-center h-full   ">
         <div className="w-1/2 z-40">
-            <div className="bg-slate-50 px-6 py-4 rounded-2xl   ">
+            <div className="bg-slate-50 px-6 py-4 rounded-2xl">
                 <h1 className="text-2xl font-bold text-center mb-4"> Student Register</h1>
                 <form className=" p-6 space-y-3" onSubmit={handleSubmit(onSubmit)}>
                     <div className="">

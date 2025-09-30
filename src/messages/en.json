@@ -7,6 +7,56 @@
         "list2":"Gallery",
         "list3":"login"
       },
+         "ElectorTable": {
+          
+        },
+        "ElectorCreateForm": {
+          "fields": {
+            "name": "Elector Name",
+            "phone": "Phone",
+            "gender": "Gender",
+            "genderOptions": {
+              "male": "Male",
+              "female": "Female"
+            },
+            "year": "Years",
+            "address": "Address",
+            "wonStatus": "Won Status",
+            "wonStatusOptions": {
+              "king": "King",
+              "queen": "Queen",
+              "prince": "Prince",
+              "princess": "Princess"
+            },
+            "description": "Description",
+            "selectOption": "Select..",
+            "selectYear": "select year..."
+          },
+          "errors": {
+            "somethingWentWrong": "Something went wrong",
+            "nameRequired": "Name is required",
+            "phoneRequired": "Phone number is required",
+            "phoneMinLength": "Phone number is at least 11",
+            "phoneInvalid": "Please enter a valid Myanmar phone number",
+            "yearRequired": "Year is required",
+            "addressRequired": "Address is required",
+            "addressMinLength": "Address must be at least 3 characters",
+            "wonStatusRequired": "Won status is required",
+            "descriptionRequired": "Description is required"
+          },
+          "confirmation": {
+            "allFieldsCorrect": "Make sure all fields are correct",
+            "backToList": "Back to Elector List after saving"
+          },
+          "buttons": {
+            "creating": "Creating...",
+            "create": "Create"
+          }
+        },
+     
+      "ElectorCreateSection":{
+        "Elector":"Elector Create Form"
+      },
       "AdminDashboard":{
         "dashoard":"Dashboard",
         "welcome":"Welcome,to mydashboard This is showing information",
@@ -20,9 +70,18 @@
         "userdes":"The number of users ",
         "VoteTable":"Vote Count Table",
         "EleName":"Elector Name",
+        "gallery":"Gallery",
         "Image":"Image",
         "Gender":"Gender",
-        "vote":"vote"
+        "vote":"vote",
+        "elector":"elector",
+        "Event":"Event",
+        "ablum":"Gallery",
+        "electordes":"The number of elector"
+      },
+      "EmployeeInventorySection": {
+        "searchPlaceholder": "Search",
+        "createButton": "Create Employee"
       },
       "Pagination":{
        "of":"of",
@@ -54,10 +113,52 @@
     "eventPar":"Event Participant",
     "Action":"Action"
       },
+      "TokenPage":{
+        "searchPlaceholder": "Search",
+        "createButton": "Create Token"
+      },
+      "TokenCreateSection": {
+        "title": "Create Random Token",
+        "fields": {
+          "tokenType": "Token Type",
+          "algorithm": "Algorithm"
+        },
+        "buttons": {
+          "generating": "Generating...",
+          "generate": "Generate Token"
+        }
+      },
+      "TokenEditSection": {
+        "title": "Change Token",
+        "description": "Pick a token name",
+        "fields": {
+          "tokenName": {
+            "label": "Update Your Token",
+            "error": "Token Name is required"
+          }
+        },
+        "confirmation": {
+          "allCorrect": "Make sure field is correct",
+          "backToList": "Back to Customer List after saving"
+        },
+        "buttons": {
+          "cancel": "Cancel",
+          "update": "Update Token"
+        }
+      },
       "ElectorPage":{
        "Electors":"Elector",
        "create":"create",
-       "search":"search"
+       "search":"search",
+        "headers": {
+          "name": "Elector name",
+          "phone": "Phone",
+          "address": "Address",
+          "gender": "Gender",
+          "years": "Years",
+          "wonStatus": "Won status",
+          "actions": "Actions"
+        }
       },
       "EventCeatePage":{
          "Event":"Event Create Form",

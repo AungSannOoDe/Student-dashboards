@@ -104,7 +104,7 @@ const handleDelete=async(id)=>{
         <Link href={`/clients/gallery`}>Gallery</Link>
       </li>
       <li>
-        <Link href={`/clients/votes`}>votes</Link>
+        <Link href={`/clients/votes`}>Votes</Link>
       </li>
       {
           token &&  (

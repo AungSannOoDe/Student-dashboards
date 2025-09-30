@@ -11,6 +11,27 @@ export const fetchVoters=(...args)=>{
         }
     }).then((res)=>res.json());
 }
+export const storeUsers=(data)=>{
+ return  fetch(`${userApiUrl}`,{
+    method:"POST",
+    body:JSON.stringify(data),
+     headers:{
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+         Authorization: `Bearer ${useAccountStore.getState().token}`,
+
+    }
+ })
+}
+export const destoryUsers=(id)=>{
+  return fetch(`${userApiUrl}/${id}`,{
+    method:"DELETE",
+     headers:{
+        "Content-Type":"application/json",
+        Authorization: `Bearer ${useAccountStore.getState().token}`,
+    }
+  })
+}
 export const fetchUsers=(...args)=>{
     return fetch(...args,{
         method:"GET",

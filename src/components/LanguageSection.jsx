@@ -22,7 +22,6 @@ useEffect(()=>{
  }
  else{
   const broswerLocale=navigator.language.slice(0,2)
-  console.log(broswerLocale);
   setLocale(broswerLocale)
   document.cookie=`MYNEXTAPP_LOCALE=${broswerLocale};path=/;`
   router.refresh()

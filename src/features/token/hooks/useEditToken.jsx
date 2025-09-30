@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useParams, useRouter } from "next/navigation";
 import useSWR, { useSWRConfig } from "swr";
 import { toast } from "sonner";
-import { fetchToken, tokenApiUrl, updateToken } from "@/services/token";
+import { AdminTokenApiUrl, fetchToken,  updateToken } from "@/services/token";
 
 const useEditToken = () => {
     const router = useRouter();
@@ -19,7 +19,7 @@ const useEditToken = () => {
     const { mutate } = useSWRConfig();
 
     const { data, isLoading, error } = useSWR(
-      id ? `${tokenApiUrl}/${id}` : null,
+      id ? `${AdminTokenApiUrl}/${id}` : null,
       fetchToken
     );
 

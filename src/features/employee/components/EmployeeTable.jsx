@@ -2,7 +2,7 @@ import React from 'react'
 import EmployeeEmptyRows from './EmployeeEmptyRows'
 import EmployeeRows from './EmployeeRows'
 
-const EmployeeTable = ({employee}) => {
+const EmployeeTable = ({employee,mutate}) => {
   return (
 <div className="overflow-x-auto">
   <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -20,7 +20,7 @@ const EmployeeTable = ({employee}) => {
     <tbody>
       {
         employee.length>0 ? employee.map((item)=>(
-          <EmployeeRows key={item.id} employee={item}/>
+          <EmployeeRows key={item.id} employee={item} mutate={mutate}/>
         )):<EmployeeEmptyRows/>
       }
         

@@ -1,6 +1,7 @@
 import React from 'react'
 import EventRows from './EventRows'
 import TokenEmptyRows from './EventEmptyRows'
+import EventEmptyRows from './EventEmptyRows'
 
 const EventTable = ({event,t}) => {
   return (
@@ -19,7 +20,7 @@ const EventTable = ({event,t}) => {
       </thead>
       <tbody>
         {
-          event?.length==0 ?<TokenEmptyRows/>: (
+          event?.length==0 ?<EventEmptyRows/>: (
             event.map(event=>(
                 <EventRows event={event} key={event.id}/>
                 ))

@@ -7,8 +7,10 @@ import TokenSkeletonSection from './TokenSkeletonSection';
 import TokenTable from './TokenTable';
 import TokenPagnition from './TokenPagnition';
 import Pagnition from '@/components/Pagnition';
+import { useTranslations } from 'next-intl';
 
 const TokenSection = () => {
+  const t = useTranslations('TokenPage');
    const {
     searchRef,
     data,
@@ -26,9 +28,9 @@ const TokenSection = () => {
     <section className='pl-10 '>
        <h1 className="text-3xl font-bold">Tokens</h1>
        <div className="w-full   mt-3  space-y-10">
-       <TokenInventoryAction searchRef={searchRef} clearSearchInput={clearSearchInput} handleSearchInput={handleSearchInput} searchParams={searchParams} />
+       <TokenInventoryAction t={t} searchRef={searchRef} clearSearchInput={clearSearchInput} handleSearchInput={handleSearchInput} searchParams={searchParams} />
        {
-          isLoading ? <TokenSkeletonSection/> :  <TokenTable token={data?.data} mutate={mutate} />
+          isLoading ? <TokenSkeletonSection/> :  <TokenTable data={data?.data} mutate={mutate} />
         }
         {
            <Pagnition

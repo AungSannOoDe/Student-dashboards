@@ -60,10 +60,13 @@ const SuccessListSection = () => {
                         <div className="border-[15px] border-solid border-amber-300 inline-block absolute top-[10px] border-r-transparent"></div>
                     </div>
                 </div>
-                <img
-                    src={`../image-not-found.png`}
-                className="object-cover w-[100%] h-[200px]"
-                />
+                {
+                  title?.image_1_url==null ? (
+                    <img src={`../image-not-found.png`} alt="" className="object-cover w-[100%] h-[200px]" />
+                  ) : (
+                   <img src={title?.image_1_url} alt="" className="object-cover w-[100%] h-[200px] " />
+                  )
+                }
                 {
                     title.elector_name
                 }

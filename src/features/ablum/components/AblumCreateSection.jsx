@@ -2,11 +2,12 @@
 import React, { useState } from 'react'
 import AblumCreateForm from './AblumCreateForm'
 import useSWR from 'swr'
-import { electorUrl, fetchElectors } from '@/services/electors'
+import { electorApiUrl, electorNameUrl, electorUrl, fetchElectors } from '@/services/electors'
 
 const AblumCreateSection = () => {
   const [selectedElector, setSelectedElector] = useState(null)
-  const { data, isLoading, error } = useSWR(`${electorUrl}`, fetchElectors)
+  const { data, isLoading, error } = useSWR(`${electorNameUrl}`, fetchElectors)
+ 
 
   const handleSelectChange = (e) => {
     setSelectedElector(e.target.value || null)

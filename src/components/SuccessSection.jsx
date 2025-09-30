@@ -10,7 +10,7 @@ import { getTitle } from '@/lib/Timer';
 const SuccessSection = () => {
     const [close, setIsClose] = useState(false);
     const [isAnimating, setIsAnimating] = useState(false);
-    const { VoteFinal, setVoteFinal } = useAccountStore();
+    const { SlideShow, setSlideShow } = useAccountStore();
     const sectionRef = useRef(null);
     const crownsRef = useRef([]);
     const imagesRef = useRef([]);
@@ -22,7 +22,7 @@ const SuccessSection = () => {
             duration: 0.3,
             onComplete: () => setIsClose(true)
         })
-        setVoteFinal(0)
+      setSlideShow(0)
     }
     const addToCrownsRef = (el) => {
         if (el && !crownsRef.current.includes(el)) {
@@ -36,14 +36,13 @@ const SuccessSection = () => {
         }
     }
     useEffect(() => {
-      if (close || VoteFinal == 0 || isLoading) return;
+      if (close || SlideShow == 0 || isLoading) return;
       
       setIsAnimating(true);
       gsap.set([sectionRef.current, ...crownsRef.current, ...imagesRef.current], {
         opacity: 0,
         y: 20
       });
-  
       const tl = gsap.timeline();
       
       tl.to(sectionRef.current, {
@@ -70,11 +69,11 @@ const SuccessSection = () => {
       return () => {
         tl.kill();
       };
-    }, [close, VoteFinal, isLoading]);
+    }, [close,SlideShow, isLoading]);
   
     if (close) return null
 
-    if( VoteFinal==0 ){
+    if( SlideShow==0 ){
        return  <></>
     }
   

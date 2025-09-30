@@ -11,11 +11,13 @@ const MaleCard = ({male:{id:elector_id,
 }}) => {
   const{handleSubmit,onSubmit,register,ref
   }=useCreateTemp();
-  const{VoteMale}=useAccountStore()
-  console.log(elector_id);
+  const{VoteMale,VoteFinal}=useAccountStore()
+  console.log(
+  VoteMale,VoteFinal
+  );
    
   return (
-    <div className="  w-full ">
+    <div className="  w-full  ">
       <form  onSubmit={handleSubmit(onSubmit)}>
         <input type="hidden"defaultValue={ref.current} {...register("voter_id")} />
       <input type="hidden" defaultValue={elector_id} {...register("elector_id")} />
@@ -23,13 +25,13 @@ const MaleCard = ({male:{id:elector_id,
         image_1_url==null ? (
           <img src={`../image-not-found.png`} alt="" className="object-cover w-[100%] h-[280px]" />
         ) : (
-         <img src={image_1_url} alt="" className="object-cover w-[100%] " />
+         <img src={image_1_url} alt="" className="object-cover w-[100%] h-[280px] " />
         )
       }
         <div className="flex justify-between  mt-2">
           <p className='text-md  font-bold '>{elector_name}</p>
 {
-  VoteMale=="1"  ?(
+  VoteMale=="1" || VoteFinal=="1" ?(
     " "
   ):(
     <button className="outline-1 px-3 py-1 self-center bg-stone-50 outline-stone-600"><BookMarked /></button>

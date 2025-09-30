@@ -23,9 +23,7 @@ const EventListSection = () => {
     fetchTimer
   } = useTimer();
   const handleCustomStart = () => {
-    setVoteFinal()
-    setVoteFemale(1)
-    setVoteMale(1)
+    setVoteFinal(1)
     startTimer(customTime);
     setTimeValue(TimeValue);
   };

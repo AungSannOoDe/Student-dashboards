@@ -14,7 +14,7 @@ const HistorySection = () => {
   const router = useRouter();
   const [fetchUrl, setFetchUrl] = useState(historyApiUrl);
   const currentYear = searchParams.get('year') || "All";
-  const years = ["All", "2021", "2022", "2023", "2024"];
+  const years = ["All","2020", "2021", "2022", "2023", "2024"];
   const updateUrlParams = (newParams) => {
     const updatedSearch = new URLSearchParams(newParams).toString();
     router.push(`?${updatedSearch}`);
@@ -28,7 +28,7 @@ const HistorySection = () => {
   }, [searchParams]);
 
   const {data, isLoading, error} = useSWR(fetchUrl, fetchHistory);
-
+  console.log(data);
   const handleYearChange = (year) => {
     if (year === "All") {
       // Remove year filter if "All" is selected
@@ -72,8 +72,8 @@ const HistorySection = () => {
           ) : data && data.data && data.data.length > 0 ? (
             data.data.map((item, index) => (
               <div className="w-full" key={index}>
-                {item.image_url_1 ? (
-                  <img src={item.image_url_1} alt="" className="object-cover w-full h-48" />
+                {item.image_1_url ? (
+                  <img src={item.image_1_url} alt="" className="object-cover w-full h-48" />
                 ) : (
                   <img src={"../image-not-found.png"} alt="" className="object-cover w-full h-48" />
                 )}

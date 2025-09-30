@@ -34,7 +34,7 @@ const useEmployee = () => {
     }
   }, [searchParams]);
 
-  const { data, isLoading, error } = useSWR(fetchUrl,fetchUsers);
+  const { data, isLoading, error,mutate } = useSWR(fetchUrl,fetchUsers);
 
   const handleSearchInput = debounce((e) => {
     const q = e.target.value;
@@ -88,8 +88,8 @@ const useEmployee = () => {
     handlePaginate,
     handleLimit,
     updateUrlParams,
-    searchParams
-
+    searchParams,
+    mutate
   }
 }
 

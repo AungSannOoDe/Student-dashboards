@@ -27,11 +27,10 @@ const IndexPage = () => {
     <IndexPosterSection/>
     <IndexAdversit/>
     <IndexEvent/>
-    <IndexAdversit/>
+
     <IndexSelectionBoys/>
-    <IndexAdversit/>
+  
     <IndexSelectionGril/>
-   
     <Footer/>
     </>
   )

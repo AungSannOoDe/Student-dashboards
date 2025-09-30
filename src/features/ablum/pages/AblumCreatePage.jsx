@@ -13,7 +13,7 @@ const AblumCreatePage = () => {
     <Navbar/>
         <DashboardLayout>
        <Header/>
-       <BreadCrumb currentPage='Ablum Create' links={[{title:"elector",path:"/dashboard/elector"},{title:"Ablum",path:"/dashboard/elector/100"}]}/>
+       <BreadCrumb currentPage='Ablum Create' links={[{title:"elector",path:"/dashboard/elector"}]}/>
        <AblumCreateSection/>
         </DashboardLayout>
    </Container>

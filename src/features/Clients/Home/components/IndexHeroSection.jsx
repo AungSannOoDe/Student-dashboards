@@ -90,7 +90,7 @@ const IndexHeroSection = () => {
               data-role="words"
               ref={el => wordsRef.current[1] = el}
             >
-              To Ours 
+              To Our
             </span>
             <span 
               className="text-blue-500 opacity-80 words" 

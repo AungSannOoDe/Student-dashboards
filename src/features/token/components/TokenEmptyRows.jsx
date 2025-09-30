@@ -5,12 +5,12 @@ const TokenEmptyRows = () => {
   return (
     <tr className="odd:bg-white odd:dark:bg-gray-200 even:bg-stone-50 even:dark:bg-stone-800 border-b dark:border-stone-700 ">
     <td colSpan={7} className="px-6 py-4 text-center">
-      There is no Employee .{" "}
+      There is no Token .{" "}
       <Link
         href="/dashboard/user/create"
         className=" text-blue-500 underline"
       >
-        create Employee
+        create Token
       </Link>
     </td>
   </tr>

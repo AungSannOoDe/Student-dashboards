@@ -58,10 +58,10 @@ const NavBarHeader = () => {
         </div>
         <ul className="flex justify-center   gap-4">
           <li>
-            <Link href={`/clients/home`}>{t('list1')}</Link>
+            <Link href={`/clients/home`}>Home</Link>
           </li>
           <li>
-            <Link href={`/clients/guest/gallery`}>{t('list2')}</Link>
+            <Link href={`/clients/guest/gallery`}>Gallery</Link>
           </li>
                <li>
             <Link href={`/dashboard`}>Admin</Link>
@@ -70,13 +70,10 @@ const NavBarHeader = () => {
             <ul className="flex justify-center gap-3">
             <li className='self-center'>
             <Link   href={'/clients/login'} className='underline cursor-pointer pointer-events-auto '>
-           {t('list3')}</Link>
+          Login</Link>
             </li>
             <li>
             <LoginButton/>
-            </li>
-            <li className="self-center">
-             <LanguageSection/>
             </li>
           </ul>
         

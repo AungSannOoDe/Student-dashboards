@@ -7,6 +7,88 @@
         "list2":"ဓာတ်ပုံများ",
         "list3":"အကောင့်လုပ်ရန်"
     },
+    "ElectorCreateSection":{
+      "Elector":"မဲဆန္ဒရှင်ဖန်တီးရန်ဖောင်"
+    },
+     "ElectorTable": {
+     
+    },
+     "ElectorCreateForm": {
+      "fields": {
+        "name": "မဲဆန္ဒနာ့အမည်",
+        "phone": "ဖုန်းနံပါတ်",
+        "gender": "လိင်",
+        "genderOptions": {
+          "male": "ကျား",
+          "female": "မ"
+        },
+        "year": "နှစ်",
+        "address": "လိပ်စာ",
+        "wonStatus": "အနိုင်ရ status",
+        "wonStatusOptions": {
+          "king": "ဘုရင်",
+          "queen": "မိဖုရား",
+          "prince": "မင်းသား",
+          "princess": "မင်းသမီး"
+        },
+        "description": "ဖော်ပြချက်",
+        "selectOption": "ရွေးချယ်ပါ..",
+        "selectYear": "နှစ်ရွေးချယ်ပါ..."
+      },
+      "errors": {
+        "somethingWentWrong": "တစ်ခုခုမှားယွင်းနေပါသည်",
+        "nameRequired": "အမည်ထည့်သွင်းရန်လိုအပ်ပါသည်",
+        "phoneRequired": "ဖုန်းနံပါတ်ထည့်သွင်းရန်လိုအပ်ပါသည်",
+        "phoneMinLength": "ဖုန်းနံပါတ်သည်အနည်းဆုံး ၁၁ လုံးရှိရမည်",
+        "phoneInvalid": "မြန်မာနိုင်ငံဖုန်းနံပါတ်တစ်ခုထည့်သွင်းပါ",
+        "yearRequired": "နှစ်ထည့်သွင်းရန်လိုအပ်ပါသည်",
+        "addressRequired": "လိပ်စာထည့်သွင်းရန်လိုအပ်ပါသည်",
+        "addressMinLength": "လိပ်စာသည်အနည်းဆုံး ၃ လုံးရှိရမည်",
+        "wonStatusRequired": "အနိုင်ရ status ထည့်သွင်းရန်လိုအပ်ပါသည်",
+        "descriptionRequired": "ဖော်ပြချက်ထည့်သွင်းရန်လိုအပ်ပါသည်"
+      },
+      "confirmation": {
+        "allFieldsCorrect": "အကုန်လုံးမှန်ကန်ကြောင်းသေချာပါစေ",
+        "backToList": "သိမ်းဆည်းပြီးနောက်မဲဆန္ဒနာစာရင်းသို့ပြန်သွားရန်"
+      },
+      "buttons": {
+        "creating": "ဖန်တီးနေသည်...",
+        "create": "ဖန်တီးမည်"
+      }
+    },
+     "TokenPage":{
+       "searchPlaceholder": "ရှာဖွေရန်",
+      "createButton": "Token ဖန်တီးရန်"
+    },
+    "TokenCreateSection": {
+      "title": "ကျပန်း Token ဖန်တီးရန်",
+      "fields": {
+        "tokenType": "Token အမျိုးအစား",
+        "algorithm": "Algorithm"
+      },
+      "buttons": {
+        "generating": "ဖန်တီးနေသည်...",
+        "generate": "Token ဖန်တီးမည်"
+      }
+    },
+    "TokenEditSection": {
+      "title": "Token ပြောင်းလဲရန်",
+      "description": "Token အမည်ရွေးချယ်ပါ",
+      "fields": {
+        "tokenName": {
+          "label": "သင့် Token ကိုအသစ်ပြန်လည်သတ်မှတ်ရန်",
+          "error": "Token အမည်ထည့်သွင်းရန်လိုအပ်ပါသည်"
+        }
+      },
+      "confirmation": {
+        "allCorrect": "အကွက်အားလုံးမှန်ကန်ကြောင်းသေချာပါစေ",
+        "backToList": "သိမ်းဆည်းပြီးနောက်ဝယ်ယူသူစာရင်းသို့ပြန်သွားရန်"
+      },
+      "buttons": {
+        "cancel": "မလုပ်တော့ပါ",
+        "update": "Token ပြင်ဆင်မည်"
+      }
+    },
     "EventCeatePage": {
         "Event": "ပွဲဖန်တီးရန် ဖောင်",
         "EventName": "ပွဲအမည်",
@@ -20,7 +102,7 @@
         "admin":"အက်မင်",
         "user":"အသုံးပြုသူ",
         "voter":"မဲပေးသူ",
-        "token":"တော့ကမ်",
+        "token":"တိုကင်",
         "adminDes":"အက်မင်ရဲ့အရေအတွက်ဖစ်ပါတယ်",
         "voterdes":"မဲပေးသူအရေအတွက်ဖစ်ပါတယ်",
         "tokendes":"တော့ကမ်အရေအတွက်ဖစ်ပါတယ်",
@@ -29,7 +111,16 @@
         "EleName":"မဲဆန္ဒရှင်အမည်",
         "Image":"ဓာတ်ပုံ",
         "Gender":"လိင်",
-        "vote":"မဲရေတွက်"
+        "vote":"မဲရေတွက်",
+      "elector": "မဲဆန္ဒရှင်",
+      "ablum":"ဓာတ်ပုံများ",
+      "gallery":"ကျောင်းတွင်းလှုပ်ရှားမှုများ",
+      "Event":"ပွဲအစီအစဉ်",
+      "electordes": "မဲဆန္ဒရှင် အရေအတွက်"
+    },
+    "EmployeeInventorySection": {
+      "searchPlaceholder": "ရှာဖွေရန်",
+      "createButton": "ဝန်ထမ်းဖန်တီးရန်"
     },
     "AdminNavbar":{
         "dashboard":"ဒတ်ရှ်ဘုတ်",
@@ -42,7 +133,7 @@
         "General":"အထွေထွေ",
         "Profile":"ကိုယ်ရေးအကျဉ်;",
         "Menu":"မီနူး",
-        "Voting":"ဘုတ်ကြမယ်"
+        "Voting":"Voteကြမယ်"
       },
     "Pagination":{
        "of":"၏",
@@ -77,7 +168,16 @@
     "ElectorPage": {
       "Electors": "မဲဆန္ဒရှင်",
       "create": "ဖန်တီးမည်",
-      "search": "ရှာဖွေမည်"
+      "search": "ရှာဖွေမည်",
+       "headers": {
+        "name": "မဲဆန္ဒနာ့အမည်",
+        "phone": "ဖုန်းနံပါတ်",
+        "address": "လိပ်စာ",
+        "gender": "လိင်",
+        "years": "နှစ်",
+        "wonStatus": "အနိုင်ရ status",
+        "actions": "လုပ်ဆောင်ချက်များ"
+      }
     },
      "UserPage":{
         "search":"ရှာရန်",

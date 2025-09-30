@@ -15,11 +15,18 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { fetchtemp, tempoApiUrl } from "@/services/tempo";
+import useSWR, { useSWRConfig } from "swr";
 gsap.registerPlugin(ScrollTrigger);
 const ClientHeader = () => {
   const[hover,setIsHover]=useState(false)
   const headerRef = useRef(null);
   const{account,token,logout,setVoteMale,setVoteFemale}=useAccountStore()
+  const{mutate}=useSWRConfig()
+  const{data,isLoading,error}=useSWR(`${tempoApiUrl}/${account.id}`,fetchtemp,{
+    revalidateOnFocus: true,
+    refreshWhenHidden: true,
+  })
   const handletoggle=()=>{
     setIsHover(!hover)
   }
@@ -108,50 +115,59 @@ const ClientHeader = () => {
           {
           token ? ( 
           <ul className="flex justify-center gap-3">
-            <li className="self-center -mt-1">
-              <Link href={`clients/success`}>
-              <Crown  className="text-amber-400" />
-              </Link>
+             <li className="self-center -mt-1">
+             <Link href={`/clients/success`}>
+            <Crown  className="text-amber-400" />
+            </Link>
             </li>
-             <motion.li onHoverStart={handletoggle} onHoverEnd={handletoggle} className=" self-center -translate-y-1
+             <motion.li onHoverStart={() => {
+              handletoggle()}} onHoverEnd={handletoggle} className="group/link translate-y-2 
              ">
-               <BookMarked className="size-7 group/link" />
+              <div  onClick={(e) => e.stopPropagation()} className="  relative">
+                 <Link href={`/clients/tempo`}>
+                 <BookMarked className="size-7 " />
+                 </Link>
+              </div>
+               <motion.div 
+                initial="exist"
+                animate={hover ? "enter":"exist"}
+                variants={subMenuAnimate}
+               className="absolute w-[400px]   cursor-pointer right-1 translate-x-20 backdrop-blur-sm bg-white rounded-sm origin-[50%,-170px] space-y-4
+                 top-[3.2rem] p-[15px] ">
+                 {isLoading ? (
+                  <div className="text-center py-2">Loading...</div>
+                ) : error ? (
+                  <div className="text-center py-2 text-red-500">Error loading data</div>
+                ) : data?.data?.length > 0 ? (
+                  data.data.map((temp) => (
+                    <div key={temp.id} className="hover:bg-gray-50 p-2 rounded">
+                      <div className="text-sm flex gap-3 justify-between">
+                        <p className="self-center">{temp.id}</p>
+                        <div className="w-8 h-8 self-top rounded-full bg-amber-100"></div>
+                        <p className="text-nowrap self-center text-xs">{temp.elector?.elector_name || 'Unknown'}</p>
+                        <p className="self-center text-xs">{temp.elector?.gender}</p>
+                     <button  onClick={() => handleDelete(temp.id)}><X className="size-5 text-red-500  cursor-pointer "/></button>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <p className="text-center py-2">No data available</p>
+                )}
+               </motion.div>
              </motion.li>
-             <motion.div 
-              initial="exist"
-              animate={hover ? "enter":"exist"}
-              variants={subMenuAnimate}
-             className="absolute w-1/5 right-10  backdrop-blur-sm bg-white rounded-sm origin-[50%,-170px] space-y-4
-               top-[6.2rem] p-[15px] ">
-                <div className="text-center text-sm">
-                  <p >Cart</p>
-                </div>
-               <div className="text-xs flex items-center justify-between ">
-                 <p>7</p>
-                 <div className="w-7 h-7 rounded-full bg-amber-100"></div>
-                <p>Aung Sann Oo</p>
-                <p>Male</p>
-               </div>
-               <div className="text-xs flex items-center justify-between ">
-                 <p>7</p>
-                 <div className="w-7 h-7 rounded-full bg-amber-100"></div>
-                <p>Aung Sann Oo</p>
-                <p>Male</p>
-               </div>
-             </motion.div>
              <li className='w-13 h-13  rounded-ful'>
              <DropdownMenu>
              {
-                  account.profile_image===null ? (
+                    account.profile_image===null ? (
                     <DropdownMenuTrigger   className="-mt-1"><img src={`/images/user.png`} alt=""  className="object-cover w-[100%] " /></DropdownMenuTrigger>
                     ) :(
-                    <img src={`/images/user.png`} alt="" className="object-cover w-[100%] " />
+                      <DropdownMenuTrigger   className="-mt-1"><img src={`/images/user.png`} alt=""  className="object-cover w-[100%] " /></DropdownMenuTrigger>
                   )
                 }
                 <DropdownMenuContent>
                   <DropdownMenuLabel className={`flex flex-col space-y-4`}>
-                    <p className='text-lg'>Aung Sann Oo</p>
-                    <p className='text-xs'>aungsannoo962@gmail.com</p>
+                    <p className='text-lg'>{account.voter_name}</p>
+                    <p className='text-xs'>{account.voter_email}</p>
                     <button  className=' bg-blue-500 text-white px-3 py-1 rounded-md' onClick={handlelogout}>logout</button>
                     </DropdownMenuLabel>
                 </DropdownMenuContent>
