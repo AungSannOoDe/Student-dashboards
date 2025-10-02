@@ -79,7 +79,7 @@ const navbar = () => {
     <div className={`fixed  flex flex-col   ${!isCollpased ? "w-64 ": "w-30" }   transition-all duration-1000   h-[100vh]  bg-white shadow-md overflow-hidden  overflow-y-scroll  scrollbar-hide transition-all  z-40`}>
   <div className="flex justify-center  md:justify-normal gap-6 pt-3 items-center px-8 ">
     <div className="">logo</div>
-    <h1 className={`font-extrabold text-lg text-nowrap transition-all  duration-1000  ${!isCollpased ?"block":"hidden"} `}>{t('Voting')}</h1>
+    <h1 className={`font-extrabold text-lg text-nowrap transition-all  duration-1500  ${!isCollpased ?"block":"hidden"} `}>{t('Voting')}</h1>
   </div>
   <div className=" flex grow mt-1 w-full w-3">
     <div className="w-full flex flex-col space-y-12 ">
@@ -87,7 +87,7 @@ const navbar = () => {
         modules.map((module)=>(
           <div className="w-full flex  flex-col space-y-1"  key={module.title}>
              <div className="flex ml-9 ">
-              <h1 className={`text-sm font-bold text-gray-500  transition-all  duration-1000  ${!isCollpased ?"block":"hidden"}`}>{module.title}</h1>
+              <h1 className={`text-sm font-bold text-gray-500  transition-all  duration-1500  ${!isCollpased ?"block":"hidden"}`}>{module.title}</h1>
               </div>
              {
               module.lists.map(({name,icon,url,count,isCollpased},i)=>(

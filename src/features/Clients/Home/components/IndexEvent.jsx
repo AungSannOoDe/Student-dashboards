@@ -11,7 +11,7 @@ const IndexEvent = () => {
   }
   return (
 <section className="mt-6">
-    <h1 className="text-center font-bold  underline  text-stone-600  text-4xl  mb-6">Events</h1>
+    <h1 className="text-center font-bold  underline  text-stone-600  font-bold text-4xl  mb-6">ပွဲအစီအစဉ်များ</h1>
     <section className=" relative   max-w-7xl mx-auto  after:content-['']  after:absolute after:w-[6px] after:h-[100%] after:top-0 after:bg-black  after:left-[50%] after:-ml-3px after:z-1 animate-moveline">
       {
         data?.data.map((event,index)=>(
@@ -30,6 +30,7 @@ const IndexEvent = () => {
       }
       
     </section>
+   
   </section>
   )
 }

@@ -1,48 +1,63 @@
-"use client"
-import React,{useEffect,useRef} from 'react'
-import gsap from 'gsap'
-import { SplitText } from 'gsap/SplitText';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import TextType from '@/components/TextType';
-import { TextPlugin } from "gsap/TextPlugin";
+"use client";
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 const IndexAdversit = () => {
-  gsap.registerPlugin(SplitText, ScrollTrigger,TextPlugin);
-  const cardhref=useRef(null);
-  const childRef=useRef(null);
-  useEffect(()=>{
-    gsap.set(childRef.current,{
-      scale:0.5,
-      opacity:0
-    })
-    const tl = gsap.timeline({
+  const sectionRef = useRef(null);
+  const gradientTextRef = useRef(null);
+
+  useEffect(() => {
+    // Fade-in when scrolling into view
+    gsap.fromTo(
+      sectionRef.current,
+      { autoAlpha: 0, y: 50 },
+      {
+        autoAlpha: 1,
+        y: 0,
+        duration: 3,
+        ease: "power3.out",
         scrollTrigger: {
-            trigger: cardhref.current,
-            start: "top 80%",
-            toggleActions: "play none none none"
-        }
+          trigger: sectionRef.current,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    gsap.to(gradientTextRef.current, {
+      backgroundPosition: "200% center", // move gradient
+      duration: 5,
+      ease: "linear",
+      repeat: -1,
     });
-    
-    tl.to(childRef.current, {
-        scale: 1,
-        opacity: 1,
-        duration: 0.8,
-        ease: "power2.out",
-        stagger: 0.2
-    });
-  },[])
+  }, []);
 
   return (
-<section className="max-w-7xl mt-10  mx-auto  mb-10 " ref={cardhref}>
-    <div className="flex justify-center space-x-20 " ref={childRef}> 
-      <div className="w-50 text-wrap self-center">
-        <h2 className="text-3xl font-bold leading-14"> <span className="underline"> 27.6.2025 </span> မဲထည့်ကြဖို့မမေ့နဲ့နော်😉</h2>
+    <section
+      ref={sectionRef}
+      className="max-w-7xl mt-10 mx-auto mb-10 flex justify-center font-montserrat opacity-0"
+    >
+      <div className="font-bold leading-30 text-center">
+        <p className="text-7xl font-extrabold text-stone-600">
+          အကိုတို့ကျောင်းမှာဂျုးဂျုးတို့က
+        </p>
+        <p
+          ref={gradientTextRef}
+          className="text-5xl font-montserrat mt-10 text-center font-extrabold 
+          bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 
+          bg-[length:200%_200%] bg-clip-text text-transparent py-4"
+        >
+          5နှစ် သင်တန်းတက်ရမယ်နော်
+        </p>
+        <div className="relative bottom-7 ">
+          <p className="tracking-widest underline">ဘာတွေသင်လဲဆိုတာဒီမှာဖတ်လို့ရတယ်နော်</p>
+        </div>
       </div>
-      <div>
-        <img src="/images/woman-8182795_1280.jpg" width="500px" className="object-cover"  />
-      </div>    
-    </div>
-  </section>
-  )
-}
+    </section>
+  );
+};
 
-export default IndexAdversit
+export default IndexAdversit;

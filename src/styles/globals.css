@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Padauk:wght@400;700&display=swap');
 @import "tailwindcss";
 @plugin "flowbite-react/plugin/tailwindcss";
 @source "../../.flowbite-react/class-list.json";
@@ -8,6 +9,58 @@
 @custom-variant dark (&:is(.dark *));
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+/* styles/globals.css */
+.home-animate__wrapper {
+  position: relative;
+  background: #000;
+  color: white;
+}
+body {
+  font-family: 'Padauk', sans-serif;
+}
+/* Better line height for Myanmar text */
+.char {
+  display: inline-block;
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+.text-block {
+  display: inline-block;
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+.animated-text {
+  display: inline-block;
+  transform-origin: center;
+}
+
+.animated-icon {
+  transform-origin: center;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4f46e5;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6366f1;
 }
 .scrollbar-hide {
   -ms-overflow-style: none; /* IE + Edge */

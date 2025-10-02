@@ -111,7 +111,7 @@ const IndexSelectionGirl = () => {
   return (
     <section className="mt-32 flex flex-col -space-y-30" id="hello">
       <h1 className="text-5xl text-center underline text-stone-600 opacity-65 font-bold">
-        Selection for Girls
+        မိန်းကလေး selection များ
       </h1>
       <section className="slider-container w-full flex items-center justify-center p-4" ref={sliderContainerRef}>
         <div className="track-images flex items-center gap-3 sm:gap-5 overflow-x-auto py-10 w-full justify-center">

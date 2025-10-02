@@ -15,6 +15,8 @@ import TimeComponent from '../components/TimeComponent'
 import SuccessSection from '@/components/SuccessSection'
 import NavBarHeader from '@/components/NavBarHeader'
 import ScrollAnimationSection from '../components/ScrollAnimationSection'
+import NotiForLate from '../components/NotiForLate'
+import HistoryGallerySection from '../components/HistoryGallerySection'
 
 const IndexPage = () => {
   return (
@@ -24,12 +26,14 @@ const IndexPage = () => {
     <IntroSection/>
     <IndexHeroSection/>
     <IndexWelcome/>
-    <IndexPosterSection/>
+    <div className="relative">
+      <IndexPosterSection/>
+    </div>
     <IndexAdversit/>
     <IndexEvent/>
-
+     <NotiForLate/>
+     <HistoryGallerySection/>
     <IndexSelectionBoys/>
-  
     <IndexSelectionGril/>
     <Footer/>
     </>
