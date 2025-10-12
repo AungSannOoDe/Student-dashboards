@@ -6,11 +6,14 @@ import { useRouter } from "next/navigation";
 
 const LogoutButton = ({ children, className, ...props }) => {
 const router = useRouter();
-  const { logout,setPart } = useAccountStore();
+  const { logout,setPart,SpecifyId,setSpecifyId } = useAccountStore();
   const handleLogout = () => {
     logout();
+    setSpecifyId({});
     router.push("/");
     setPart(0);
+    localStorage.removeItem("userToken");
+    sessionStorage.clear();
   };
   return (
  <button

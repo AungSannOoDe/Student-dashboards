@@ -7,7 +7,7 @@ const TokenCreateSection = () => {
     const{isSubmitting,register,handleSubmit,error,onSubmit}=useCreateToken()
   return (
     <section  className="pl-6">
-        <h1 className="font-bold text-3xl">Create Random Token</h1>
+        <h1 className="font-bold text-3xl">{t('title')}</h1>
         <div className="">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">

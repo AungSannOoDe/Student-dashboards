@@ -1,5 +1,5 @@
 "use client";
-import { Camera, Clipboard, Image, LayoutDashboard, Settings, SquareUser, Tag, Trophy, User, UserPen, Users2 } from 'lucide-react'
+import { BookCheck, Camera, Clipboard, Image, LayoutDashboard, Settings, SquareUser, Tag, Trophy, User, UserPen, Users2 } from 'lucide-react'
 import React from 'react'
 import ModuleButton from './ModuleButton'
 import { useTranslations } from 'next-intl'
@@ -24,8 +24,13 @@ const navbar = () => {
           url:"/dashboard/users",
           isCollpased:isCollpased,
         },
+        {  name:"Subject",
+          icon:<BookCheck className='text-2xl text-stone-600'/>,
+          url:"/dashboard/subjects",
+          isCollpased:isCollpased,
+        },
         {
-          name:"volunteers",
+          name:t('employee'),
           icon: <Users2 className='text-2xl text-stone-600'/>,
           url:"/dashboard/employee",
           isCollpased:isCollpased,

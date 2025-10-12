@@ -26,7 +26,7 @@ const TempSection = () => {
       
    }
   return (
-    <section className="overflow-x-auto h-[300px] mt-5 px-6">
+    <section className="overflow-x-auto h-[300px] lg:mt-5 mt-20 px-6">
       <form action=""  onSubmit={handleSubmit(onSubmit)}>
        
     <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -55,18 +55,18 @@ const TempSection = () => {
                 )
             }
        
-          <th scope="col" className="px-4 py-3  font-extrabold text-lg">Elector Name</th>
-          <th scope="col" className="px-4 py-3 font-bold  text-lg">Image</th>
-        <th scope="col" className="px-4 py-3 font-bold text-lg">
+          <th scope="col" className="px-4 py-3  font-extrabold md:text-md lg:text-lg">Elector Name</th>
+          <th scope="col" className="px-4 py-3 font-bold  md:text-md lg:text-lg">Image</th>
+        <th scope="col" className="px-4 py-3 font-bold md:text-md lg:text-lg">
              Address
           </th>
-             <th scope="col" className="px-4 py-3 font-bold text-lg">
+             <th scope="col" className="px-4 py-3 font-bold md:text-md lg:text-lg">
                  gnder
               </th>
-            <th scope="col" className="px-4 py-3 font-bold text-lg">
+            <th scope="col" className="px-4 py-3 font-bold md:text-md lg:text-lg">
                  phone
               </th>
-              <th  scope="col" className="px-4 py-3 font-bold text-lg">
+              <th  scope="col" className="px-4 py-3 font-bold md:text-md lg:text-lg">
 
               </th>
         </tr>
@@ -87,18 +87,18 @@ const TempSection = () => {
                         />
                       </td>
                     
-                    <th scope="col" className="px-4 py-3">{temp.elector?.elector_name || 'Unknown'}</th>
-                    <th scope="col" className="px-4 py-3">images</th>
-                    <th scope="col" className="px-4 py-3">
+                    <th scope="col" className="px-4 py-3 md:text-sm lg:text-md ">{temp.elector?.elector_name || 'Unknown'}</th>
+                    <th scope="col" className="px-4 py-3 md:text-sm lg:text-md">images</th>
+                    <th scope="col" className="px-4 py-3 md:text-sm lg:text-md">
                        {temp?.elector?.address}
                     </th>
-                      <th scope="col" className="px-4 py-3">
+                      <th scope="col" className="px-4 py-3 md:text-sm lg:text-md">
                            {temp?.elector?.gender}
                         </th>
-                        <th scope="col" className="px-4 py-3">
+                        <th scope="col" className="px-4 py-3 md:text-sm lg:text-md">
                        {temp?.elector?.phone}
                     </th>
-                    <th  scope="col" className="px-4 py-3">
+                    <th  scope="col" className="px-4 py-3 md:text-sm lg:text-md">
                       <button onClick={()=>handleDelete(temp.id)}>
                          <X/>
                       </button>
@@ -108,7 +108,7 @@ const TempSection = () => {
             ):(
                 <tr className="col-span-5 ">
                   <td colSpan={6} className='text-center'>
-                     <p className='text-xl font-bold'> No data available  </p> 
+                     <p className='font-bold md:text-sm lg:text-md'  > No data available  </p> 
                   </td>
                 </tr>
             )

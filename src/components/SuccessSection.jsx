@@ -80,7 +80,7 @@ const SuccessSection = () => {
     return (
       <section 
         ref={sectionRef}
-        className='fixed h-screen w-full bg-black/20 top-[-20px] -mt-1 z-[1000000] opacity-0'
+        className='fixed  w-full bg-black/20 top-[-20px] -mt-1 z-[1000000] opacity-0'
       >
         <div className="flex justify-end p-4">
           <X 
@@ -90,7 +90,7 @@ const SuccessSection = () => {
         </div>
         
       
-        <div className="flex justify-center items-center w-full h-screen">
+        <div className="flex justify-center items-center w-full ">
           {isLoading ? (
             <div className="opacity-100"> 
               <Spinner />

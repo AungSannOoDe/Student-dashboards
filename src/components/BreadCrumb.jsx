@@ -10,15 +10,6 @@ const BreadCrumb = ({links=[],currentPage=""}) => {
     <div className=" w-full flex items-center justify-between gap-3 mb-8  py-4 pl-6">
     <nav className="flex" aria-label="Breadcrumb">
       <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
-        <li className="inline-flex  items-center">
-          <Link
-            href="/dashboard"
-            className="inline-flex gap-1 items-center text-sm font-medium text-stone-700 hover:text-blue-500 dark:text-stone-400 dark:hover:text-white"
-          >
-            <LucideHome className=" size-4" />
-            Home
-          </Link>
-        </li>
         {links &&
           links.map((link, index) => (
             <li key={index} className="inline-flex  items-center">
@@ -26,14 +17,15 @@ const BreadCrumb = ({links=[],currentPage=""}) => {
                 href={link.path}
                 className="inline-flex gap-1 items-center text-sm font-medium text-stone-700 hover:text-blue-500 dark:text-stone-400 dark:hover:text-white"
               >
-                <LucideChevronRight />
                 {link.title}
               </Link>
             </li>
           ))}
         <li aria-current="page">
           <div className="flex items-center">
-          <LucideChevronRight />
+            {
+              links.length==0 ? ""  : <LucideChevronRight />
+            }
             <span className="ms-1 text-sm font-medium text-stone-500 md:ms-2 dark:text-stone-400">
               {currentPage}
             </span>

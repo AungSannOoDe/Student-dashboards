@@ -56,6 +56,7 @@ const NavBarHeader = () => {
           <li><Link href={`/clients/home`} className="hover:text-stone-800 transition">Home</Link></li>
           <li><Link href={`/clients/guest/gallery`} className="hover:text-stone-800 transition">Gallery</Link></li>
           <li><Link href={`/dashboard`} className="hover:text-stone-800 transition">Admin</Link></li>
+          <li><Link href={`/clients/Information`} className="hover:text-stone-800 transition">Information</Link></li>
         </ul>
 
         {/* Desktop Right */}
@@ -88,6 +89,7 @@ const NavBarHeader = () => {
               <li><Link href="/clients/home" onClick={() => setIsOpen(false)}>Home</Link></li>
               <li><Link href="/clients/guest/gallery" onClick={() => setIsOpen(false)}>Gallery</Link></li>
               <li><Link href="/dashboard" onClick={() => setIsOpen(false)}>Admin</Link></li>
+              <li><Link href={`/clients/Information`} className="hover:text-stone-800 transition">Information</Link></li>
               <li><Link href="/clients/login" className="underline" onClick={() => setIsOpen(false)}>Login</Link></li>
               <li><LoginButton /></li>
             </ul>

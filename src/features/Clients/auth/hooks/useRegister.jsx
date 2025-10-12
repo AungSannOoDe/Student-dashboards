@@ -2,7 +2,7 @@
 import { storeVoters } from '@/services/users';
 import useAccountStore from '@/stores/useAccountStore';
 import { useRouter } from 'next/navigation';
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm, useWatch } from 'react-hook-form'
 import { toast } from 'sonner';
 const useRegister = () => {
@@ -12,6 +12,7 @@ const useRegister = () => {
 const{SpecifyId,setSpecifyId,setToken,setAccount,setPart}=useAccountStore();
 const password = useWatch({ control, name: "password" });
 const router=useRouter();
+ console.log(SpecifyId);
  const onSubmit=async(data)=>{
   try{
     const res=await storeVoters({
@@ -25,7 +26,6 @@ const router=useRouter();
     }
     toast.success("You have registered successfully");
     reset();
-     setSpecifyId({});
      setToken(json.token)
     setAccount(json?.voters)
     setPart(2)

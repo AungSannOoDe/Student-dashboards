@@ -11,25 +11,14 @@ const TokenSkeletonSection = () => {
         <th scope="col" className="px-4 py-3">#</th>
           <th scope="col" className="px-4 py-3">
             <Sortable>
-            User  name
+            Token
             </Sortable>
             </th>
           <th scope="col" className="px-4 py-3">
             <Sortable>
-            email
+            archived
             </Sortable>
            </th>
-          <th scope="col" className="px-4 py-3">
-            <Sortable>
-            Major
-            </Sortable>
-            </th>
-          <th scope="col" className="px-4 py-3">
-            <Sortable>
-            Year
-            </Sortable>
-           </th>
-          <th scope="col" className="px-4 py-3">Roll Name</th>
           <th scope="col" className="px-4 py-3">
             <span className="sr-only">Actions</span>
           </th>

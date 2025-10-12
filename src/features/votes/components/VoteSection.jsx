@@ -9,19 +9,19 @@ const VoteSection = () => {
   const{account,VoteMale}=useAccountStore()
   const{data,isLoading,error}=useSWR(`${voteapiUrl}/${account.id}`,fetchvote)
   return (
-    <section className="overflow-x-auto h-[300px] mt-5 px-6">
+    <section className="overflow-x-auto h-[300px] mt-20 lg:mt-5 px-6">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase border-b-2 border-gray-700 w-fit">
             <tr>
-              <th scope="col" className="px-4 py-3  font-extrabold text-lg">Elector Name</th>
-              <th scope="col" className="px-4 py-3 font-bold  text-lg">voter code</th>
-              <th scope="col" className="px-4 py-3 font-bold text-lg">
+              <th scope="col" className="px-4 py-3  font-extrabold sm:text-md lg:text-lg">Elector Name</th>
+              <th scope="col" className="px-4 py-3 font-bold  sm:text-md lg:text-lg">voter code</th>
+              <th scope="col" className="px-4 py-3 font-bold sm:text-md lg:text-lg">
                  Address
               </th>
-                 <th scope="col" className="px-4 py-3 font-bold text-lg">
+                 <th scope="col" className="px-4 py-3 font-bold sm:text-md lg:text-lg">
                      gnder
                   </th>
-                <th scope="col" className="px-4 py-3 font-bold text-lg">
+                <th scope="col" className="px-4 py-3 font-bold sm:text-md lg:text-lg">
                      phone
                   </th>
             </tr>
@@ -31,27 +31,27 @@ const VoteSection = () => {
           isLoading ? <VoteSkeleton/>: data?.data?.length > 0? (
             data?.data?.map((item)=>(
               <tr key={item.id}>
-              <th scope="col" className="px-4 py-3">
+              <th scope="col" className="px-4 py-3 sm:text-sm lg:text-md">
                 {
                   item.elector.elector_name
                 }
               </th>
-              <th scope="col" className="px-4 py-3">
+              <th scope="col" className="px-4 py-3 sm:text-sm lg:text-md">
                 {
                   item.vote_code
                 }
               </th>
-              <th scope="col" className="px-4 py-3">
+              <th scope="col" className="px-4 py-3 sm:text-sm lg:text-md">
                 {
                    item.elector.address
                 }
               </th>
-                <th scope="col" className="px-4 py-3">
+                <th scope="col" className="px-4 py-3 sm:text-sm lg:text-md">
                      {
 item.elector.gender
                      }
                   </th>
-                  <th scope="col" className="px-4 py-3">
+                  <th scope="col" className="px-4 py-3 sm:text-sm lg:text-md">
                                    {
 
               item.elector.phone

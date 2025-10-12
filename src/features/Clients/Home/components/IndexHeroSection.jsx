@@ -69,9 +69,9 @@ const IndexHeroSection = () => {
   }, []);
   return (
     <section className="mt-10"  ref={heroRef}>
-      <div className="flex  flex-col lg:flex-row justify-between gap-4 max-w-7xl mx-auto">
-        <div className="lg:w-2/4 md:w-full ">
-          <div className="w-full text-wrap lg:text-9xl  text-8xl  font-bold">
+      <div className="flex  flex-col md:flex-row  justify-around   gap-4 max-w-7xl mx-auto">
+        <div className="md:w-2/4 sm:w-full ">
+          <div className="w-full  text-wrap lg:text-9xl  text-5xl md:text-8xl  font-bold">
             <span 
               className="text-stone-500 words" 
               data-role="words"
@@ -79,9 +79,9 @@ const IndexHeroSection = () => {
             >
               Hello
             </span> 
-            <div className="relative h-25">
+            <div className="relative h-10 md:h-25">
               <span
-                className="text-blue-500 opacity-80 block absolute -top-4"
+                className="text-blue-500 opacity-80 block absolute  top-0 md:-top-4"
                 ref={spiceRef}
               ></span>
             </div>
@@ -102,7 +102,7 @@ const IndexHeroSection = () => {
           </div>
         </div>
         <div 
-          className="lg:self-end mt-26  self-center lg:mt-0 rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] w-[400px] h-[400px] bg-blue-500 relative" 
+          className="lg:self-end lg:mt-26 md:mt-15  mt-26   self-center rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%]   md:w-[300px]  w-[200px] h-[200px]  md:h-[300px] lg:w-[400px] lg:h-[400px] bg-blue-500 relative" 
           id="SchoolImg"
           ref={schoolImgRef}
         >

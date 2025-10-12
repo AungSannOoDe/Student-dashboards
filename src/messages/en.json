@@ -2,10 +2,116 @@
     "TabTitle":{
         "home":"Create next app"
     },
+    "Subjects": {
+      "searchPlaceholder": "Search subjects...",
+      "createButton": "Create Subject",
+      "noData": "No data found.",
+      "table": {
+        "serial": "#",
+        "years": "Years",
+        "subject": "Subject",
+        "description": "Description",
+        "actions": "Actions"
+      },
+      "skeleton": {
+        "year": "Year",
+        "subject": "Subject",
+        "description": "Description"
+      }
+    },
+    "ObjectCreation": {
+      "subject": "Subject",
+      "year": "Year"
+    },
+    "YearCreateForm": {
+      "title": "Subject Creation Form",
+      "subjectName": "Subject Name",
+      "subjectNamePlaceholder": "Enter subject name...",
+      "subjectNameRequired": "Subject name is required",
+      "image": "Image",
+      "imageRequired": "Image is required",
+      "selectYear": "Select Year",
+      "selectYearRequired": "Please select a year",
+      "loadingYears": "Loading years...",
+      "noYearsAvailable": "No years available",
+      "description": "Description",
+      "descriptionPlaceholder": "Enter description...",
+      "descriptionRequired": "Description is required",
+      "descriptionMinLength": "Description must be at least 10 characters",
+      "confirmFields": "Make sure all fields are correct",
+      "confirmRequired": "Please confirm all fields are correct",
+      "cancel": "Cancel",
+      "createSubject": "Create Subject"
+    },
+    "SubjectCreateForm": {
+      "title": "Year Creation Form",
+      "name": "Name",
+      "namePlaceholder": "Enter year name...",
+      "nameRequired": "Year name is required",
+      "confirmField": "Make sure field is correct",
+      "cancel": "Cancel",
+      "create": "Create"
+    },
+    "SubjectEdit": {
+      "title": "Edit Subject",
+      "subjectName": "Subject Name",
+      "subjectNameRequired": "Subject name is required",
+      "subjectNamePlaceholder": "Enter subject name",
+      "image": "Image",
+      "imageRequired": "Image is required",
+      "currentImage": "Current image",
+      "selectYear": "Select Year",
+      "selectYearRequired": "Please select a year",
+      "loadingYears": "Loading years...",
+      "noYearsAvailable": "No years available",
+      "description": "Description",
+      "descriptionRequired": "Description is required",
+      "descriptionMinLength": "Description must be at least 10 characters",
+      "descriptionPlaceholder": "Enter subject description",
+      "confirmFields": "I confirm that all information is correct",
+      "confirmRequired": "Please confirm all information is correct",
+      "cancel": "Cancel",
+      "updateSubject": "Update Subject",
+      "updateSuccess": "Subject updated successfully!",
+      "updateFailed": "Failed to update subject"
+    },
+    "AlbumCreate": {
+      "title": "Album Create Form",
+      "selectElector": "Select Elector",
+      "chooseElector": "Choose an elector...",
+      "loadingElectors": "Loading electors...",
+      "failedLoadElectors": "Failed to load electors",
+      "noElectorsAvailable": "No electors available",
+      "status": "Status",
+      "selectedElector": "Selected Elector",
+      "id": "ID",
+      "noneSelected": "None selected",
+      "electorsLoaded": "Electors Loaded",
+      "loading": "Loading...",
+      "albumStatus": "Album Status",
+      "albumExists": "Album already exists",
+      "canCreateAlbum": "Can create new album",
+      "albumsLoaded": "Albums Loaded",
+      "albumExistsTitle": "Album Already Exists",
+      "albumExistsMessage": "An album already exists for <strong>{name}</strong> (ID: {id}).",
+      "existingAlbumDetails": "Existing Album Details",
+      "albumId": "Album ID",
+      "electorId": "Elector ID",
+      "albumName": "Album Name",
+      "description": "Description",
+      "cannotCreateAlbum": "You cannot create a new album for this elector. Please select a different elector.",
+      "createAlbumFor": "Create Album for: <strong>{name}</strong>",
+      "canCreateNewAlbum": "This elector doesn't have an album yet. You can create one.",
+      "selectElectorPrompt": "Please select an elector to create an album"
+    },
     "Indexnavbar":{
         "list1":"Home",
         "list2":"Gallery",
         "list3":"login"
+      },
+
+      "EmployeePage":{
+        "Volunteers":"Volunteers"
       },
          "ElectorTable": {
           
@@ -62,6 +168,7 @@
         "welcome":"Welcome,to mydashboard This is showing information",
         "admin":"Admin",
         "token":"token",
+        
         "user":"User",
         "voter":"Voter",
         "adminDes":"The number of admin",
@@ -118,7 +225,7 @@
         "createButton": "Create Token"
       },
       "TokenCreateSection": {
-        "title": "Create Random Token",
+        "title": "Create  Token",
         "fields": {
           "tokenType": "Token Type",
           "algorithm": "Algorithm"
@@ -187,6 +294,7 @@
         "General":"General",
         "Profile":"profile",
          "Menu":"Menu",
+         "employee":"employee",
         "Voting":"Vote kha mal"
       }
 }

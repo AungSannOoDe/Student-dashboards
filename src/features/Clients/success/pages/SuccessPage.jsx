@@ -9,7 +9,7 @@ const SuccessPage = () => {
   return (
     <HomeLayout>
     <StudentHeader/>
-    <SuccessSection/>
+    {/* <SuccessSection/> */}
     <SuccessListSection/>
     <Footer/>
     </HomeLayout>

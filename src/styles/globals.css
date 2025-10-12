@@ -104,7 +104,7 @@ html {
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-:root {
+/* :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.13 0.028 261.692);
@@ -137,9 +137,9 @@ html {
   --sidebar-accent-foreground: oklch(0.21 0.034 264.665);
   --sidebar-border: oklch(0.928 0.006 264.531);
   --sidebar-ring: oklch(0.707 0.022 261.325);
-}
+} */
 
-.dark {
+.dark { 
   --background: oklch(0.13 0.028 261.692);
   --foreground: oklch(0.985 0.002 247.839);
   --card: oklch(0.21 0.034 264.665);
@@ -174,6 +174,9 @@ html {
 }
 
 @layer base {
+  .card{
+    @apply absolute top-0 left-0 w-[350px] h-[350px] rounded-sm p-[30px];
+  }
   * {
     @apply border-border outline-ring/50;
   }

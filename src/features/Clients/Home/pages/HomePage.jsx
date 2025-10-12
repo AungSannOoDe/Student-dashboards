@@ -15,23 +15,30 @@ import IntroSection from '../components/IntroSection'
 import useTimer from '@/features/events/hooks/useTimer'
 import TimeComponent from '../components/TimeComponent'
 import SuccessSection from '@/components/SuccessSection';
+import NavBarHeader from '@/components/NavBarHeader';
+import NotiForLate from '../components/NotiForLate';
+import HistoryGallerySection from '../components/HistoryGallerySection';
 
 const HomePage = () => {
   return (
    <HomeLayout>
-    <ClientHeader/>
+     <>
     <SuccessSection/>
+   <ClientHeader/>
     <IntroSection/>
     <IndexHeroSection/>
     <IndexWelcome/>
-    <IndexPosterSection/>
+    <div className="relative">
+      <IndexPosterSection/>
+    </div>
     <IndexAdversit/>
     <IndexEvent/>
-   
+     <NotiForLate/>
+     <HistoryGallerySection/>
     <IndexSelectionBoys/>
-  
     <IndexSelectionGril/>
     <Footer/>
+    </>
    </HomeLayout>
   )
 }

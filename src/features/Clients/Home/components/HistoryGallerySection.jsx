@@ -32,8 +32,8 @@ const HistoryGallerySection = () => {
   }, []);
 
   return (
-    <div ref={sectionRef} className="mt-28 max-w-6xl mx-auto leading-30">
-      <p className="fade-in text-5xl font-extrabold font-montserrat text-stone-600 leading-18">
+    <div ref={sectionRef} className=" px-3 mt-28 max-w-6xl mx-auto leading-30">
+      <p className="fade-in   text-3xl md:text-4xl lg:text-5xl font-extrabold font-montserrat text-stone-600 leading-18">
         အကိုတို့ကျောင်းရဲ့ေကာလိပ်က‌‌ေနတကသသုိလ်ထိသမိုင်းကြောင်းတွေပေါ့
       </p>
 
@@ -41,7 +41,7 @@ const HistoryGallerySection = () => {
         ထပ်သိချင်ရင်တော့ဒီကနေဖတ်လို့ရပါတယ်နော်
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-2">
+      <div className="grid grid-cols-1 px-2 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-2">
         <img src="../images/Header.jpg" alt="" className="fade-in rounded-lg" />
         <img src="../images/Header.jpg" alt="" className="fade-in rounded-lg" />
         <img src="../images/Header.jpg" alt="" className="fade-in rounded-lg" />

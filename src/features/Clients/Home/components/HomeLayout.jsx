@@ -11,8 +11,9 @@ import IndexPage from "../pages/IndexPage";
 
 export default function HomeLayout({ children }) {
   const router = useRouter();
-  const { logout, token,Part,account,setVoteMale, setVoteFemale} = useAccountStore();
+  const { logout,token,Part,account,setVoteMale, setVoteFemale,SpecifyId} = useAccountStore();
   const [isLoading, setIsLoading] = useState(true);
+  console.log(SpecifyId);
   const autoLogoutIfTokenExpire = async (currentToken) => {
     const res = await checkProfile(currentToken);
     if (res.status === 401) {

@@ -52,7 +52,9 @@ const StudentNoHeader = () => {
         <ul className="hidden lg:flex gap-6 text-lg">
           <li><Link href={`/`} className="hover:text-stone-800 transition">Home</Link></li>
           <li><Link href={`/clients/gallery`} className="hover:text-stone-800 transition">Gallery</Link></li>
-          <li><Link href={`/clients/votes`} className="hover:text-stone-800 transition">Admin</Link></li>
+          <li><Link href={`/dashboard`} className="hover:text-stone-800 transition">Admin</Link></li>
+           
+          <li><Link href={`/clients/Information`} className="hover:text-stone-800 transition">Information</Link></li>
         </ul>
 
         {/* Desktop Right */}

@@ -16,6 +16,16 @@ export  const storeAblum=(data,id)=>{
         Authorization: `Bearer ${useAccountStore.getState().token}`,
     }
   })
+} 
+export const  gettingAblums=(...args)=>{
+  return fetch(...args,{
+    method:"GET",
+   headers:{
+     "Accept":"application/json",
+     Authorization: `Bearer ${useAccountStore.getState().token}`,
+     "Content-Type":"application/json"
+   }
+ }).then(res=>res.json())
 }
 export const  fetchablum=(id)=>{
   return fetch(`${ablumApiUrl}/${id}`,{

@@ -7,11 +7,114 @@
         "list2":"ဓာတ်ပုံများ",
         "list3":"အကောင့်လုပ်ရန်"
     },
+    "EmployeePage":{
+      "Volunteers":"ဝန်ထမ်း"
+    },
     "ElectorCreateSection":{
       "Elector":"မဲဆန္ဒရှင်ဖန်တီးရန်ဖောင်"
     },
      "ElectorTable": {
-     
+    },
+    "Subjects": {
+      "searchPlaceholder": "ဘာသာရပ်များ ရှာဖွေရန်...",
+      "createButton": "ဘာသာရပ်အသစ်ဖန်တီးရန်",
+      "noData": "ဒေတာများ မတွေ့ရှိပါ။",
+      "table": {
+        "serial": "စဉ်",
+        "years": "နှစ်များ",
+        "subject": "ဘာသာရပ်",
+        "description": "ဖော်ပြချက်",
+        "actions": "လုပ်ဆောင်ချက်များ"
+      },
+      "skeleton": {
+        "year": "နှစ်",
+        "subject": "ဘာသာရပ်",
+        "description": "ဖော်ပြချက်"
+      }
+    },
+    "ObjectCreation": {
+      "subject": "ဘာသာရပ်",
+      "year": "နှစ်"
+    },
+    "YearCreateForm": {
+      "title": "ဘာသာရပ်ဖန်တီးရန် ဖောင်ပုံစံ",
+      "subjectName": "ဘာသာရပ် အမည်",
+      "subjectNamePlaceholder": "ဘာသာရပ်အမည် ထည့်သွင်းပါ...",
+      "subjectNameRequired": "ဘာသာရပ်အမည် လိုအပ်ပါသည်",
+      "image": "ဓာတ်ပုံ",
+      "imageRequired": "ဓာတ်ပုံ လိုအပ်ပါသည်",
+      "selectYear": "နှစ်ရွေးချယ်ရန်",
+      "selectYearRequired": "ကျေးဇူးပြု၍ နှစ်တစ်ခုကို ရွေးချယ်ပါ",
+      "loadingYears": "နှစ်များ လာနေသည်...",
+      "noYearsAvailable": "ရနိုင်သော နှစ်များ မရှိပါ",
+      "description": "ဖော်ပြချက်",
+      "descriptionPlaceholder": "ဖော်ပြချက် ထည့်သွင်းပါ...",
+      "descriptionRequired": "ဖော်ပြချက် လိုအပ်ပါသည်",
+      "descriptionMinLength": "ဖော်ပြချက်သည် အနည်းဆုံး ၁၀ လုံး ရှိရပါမည်",
+      "confirmFields": "အကုန်လုံးမှန်ကန်ကြောင်း သေချာပါစေ",
+      "confirmRequired": "ကျေးဇူးပြု၍ အကုန်လုံးမှန်ကန်ကြောင်း အတည်ပြုပါ",
+      "cancel": "မလုပ်တော့ပါ",
+      "createSubject": "ဘာသာရပ်ဖန်တီးရန်"
+    },
+    "SubjectCreateForm": {
+      "title": "နှစ်ဖန်တီးရန် ဖောင်ပုံစံ",
+      "name": "အမည်",
+      "namePlaceholder": "နှစ်အမည် ထည့်သွင်းပါ...",
+      "nameRequired": "နှစ်အမည် လိုအပ်ပါသည်",
+      "confirmField": "အကွက်မှန်ကန်ကြောင်း သေချာပါစေ",
+      "cancel": "မလုပ်တော့ပါ",
+      "create": "ဖန်တီးရန်"
+    },
+    "SubjectEdit": {
+      "title": "Edit Subject",
+      "subjectName": "Subject Name",
+      "subjectNameRequired": "Subject name is required",
+      "subjectNamePlaceholder": "Enter subject name",
+      "image": "Image",
+      "currentImage": "Current image",
+      "selectYear": "Select Year",
+      "selectYearRequired": "Please select a year",
+      "loadingYears": "Loading years...",
+      "noYearsAvailable": "No years available",
+      "description": "Description",
+      "descriptionRequired": "Description is required",
+      "descriptionMinLength": "Description must be at least 10 characters",
+      "descriptionPlaceholder": "Enter subject description",
+      "confirmFields": "I confirm that all information is correct",
+      "confirmRequired": "Please confirm all information is correct",
+      "cancel": "Cancel",
+      "updateSubject": "Update Subject",
+      "subjectNotFound": "Subject not found",
+      "goBack": "Go Back"
+    },
+    "AlbumCreate": {
+      "title": "အယ်လ်ဘမ်ဖန်တီးရန် ဖောင်ပုံစံ",
+      "selectElector": "မဲဆန္ဒရှင်ရွေးချယ်ရန်",
+      "chooseElector": "မဲဆန္ဒရှင်တစ်ဦးရွေးချယ်ပါ...",
+      "loadingElectors": "မဲဆန္ဒရှင်များရနေသည်...",
+      "failedLoadElectors": "မဲဆန္ဒရှင်များရယူရန်မအောင်မြင်ပါ",
+      "noElectorsAvailable": "ရနိုင်သောမဲဆန္ဒရှင်မရှိပါ",
+      "status": "အခြေအနေ",
+      "selectedElector": "ရွေးချယ်ထားသော မဲဆန္ဒရှင်",
+      "id": "အိုင်ဒီ",
+      "noneSelected": "မရွေးချယ်ရသေးပါ",
+      "electorsLoaded": "မဲဆန္ဒရှင်အရေအတွက်",
+      "loading": "ရနေသည်...",
+      "albumStatus": "အယ်လ်ဘမ်အခြေအနေ",
+      "albumExists": "အယ်လ်ဘမ်ရှိပြီးသားဖြစ်သည်",
+      "canCreateAlbum": "အယ်လ်ဘမ်အသစ်ဖန်တီးနိုင်သည်",
+      "albumsLoaded": "အယ်လ်ဘမ်အရေအတွက်",
+      "albumExistsTitle": "အယ်လ်ဘမ်ရှိပြီးသားဖြစ်သည်",
+      "albumExistsMessage": "<strong>{name}</strong> (အိုင်ဒီ: {id}) အတွက် အယ်လ်ဘမ်ရှိပြီးသားဖြစ်သည်။",
+      "existingAlbumDetails": "ရှိပြီးသား အယ်လ်ဘမ်အချက်အလက်များ",
+      "albumId": "အယ်လ်ဘမ် အိုင်ဒီ",
+      "electorId": "မဲဆန္ဒရှင် အိုင်ဒီ",
+      "albumName": "အယ်လ်ဘမ်အမည်",
+      "description": "ဖော်ပြချက်",
+      "cannotCreateAlbum": "ဤမဲဆန္ဒရှင်အတွက် အယ်လ်ဘမ်အသစ်ဖန်တီး၍မရပါ။ ကျေးဇူးပြု၍ အခြားမဲဆန္ဒရှင်တစ်ဦးရွေးချယ်ပါ။",
+      "createAlbumFor": "အယ်လ်ဘမ်ဖန်တီးရန်: <strong>{name}</strong>",
+      "canCreateNewAlbum": "ဤမဲဆန္ဒရှင်တွင် အယ်လ်ဘမ်မရှိသေးပါ။ ဖန်တီးနိုင်ပါသည်။",
+      "selectElectorPrompt": "ကျေးဇူးပြု၍ အယ်လ်ဘမ်ဖန်တီးရန် မဲဆန္ဒရှင်တစ်ဦးရွေးချယ်ပါ"
     },
      "ElectorCreateForm": {
       "fields": {
@@ -61,7 +164,7 @@
       "createButton": "Token ဖန်တီးရန်"
     },
     "TokenCreateSection": {
-      "title": "ကျပန်း Token ဖန်တီးရန်",
+      "title": "Token ဖန်တီးရန်",
       "fields": {
         "tokenType": "Token အမျိုးအစား",
         "algorithm": "Algorithm"
@@ -82,7 +185,7 @@
       },
       "confirmation": {
         "allCorrect": "အကွက်အားလုံးမှန်ကန်ကြောင်းသေချာပါစေ",
-        "backToList": "သိမ်းဆည်းပြီးနောက်ဝယ်ယူသူစာရင်းသို့ပြန်သွားရန်"
+        "backToList": "သိမ်းဆည်းပြီးနောက်Tokenစာရင်းသို့ပြန်သွားရန်"
       },
       "buttons": {
         "cancel": "မလုပ်တော့ပါ",
@@ -109,6 +212,7 @@
         "userdes":"အသုံးပြုသူအရေအတွက်ဖစ်ပါတယ်",
         "VoteTable":"မဲရေတွက် စာရင်းဇယား",
         "EleName":"မဲဆန္ဒရှင်အမည်",
+        
         "Image":"ဓာတ်ပုံ",
         "Gender":"လိင်",
         "vote":"မဲရေတွက်",
@@ -133,7 +237,8 @@
         "General":"အထွေထွေ",
         "Profile":"ကိုယ်ရေးအကျဉ်;",
         "Menu":"မီနူး",
-        "Voting":"Voteကြမယ်"
+        "Voting":"Voteကြမယ်",
+        "employee" :"ဝန်ထမ်း"
       },
     "Pagination":{
        "of":"၏",

@@ -17,6 +17,7 @@ import NavBarHeader from '@/components/NavBarHeader'
 import ScrollAnimationSection from '../components/ScrollAnimationSection'
 import NotiForLate from '../components/NotiForLate'
 import HistoryGallerySection from '../components/HistoryGallerySection'
+import RegisterLayout from '../../auth/components/RegisterLayout'
 
 const IndexPage = () => {
   return (
@@ -34,6 +35,7 @@ const IndexPage = () => {
      <NotiForLate/>
      <HistoryGallerySection/>
     <IndexSelectionBoys/>
+    <IndexReview/>
     <IndexSelectionGril/>
     <Footer/>
     </>

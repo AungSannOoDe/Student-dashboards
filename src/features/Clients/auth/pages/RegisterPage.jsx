@@ -1,10 +1,14 @@
 import React from 'react'
 import RegisterSection from '../components/RegisterSection'
+import HomeLayout from '../../Home/components/HomeLayout'
+import RegisterLayout from '../components/RegisterLayout'
 
 const RegisterPage = () => {
   return (
    <>
-   <RegisterSection/>
+   <RegisterLayout>
+     <RegisterSection/>
+   </RegisterLayout>
    </>
   )
 }

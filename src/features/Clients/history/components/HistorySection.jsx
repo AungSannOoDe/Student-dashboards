@@ -73,9 +73,9 @@ const HistorySection = () => {
             data.data.map((item, index) => (
               <div className="w-full" key={index}>
                 {item.image_1_url ? (
-                  <img src={item.image_1_url} alt="" className="object-cover w-full h-48" />
+                  <img src={item.image_1_url} alt="" className="object-cover w-full h-[400px]" />
                 ) : (
-                  <img src={"../image-not-found.png"} alt="" className="object-cover w-full h-48" />
+                  <img src={"../image-not-found.png"} alt="" className="object-cover w-full h-[400px]" />
                 )}
                 <div className="flex justify-between mt-2">
                   <p className='font-bold'>{item.elector_name}</p>
