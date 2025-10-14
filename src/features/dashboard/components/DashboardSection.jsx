@@ -18,6 +18,9 @@ const DashboardSection = () => {
   const{register}=useForm();
   const handleReset=()=>{
     setVoteFinal(0)
+    setVoteFemale(0)
+    setVoteMale(0)
+    setSlideShow(0)
   }
   if(!dashboardData){
     return <DashboardCardSkeleton count={4}/>

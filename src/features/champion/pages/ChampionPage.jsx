@@ -17,7 +17,7 @@ const ChampionPage = () => {
      <BreadCrumb/>
      <ChampionSection/>
       </DashboardLayout>
-      </Container>
+    </Container>
   </DashboardMiddlware>
   )
 }

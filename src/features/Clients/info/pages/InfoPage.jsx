@@ -21,8 +21,6 @@ const InfoPage = () => {
         <SchoolHistroySection/>
         <GoalSection/>
         <MissionSection/>
-        <VisionSection/>
-        <ObjectiveSection/>
         <SchoolbachelorSection/>
         <InformationSection/>
         <SuccessSection/>

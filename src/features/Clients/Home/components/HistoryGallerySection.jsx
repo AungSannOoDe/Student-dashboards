@@ -34,7 +34,7 @@ const HistoryGallerySection = () => {
   return (
     <div ref={sectionRef} className=" px-3 mt-28 max-w-6xl mx-auto leading-30">
       <p className="fade-in   text-3xl md:text-4xl lg:text-5xl font-extrabold font-montserrat text-stone-600 leading-18">
-        အကိုတို့ကျောင်းရဲ့ေကာလိပ်က‌‌ေနတကသသုိလ်ထိသမိုင်းကြောင်းတွေပေါ့
+        UCS(Hpa-an) ရဲ့ ကောလိပ်အဆင့်မှ တက္ကသိုလ် အဆင့်သို့ တိုးမြှင့်လာခဲ့သော သမိုင်းကြောင်းမှတ်တမ်းပုံများ
       </p>
 
       <p className="fade-in font-bold underline">

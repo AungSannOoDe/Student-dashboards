@@ -1,6 +1,7 @@
 import useAccountStore from "@/stores/useAccountStore";
 export const yearApiUrl = `${process.env.NEXT_PUBLIC_API_URL}/years`;
 export const subjectApiUrl=`${process.env.NEXT_PUBLIC_API_URL}/subjects`;
+export const  yearsubjectApiUrl=`${process.env.NEXT_PUBLIC_API_URL}/year-subjects`
 export const storeyear=(payload)=>{
     return fetch(`${yearApiUrl}`, {
         method: "POST",
@@ -12,6 +13,7 @@ export const storeyear=(payload)=>{
         },
       });
 }
+
 export const  fetchyear=(...args)=>{
   return  fetch(...args,{
     method:"GET",

@@ -6,169 +6,152 @@ const TermSection = () => {
       <p className="text-6xl font-bold">Terms and Condition</p>
       <div className="ml-1 mt-2 space-y-10">
         <dl>
-          <dt className="text-4xl ml-3">What is "Home" ?</dt>
+          <dt className="text-4xl ml-3">"ပင်မစာမျက်နှာ"ဆိုတာဘာလဲ</dt>
           <dd>
             <ul className="list-disc ml-12 leading-10 ">
               <li>
                 {" "}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatem, voluptate.
-              </li>
-              <li>
-                {" "}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatem, voluptate.
+                Website ရဲ့အဓိက pageဖြစ်ပါသည်။အသုံးပြုသူအနေနှင့် ဘာတွေ သင်ကြားပေးနေတာလဲ၊၊ selection ပုံတွေ၊ website မှာ ဘာတွေဖော်ပြထားသလဲဆိုတာမြင်ရသောpageဖြစ်ပါသည်။
               </li>
             </ul>
           </dd>
         </dl>
         <dl>
-          <dt className="text-4xl ml-3">What is "Gallery" ?</dt>
+          <dt className="text-4xl ml-3">"ဓာတ်ပုံပြခန်း" ဆိုတာဘာလဲ</dt>
           <dd>
             <ul className="list-disc ml-12 leading-10 ">
               <li>
                 {" "}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatem, voluptate.
+                အသုံးပြုသူအနေနဲ့တက္ကသိုလ်ထဲတွင်:ကျောင်းသားများ၏ လှုပ်ရှားမှုပုံရိပ်အချို့ကိုပြသထားသောစာမျက်နှာဖြစ်ပါသည်။
               </li>
               <li>
                 {" "}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatem, voluptate.
-              </li>
-              <li>
-                {" "}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatem, voluptate.
-              </li>
-              <li>
-                {" "}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatem, voluptate.
+                ကျောင်းသားများအနေဖြင့်စာသားနဲ့တကွကြည့်ရှူနိုင်ပါသည်။
               </li>
             </ul>
           </dd>
         </dl>
         <dl>
-          <dt className="text-4xl ml-3">What is "Information" ?</dt>
+          <dt className="text-4xl ml-3">"အချက်အလက်များ"စာမျက်နှာဆိုသည်မှာအဘယ်နည်း။</dt>
           <dd>
             <ul className="list-disc ml-12 leading-10 ">
               <li>
                 {" "}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatem, voluptate.
-              </li>
-              <li>
-                {" "}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatem, voluptate.
-              </li>
-              <li>
-                {" "}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatem, voluptate.
-              </li>
-              <li>
-                {" "}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatem, voluptate.
+                "အချက်အလက်များ"စာမျက်နှာသည်ကျောင်းသမိုင်းအကျဉ်းကိုဖော်ပြထားပြီး ကျောင်းတွင်မည်သည့်ဘာသာရပ်များကိုသင်ကြားသည်ဆိုတာကို၀င်ရောက်ကြည့်ရှုနိုင်ပါသည်။
               </li>
             </ul>
           </dd>
         </dl>
         <dl>
-          <dt className="text-4xl ml-3">What is "Reviews" ?</dt>
+          <dt className="text-4xl ml-3">"သတ်မှတ်ချက်"စာမျက်နှာဆိုသည်မှာအဘယ်နည်း။</dt>
           <dd>
             <ul className="list-disc ml-12 leading-10 ">
               <li>
                 {" "}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatem, voluptate.
+                အသုံးပြုသူများအနေဖြင့်ကျွန်တော်တို့ရဲ့ website ကိုသုံးခြင်းဖြင့်ရလာသည့်အတွေ့အကြုံကို၀င်ရောက်ရေးသားနိုင်သည်။
               </li>
               <li>
-                {" "}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatem, voluptate.
+                အသုံးပြုသူများအနေဖြင့် ကျောင်းသားရေးရာဌာနဆီသို့ဆက်သွယ်ရမည့်လိပ်စာကိုလည်းထည့်သွင်းပေးထားပါသည်။
               </li>
               <li>
-                {" "}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatem, voluptate.
-              </li>
-              <li>
-                {" "}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatem, voluptate.
+                ကျောင်းရဲ့တည်နေရာ Google mapကိုလည်းထည့်သွင်းပေးထားပါသည်။
               </li>
             </ul>
           </dd>
         </dl>
         <dl>
-          <dt className="text-4xl ml-3">What is "votes" ?</dt>
+          <dt className="text-4xl ml-3">"ဆန္ဒမဲ"စာမျက်နှာဆိုသည်မှာအဘယ်နည်း။</dt>
           <dd>
             <ul className="list-disc ml-12 leading-10 ">
               <li>
                 {" "}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatem, voluptate.
-              </li>
-              <li>
-                {" "}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatem, voluptate.
-              </li>
-              <li>
-                {" "}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatem, voluptate.
+                "ဆန္ဒမဲ"စာမျက်နှာသည်အသုံးပြုသူအ‌နေဖြင့် မည်သူကိုမဲ‌ပေးခဲ့သည်ဆိုတာကို ပြန်လည်ကြည့်ရှုရသောစာမျက်နှာဖြစ်ပါသည်။
               </li>
             </ul>
           </dd>
         </dl>
         <dl>
-          <dt className="text-4xl ml-3">What is "Selection" ?</dt>
+          <dt className="text-4xl ml-3">"ဆန္ဒမဲပေးခြင်း"စာမျက်နှာဆိုသည်မှာအဘယ်နည်း</dt>
           <dd>
             <ul className="list-disc ml-12 leading-10 ">
               <li>
                 {" "}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatem, voluptate.
+                ဆန္ဒမဲပေးခြင်းစာမျက်နှာဆိုသည်မှာ ပဏာမရွေးချယ်ထားသောကျောင်းသားကျောင်းသူများကို၀င်ရောက်မဲပေးရသောစာမျက်နှာဖြစ်ပါသည်။
+              </li>
+              <li>
+                {"  "}
+                အသုံးပြုသူအနေဖြင့်ဆန္ဒမဲပေးရာတွင်ကျောင်းသားကျောင်းသူကိုခွဲထားပေးပါသည်။
+              </li>
+               <li>
+                {"  "}
+                ဆန္ဒမဲပေးရာတွင်မဲပေးခြင်းစည်းမျဉ်းစည်းကမ်းနဲ့အညီ မဲပေးရမည်ဖြစ်ပါသည်။
               </li>
             </ul>
           </dd>
         </dl>
         <dl>
-          <dt className="text-4xl ml-3">What is "History" ?</dt>
+          <dt className="text-4xl ml-3">"နှစ်အလိုက် King Queen များ"ဆိုသည်မှာအဘယ်နည်း။</dt>
           <dd>
             <ul className="list-disc ml-12 leading-10 ">
               <li>
                 {" "}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatem, voluptate.
+                "နှစ်အလိုက် King Queen များ"သည်၂၀၂၂မှစ၍ နှစ်အလိုက် King Queen Prince Princess ရသောသူများကို နှစ်အလိုက်ပြသထာ:ပါသည်။
+              </li>
+               <li>
+                {" "}
+                အသုံးပြုသူအနေနဲ့အသေ:စိတ်အချက်အလက်မျာ:ကို၀င်ရောက်ကြည့်ရှုနိုင်ပါသည်။
               </li>
             </ul>
           </dd>
         </dl>
         <dl>
-          <dt className="text-4xl ml-3">What is "BookMarked" ?</dt>
+          <dt className="text-4xl ml-3">"BookMarked"ဆိုသည်မှာအဘယ်နည်း။</dt>
           <dd>
             <ul className="list-disc ml-12 leading-10 ">
               <li>
                 {" "}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatem, voluptate.
+                "BookMarked"သည်‌အသုံးပြုသူအနေနှင့်ယာယီမဲပေးခြင်းဖြစ်ပါသည်။
+              </li>
+              <li>
+                {" "}
+                အကယ်၍မိမိပေးသော selection ကိုမကြိုက်လျှင်ပြန်၍ပယ်ဖျက်နိုင်ပါသည်။
               </li>
             </ul>
           </dd>
         </dl>
         <dl>
-          <dt className="text-4xl ml-3">What is "Crown" ?</dt>
+          <dt className="text-4xl ml-3">"Crown"စာမျက်နှာဆိုသည်မှာအဘယ်နည်း။</dt>
           <dd>
             <ul className="list-disc ml-12 leading-10 ">
               <li>
                 {" "}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatem, voluptate.
+                "Crown"စာမျက်နှာသည် Kingဖြစ်သူ၊ Queenဖြစ်သူ၊ Princeဖြစ်သူ၊ Princessဖြစ်သူများကိုပြသထားသောစာမျက်နှာဖြစ်ပါသည်။
+              </li>
+               <li>
+                {" "}
+                အသုံးပြုသည့်ရလဒ်ကိုကြေငြာမှသာ၀င်ရောက်ကြည့်ရှုနိုင်ပါသည်။
+              </li>
+            </ul>
+          </dd>
+        </dl>
+        <dl>
+          <dt className="text-4xl ml-3">"အကောင့်၀င်ရန်"စာမျက်နှာဆိုသည်မှာအဘယ်နည်း။</dt>
+          <dd>
+            <ul className="list-disc ml-12 leading-10 ">
+              <li>
+                {" "}
+                "အကောင့်၀င်ရန်"စာမျက်နှာဆိုသည်မှာသင်သည် အကောင့်ရှိပြီ:လက်ရှိအသုံးပြုလိုပါက ၀င်ရောက်ရန်အတွက်ဖြစ်ပါသည်။
+              </li>
+            </ul>
+          </dd>
+        </dl>
+        <dl>
+          <dt className="text-4xl ml-3">"အကောင့်ဖွင့်ရန်"စာမျက်နှာဆိုသည်မှာအဘယ်နည်း။</dt>
+          <dd>
+            <ul className="list-disc ml-12 leading-10 ">
+              <li>
+                {" "}
+                အကယ်၍သင်သည်အကောင့်ဖွင့်ရန်လိုအပ်ပါက ၀င်ရောက်နိုင်ပါသည်။
               </li>
             </ul>
           </dd>

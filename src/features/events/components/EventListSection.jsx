@@ -10,22 +10,23 @@ import useTimer from '../hooks/useTimer';
 import useAccountStore from '@/stores/useAccountStore';
 import { formatTime } from '@/lib/Timer';
 import { useTranslations } from 'next-intl';
+import { updateSuccess } from '@/services/electors';
 const EventListSection = () => {
   const t=useTranslations("EventPage")
 
-  const{setTimeValue,TimeValue,setVoteFemale,setVoteMale, setVoteFinal}=useAccountStore()
-  const { 
-    remaining, 
-    isActive, 
-    Loading, 
-    startTimer, 
-    resetTimer ,
-    fetchTimer
-  } = useTimer();
-  const handleCustomStart = () => {
-    setVoteFinal(1)
-    startTimer(customTime);
-    setTimeValue(TimeValue);
+  const{setTimeValue,TimeValue,setVoteFemale,setVoteMale, setVoteFinal, setSlideShow}=useAccountStore()
+  const handleCustomStart = async() => {
+    try{
+      const res=await updateSuccess();
+      const json=await res.json();
+      if(!res.ok){
+        throw new Error(json.message || 'Failed to update success');
+      }
+      setVoteFinal(1);
+       setSlideShow(1);
+    }catch(error){
+      console.error('Error updating success:', error.message);
+    }
   };
     const {
         searchRef,
@@ -43,32 +44,10 @@ const EventListSection = () => {
   return (
     <section className='pl-10'>
       <div className="flex justify-between">
-      <h1 className="text-3xl font-bold">{t('Events')}</h1> 
-      {
-        Loading  ?(<p>loading...</p>) :(
-          <div>
-            <p>{t('minutes')}</p>
-             <div className="flex items-center space-x-3">
-              <input
-                type="number"
-                min="1"
-                value={customTime}
-                onChange={(e) => setCustomTime(parseInt(e.target.value) || 0)}
-                className="flex-1 px-3 py-2 border rounded"
-                placeholder="Seconds"
-              />
-              <button
-                onClick={handleCustomStart}
-                disabled={isActive}
-                className={`px-4 py-2 rounded transition ${isActive ? 'bg-gray-300 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700 text-white'}`}
-              >
-                {t('start')}
-              </button>
-            </div> 
-          </div>
-         
-        )
-      }
+        <h1>Event</h1>
+        <button className='bg-blue-500 text-white px-4  rounded-md' onClick={handleCustomStart}>
+          Show Result
+        </button>
       </div>
          <div className="w-full mt-3  space-y-10">
             <EventAction t={t} searchRef={searchRef} clearSearchInput={clearSearchInput} handleSearchInput={handleSearchInput} searchParams={searchParams} />

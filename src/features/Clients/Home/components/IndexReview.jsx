@@ -72,7 +72,7 @@ const IndexReview = () => {
 
   return (
     <section>
-      <h2 className="text-center font-bold text-3xl text-stone-600 mb-4 underline">Reviews</h2>
+      <h2 className="text-center font-bold text-3xl text-stone-600 mb-4 underline">အကြုံပြုစာများ</h2>
       <Swiper 
         className="max-w-7xl mx-auto"
         slidesPerView={3}

@@ -50,16 +50,16 @@ const StudentNoHeader = () => {
 
         {/* Desktop Menu */}
         <ul className="hidden lg:flex gap-6 text-lg">
-          <li><Link href={`/`} className="hover:text-stone-800 transition">Home</Link></li>
-          <li><Link href={`/clients/gallery`} className="hover:text-stone-800 transition">Gallery</Link></li>
+          <li><Link href={`/`} className="hover:text-stone-800 transition">ပင်မစာမျက်နှာ</Link></li>
+          <li><Link href={`/clients/gallery`} className="hover:text-stone-800 transition">ဓာတ်ပုံ</Link></li>
           <li><Link href={`/dashboard`} className="hover:text-stone-800 transition">Admin</Link></li>
-           
-          <li><Link href={`/clients/Information`} className="hover:text-stone-800 transition">Information</Link></li>
+
+          <li><Link href={`/clients/Information`} className="hover:text-stone-800 transition">အချက်အလက်များ</Link></li>
         </ul>
 
         {/* Desktop Right */}
         <ul className="hidden lg:flex gap-3 items-center">
-          <li><Link href={'/clients/login'} className='underline hover:text-stone-800'>Login</Link></li>
+          <li><Link href={'/clients/login'} className='underline hover:text-stone-800'>အကောင့်၀င်ရန်</Link></li>
           <li><LoginButton /></li>
         </ul>
 
@@ -83,10 +83,11 @@ const StudentNoHeader = () => {
             className="lg:hidden bg-slate-50 fixed w-full border-t border-slate-200 z-10 " 
           >
             <ul className="flex flex-col items-center gap-4 py-4 text-lg">
-              <li><Link href="/" onClick={() => setIsOpen(false)}>Home</Link></li>
-              <li><Link href="/clients/gallery" onClick={() => setIsOpen(false)}>Gallery</Link></li>
+              <li><Link href="/" onClick={() => setIsOpen(false)}>ပင်မစာမျက်နှာ</Link></li>
+              <li><Link href="/clients/gallery" onClick={() => setIsOpen(false)}>ဓာတ်ပုံ</Link></li>
               <li><Link href="/clients/votes" onClick={() => setIsOpen(false)}>Admin</Link></li>
               <li><Link href="/clients/login" className="underline" onClick={() => setIsOpen(false)}>Login</Link></li>
+               <li><Link href={`/clients/Information`} onClick={() => setIsOpen(false)} className="hover:text-stone-800 transition">အချက်အလက်များ</Link></li>
               <li><LoginButton /></li>
             </ul>
           </motion.div>

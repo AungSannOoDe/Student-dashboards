@@ -109,7 +109,7 @@ const IndexSelectionBoys = () => {
   return (
     <section className="mt-32 flex flex-col -space-y-30" id="hello">
       <h1 className="text-5xl text-center underline text-stone-600  font-bold">
-         <span> </span>  ယောင်္ကျားလေး selection များ
+         <span>ပဏာမရွေးချယ်သော ကျောင်းသားများ</span>  
       </h1>
       <section className="slider-container w-full flex items-center justify-center p-4" ref={sliderContainerRef}>
         <div className="slider-images flex items-center gap-3 sm:gap-5 overflow-x-auto py-10 w-full justify-center">

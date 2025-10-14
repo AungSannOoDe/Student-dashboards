@@ -4,7 +4,15 @@ const AboutSection = () => {
   return (
     <section className='max-w-5xl mx-auto  mt-10'>
         <div className="leading-10">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci dolores, magnam quisquam blanditiis quae praesentium dolore deleniti voluptate. Reiciendis unde amet vitae cum numquam sint nobis itaque praesentium beatae veniam. Temporibus velit laboriosam, maxime saepe dolores nam minima itaque, ipsa, fugiat voluptatibus earum harum possimus fugit modi inventore explicabo in necessitatibus tenetur doloribus sunt! Laboriosam eligendi reprehenderit saepe unde dignissimos? Sint corporis, quam quae numquam corrupti explicabo sed distinctio odio facilis illo, soluta exercitationem consequuntur, hic asperiores ratione ut atque mollitia a cum ipsa! Sed, corporis. Vel molestiae tempore expedita ipsam, laborum iure dignissimos reiciendis, aliquid inventore debitis nihil quod!.</p>
+            <p>
+              ကျွန်တော်တို့ကျောင်းတွင်မောင်မယ်သစ်လွင်အသစ်များကိုကြိုဆိုရန် King Queen
+               selectionများ မဲပေးရန်ကျောင်းတွင်မည်သို့သော activities များကိုလုပ်ဆောင်သည်ဆိုသော 
+               အချက်များကိုအခြေခံ၍ website ကိုရေးထားခြင်းဖြစ်ပါသည်။ ၄င်း website ကို စတုထ္ထနှစ် senior တန်းမှကျောင်းသားကျောင်းသူများကစုပေါင်း၍ရေးသားဖော်ဆောင်ခဲ့ခြင်းဖြစ်ပါသည်။ 
+               ၊websiteဖြစ်မြောက်ရေးအတွက်လမ်းညွှန်ဦးဆောင်မှုပေးခဲ့သော  Faculty of Information Science ဌာန
+              မှ ဒေါ်နန်းနုနုကြည်(စတုထ္ထနှစ် senior သင်တန်းမှူ:)၊ website ရေးသားရန်အတွက်အကြံဉာဏ်အကူအညီပေးကြသောဒေါက်တာ‌ဖြူဖြူထွန်း၊ 
+                 ၊websiteအတွက်လိုအပ်ချက်သောအချက်အလက်များကိုပေးသောကျောင်းသားရေးရာဌာနမှတာဝန်ရှိသူ
+                 များနှင့် စီမံရေးရာဌာနမှတာဝန်ရှိသူများအားကျေးဇူးအထူးတင်ရှိပါသည်။
+            </p>
         </div>
     </section>
   )

@@ -14,7 +14,6 @@ export default async function RootLayout({ children }) {
       <body className={` antialiased  font-paduak`} suppressHydrationWarning={true}>
          <NextTopLoader color="rgb(0 128 255)" />
          <Toaster/>
-        <TimeComponent/>
         <NextIntlClientProvider messages={messages}>
         {children}
         </NextIntlClientProvider>

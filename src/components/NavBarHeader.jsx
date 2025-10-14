@@ -53,15 +53,15 @@ const NavBarHeader = () => {
 
         {/* Desktop Menu */}
         <ul className="hidden lg:flex gap-6 text-lg">
-          <li><Link href={`/clients/home`} className="hover:text-stone-800 transition">Home</Link></li>
-          <li><Link href={`/clients/guest/gallery`} className="hover:text-stone-800 transition">Gallery</Link></li>
-          <li><Link href={`/dashboard`} className="hover:text-stone-800 transition">Admin</Link></li>
-          <li><Link href={`/clients/Information`} className="hover:text-stone-800 transition">Information</Link></li>
+          <li><Link href={`/clients/home`} className="hover:text-stone-800 transition">ပင်မစာမျက်နှာ</Link></li>
+          <li><Link href={`/clients/guest/gallery`} className="hover:text-stone-800 transition"> ဓာတ်ပုံပြခန်း</Link></li>
+          <li><Link href={`/login`} className="hover:text-stone-800 transition">Admin</Link></li>
+          <li><Link href={`/clients/Information`} className="hover:text-stone-800 transition">အချက်အလက်များ</Link></li>
         </ul>
 
         {/* Desktop Right */}
         <ul className="hidden lg:flex gap-3 items-center">
-          <li><Link href={'/clients/login'} className='underline hover:text-stone-800'>Login</Link></li>
+          <li><Link href={'/clients/login'} className='underline hover:text-stone-800'>အကောင့်၀င်ရန်</Link></li>
           <li><LoginButton /></li>
         </ul>
 
@@ -86,11 +86,11 @@ const NavBarHeader = () => {
             className="lg:hidden fixed mt-8 left-0 w-full h-65 bg-white/30 backdrop-blur-lg z-30 border-t border-slate-200"
           >
             <ul ref={mobileMenuRef}  className="flex flex-col items-center text-stone-600 gap-4 py-4 text-lg">
-              <li><Link href="/clients/home" onClick={() => setIsOpen(false)}>Home</Link></li>
-              <li><Link href="/clients/guest/gallery" onClick={() => setIsOpen(false)}>Gallery</Link></li>
+              <li><Link href="/clients/home" onClick={() => setIsOpen(false)}>ပင်မစာမျက်နှာ</Link></li>
+              <li><Link href="/clients/guest/gallery" onClick={() => setIsOpen(false)}> ဓာတ်ပုံပြခန်း</Link></li>
               <li><Link href="/dashboard" onClick={() => setIsOpen(false)}>Admin</Link></li>
-              <li><Link href={`/clients/Information`} className="hover:text-stone-800 transition">Information</Link></li>
-              <li><Link href="/clients/login" className="underline" onClick={() => setIsOpen(false)}>Login</Link></li>
+              <li><Link href={`/clients/Information`} className="hover:text-stone-800 transition">အချက်အလက်များ</Link></li>
+              <li><Link href="/clients/login" className="underline" onClick={() => setIsOpen(false)}>အကောင့်၀င်ရန်</Link></li>
               <li><LoginButton /></li>
             </ul>
           </motion.div>

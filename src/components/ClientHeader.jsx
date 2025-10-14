@@ -82,8 +82,8 @@ const ClientHeader = () => {
         {/* Desktop Menu */}
         <nav className="hidden lg:flex lg:items-center lg:gap-6">
           <ul className="flex gap-6 text-sm font-medium">
-            <li><Link href={`/clients/home`}>Home</Link></li>
-            <li><Link href={`/clients/gallery`}>Gallery</Link></li>
+            <li><Link href={`/clients/home`}>ပင်မစာမျက်နှာ</Link></li>
+            <li><Link href={`/clients/gallery`}>ဓာတ်ပုံ</Link></li>
             <li><Link href={`/clients/Information`} className="hover:text-stone-800 transition">Information</Link></li>
             {!token && <li><Link href={`/dashboard`}>Admin</Link></li>}
             {token && (
@@ -163,7 +163,7 @@ const ClientHeader = () => {
             </ul>
           ) : (
             <ul className="flex gap-4 items-center">
-              <li><Link href={"/clients/login"} className="underline">Login</Link></li>
+              <li><Link href={"/clients/login"} className="underline">အကောင့်၀င်ရန်</Link></li>
               <li><LoginButton /></li>
             </ul>
           )}
@@ -192,17 +192,17 @@ const ClientHeader = () => {
               className="block py-2 hover:text-blue-500 transition-colors"
               onClick={() => setMobileOpen(false)}
             >
-              Home
+              ပင်မစာမျက်နှာ
             </Link>
           </li>
-          <li><Link href={`/clients/Information`} className="hover:text-stone-800 transition">Information</Link></li>
+          <li><Link href={`/clients/Information`} className="hover:text-stone-800 transition">အချက်အလက်များ</Link></li>
           <li>
             <Link 
               href="/clients/gallery" 
               className="block py-2 hover:text-blue-500 transition-colors"
               onClick={() => setMobileOpen(false)}
             >
-              Gallery
+               ဓာတ်ပုံပြခန်း
             </Link>
           </li>
           <li>
@@ -232,8 +232,17 @@ const ClientHeader = () => {
                   className="block py-2 hover:text-blue-500 transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
-                  History
+                  ဓာတ်ပုံပြခန်း
                 </Link>
+              </li>
+               <li>
+                <Link 
+                  href="/clients/information" 
+                  className=" py-2 hover:text-blue-500 transition-colors flex items-center gap-2"
+                  onClick={() => setMobileOpen(false)}
+                >
+                    အချက်အလက်များ
+                  </Link>
               </li>
               <li>
                 <Link 
@@ -277,7 +286,7 @@ const ClientHeader = () => {
                   className="block py-2 hover:text-blue-500 transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
-                  Login
+                  အကောင့်၀င်ရန်
                 </Link>
               </li>
               <li>

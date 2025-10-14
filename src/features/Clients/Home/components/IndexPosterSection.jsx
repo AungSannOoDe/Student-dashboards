@@ -264,35 +264,6 @@ const IndexPosterSection = () => {
 
       {/* Fixed Landing Section */}
       <div className="absolute inset-0 flex items-center justify-center z-10">
-        <div className="container mx-auto px-4 text-center">
-          <div ref={headingRef} className="mb-8">
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 bg-clip-text text-transparent">
-                Animate
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-blue-600 via-teal-600 to-green-600 bg-clip-text text-transparent">
-                Anything
-              </span>
-            </h1>
-          </div>
-          
-          <div ref={subtitleRef} className="mb-12">
-            <p className="text-2xl md:text-4xl text-gray-700">
-              <span>That's right, </span>
-              <span className="bg-gradient-to-r from-orange-600 to-yellow-600 bg-clip-text text-transparent font-semibold">
-                Anything
-              </span>
-            </p>
-          </div>
-
-          <div ref={descriptionRef} className="max-w-4xl mx-auto">
-            <p className="text-xl md:text-2xl text-gray-600">
-              Whether you're animating UI, SVG, or creating immersive WebGL experiences,{" "}
-              <span className="text-gray-900 font-semibold">GSAP has your back.</span>
-            </p>
-          </div>
-        </div>
       </div>
 
       {/* Horizontal Scrolling Content */}

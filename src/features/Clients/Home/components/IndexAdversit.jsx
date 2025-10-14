@@ -41,8 +41,8 @@ const IndexAdversit = () => {
       className="max-w-7xl mt-10 mx-auto mb-10 flex justify-center font-montserrat opacity-0"
     >
       <div className="font-bold leading-30 text-center">
-        <p className="lg:text-7xl md:text-6xl text-4xl font-extrabold text-stone-600">
-          အကိုတို့ကျောင်းမှာဂျုးဂျုးတို့က
+        <p className="lg:text-6xl md:text-5xl text-3xl font-extrabold text-stone-600">
+          အစ်ကိုတို့တက္ကသိုလ်မှာ သစ်လွင်မောင်မယ်တို့က
         </p>
         <p
           ref={gradientTextRef}
@@ -50,10 +50,10 @@ const IndexAdversit = () => {
           bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 
           bg-[length:200%_200%] bg-clip-text text-transparent py-4"
         >
-          5နှစ် သင်တန်းတက်ရမယ်နော်
+          ၄ နှစ် သင်တန်းတက်ရမယ်နော်
         </p>
         <div className="relative bottom-0 ">
-          <p className="tracking-widest underline  sm:text-sm  ">ဘာတွေသင်လဲဆိုတာဒီမှာဖတ်လို့ရတယ်နော်</p>
+          <p className="tracking-widest underline  sm:text-sm  ">ဘာတွေသင်လဲဆိုတာဒီမှာဖတ်လို့ရပါတယ်</p>
         </div>
       </div>
     </section>

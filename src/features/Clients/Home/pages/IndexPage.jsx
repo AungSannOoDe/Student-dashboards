@@ -35,8 +35,9 @@ const IndexPage = () => {
      <NotiForLate/>
      <HistoryGallerySection/>
     <IndexSelectionBoys/>
-    <IndexReview/>
+   
     <IndexSelectionGril/>
+     <IndexReview/>
     <Footer/>
     </>
   )

@@ -7,8 +7,28 @@ export const electorMaleUrl=`${process.env.NEXT_PUBLIC_API_URL}/get-male`
 export const electorFemaleUrl=`${process.env.NEXT_PUBLIC_API_URL}/get-female`
 export const electorNameUrl=`${process.env.NEXT_PUBLIC_API_URL}/get-electorName`
 export const electorDeailsApiUrl=`${process.env.NEXT_PUBLIC_API_URL}/get-details`
-export const electorChampionApiUrl=`${process.env.NEXT_PUBLIC_API_URL}/champions`
-export const electorChampionUpateUrl=`${process.env.NEXT_PUBLIC_API_URL}/update-champion`
+export const successApiUrl=`${process.env.NEXT_PUBLIC_API_URL}/get-success`
+export const resetApiUrl=`${process.env.NEXT_PUBLIC_API_URL}/reset-vote`
+export const updateSuccess=()=>{
+    return fetch(`${successApiUrl}`,{
+        method:"POST",
+            body: JSON.stringify({}) ,
+         headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${useAccountStore.getState().token}`,
+            },
+    })
+}
+export const resetVote=()=>{
+  return fetch(`${resetApiUrl}`,{
+      method:"POST",
+          body: JSON.stringify({}) ,
+       headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${useAccountStore.getState().token}`,
+          },
+  })
+}
 
 export const updateChampion=(id)=>{
      return fetch(`${electorChampionUpateUrl}`,{

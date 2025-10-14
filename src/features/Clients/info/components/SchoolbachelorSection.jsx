@@ -111,64 +111,49 @@ const SchoolbachelorSection = () => {
   }
 
   return (
-    <section ref={sectionRef} className='max-w-7xl mx-auto px-4 py-20'>
+    <section ref={sectionRef} className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20'>
       {/* Title Section */}
-      <div className="relative mb-20">
-        <p ref={titleRef} className='text-center text-6xl text-stone-600 font-bold opacity-0'>
+      <div className="relative mb-12 md:mb-16 lg:mb-20">
+        <p 
+          ref={titleRef} 
+          className='text-center text-4xl sm:text-5xl md:text-6xl lg:text-6xl text-stone-600 font-bold opacity-0 px-4'
+        >
           Graduation
         </p>
         <div 
           ref={underlineRef} 
-          className="w-[300px] h-1 bg-blue-400 left-1/2 -translate-x-1/2 absolute"
+          className="w-40 sm:w-48 md:w-56 lg:w-64 xl:w-[300px] h-1 bg-blue-400 left-1/2 -translate-x-1/2 absolute mt-2 sm:mt-3"
         />
       </div>    
 
       {/* Cards Section */}
-      <div ref={cardsRef} className="flex justify-center gap-20 mt-10">
-        <div className="flex w-[500px] bg-white/50 h-40 gap-2 px-3 py-4 border border-stone-300 rounded-md opacity-0">
-          <div className="bg-green-300 w-12 h-12 self-start rounded-full flex items-center justify-center">
-            <GraduationCap className='text-green-500'/>  
+      <div 
+        ref={cardsRef} 
+        className="flex flex-col lg:flex-row justify-center gap-6 sm:gap-8 lg:gap-12 xl:gap-20 mt-8 sm:mt-10 lg:mt-12"
+      >
+        {/* B.C.SC Card */}
+        <div className="flex w-full lg:w-[450px] xl:w-[500px] bg-white/50 h-auto min-h-[160px] sm:min-h-[140px] gap-3 sm:gap-4 px-4 sm:px-6 py-4 sm:py-5 border border-stone-300 rounded-lg shadow-sm opacity-0">
+          <div className="bg-green-300 w-10 h-10 sm:w-12 sm:h-12 self-start rounded-full flex items-center justify-center flex-shrink-0">
+            <GraduationCap className='text-green-500 w-5 h-5 sm:w-6 sm:h-6'/>  
           </div>
-          <div>
-            <p className="font-semibold text-lg">Bachelor of Computer Sciences (B.C.SC)</p>
-            <p className='text-sm text-stone-600 mt-2'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, eveniet.
+          <div className="flex-1 min-w-0">
+            <p className="font-semibold text-base sm:text-lg lg:text-xl text-stone-800 leading-tight">
+              Bachelor of Computer Science (B.C.Sc.)
             </p>
           </div>
         </div>
         
-        <div className="flex w-[500px] bg-white/50 h-40 gap-2 px-3 py-4 border border-stone-300 rounded-md opacity-0">
-          <div className="bg-purple-300 w-12 h-12 self-start rounded-full flex items-center justify-center">
-            <GraduationCap className='text-purple-500'/>  
+        {/* B.C.T Card */}
+        <div className="flex w-full lg:w-[450px] xl:w-[500px] bg-white/50 h-auto min-h-[160px] sm:min-h-[140px] gap-3 sm:gap-4 px-4 sm:px-6 py-4 sm:py-5 border border-stone-300 rounded-lg shadow-sm opacity-0">
+          <div className="bg-purple-300 w-10 h-10 sm:w-12 sm:h-12 self-start rounded-full flex items-center justify-center flex-shrink-0">
+            <GraduationCap className='text-purple-500 w-5 h-5 sm:w-6 sm:h-6'/>  
           </div>
-          <div>
-            <p className="font-semibold text-lg">Bachelor of Computer Technologies (B.C.T)</p>
-            <p className='text-sm text-stone-600 mt-2'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, eveniet.
+          <div className="flex-1 min-w-0">
+            <p className="font-semibold text-base sm:text-lg lg:text-xl text-stone-800 leading-tight">
+              Bachelor of Computer Technology (B.C.Tech.)
             </p>
           </div>
         </div>
-      </div>
-
-      {/* Content Sections */}
-      <div ref={addToRefs} className="mt-20 ml-15 opacity-0">
-        <p className='text-stone-600 text-4xl font-bold mb-4'>
-          What is Bachelor of Computer Science? (B.CSC)
-        </p>
-        <p className="text-stone-700 leading-relaxed">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde, voluptate. 
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
-        </p>
-      </div>
-      
-      <div ref={addToRefs} className="mt-20 ml-15 opacity-0">
-        <p className='text-stone-600 text-4xl font-bold mb-4'>
-          What is Bachelor of Computer Technology? (B.CT)
-        </p>
-        <p className="text-stone-700 leading-relaxed">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde, voluptate. 
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
-        </p>
       </div>
     </section>
   )

@@ -43,9 +43,9 @@ toast.error(error.message)
   return (
  <AlertDialog>
   <AlertDialogTrigger asChild>
-    <button className={`bg-blue-500 text-white py-2 px-3 rounded-lg ${className}`}>Register</button>
+    <button className={`bg-blue-500 text-white py-2 px-3 rounded-lg ${className}`}>အကောင့်ဖွင့်ရန်</button>
   </AlertDialogTrigger>
-  <AlertDialogContent>
+  <AlertDialogContent className={`bg-white`}>
     <AlertDialogHeader>
       <AlertDialogTitle>Tokens to the Account</AlertDialogTitle>
       <AlertDialogDescription>

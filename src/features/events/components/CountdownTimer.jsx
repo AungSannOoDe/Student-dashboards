@@ -56,7 +56,6 @@ export default function CountdownTimer() {
                 10 Minutes
               </button>
             </div>
-
             <div className="flex items-center space-x-3">
               <input
                 type="number"

@@ -111,35 +111,36 @@ const StudentHeader = () => {
         <ul className="hidden lg:flex gap-6 text-sm font-medium  ">
           <li>
             <Link href="/clients/home" className="hover:text-blue-500 transition-colors">
-              Home
+              ပင်မစာမျက်နှာ
             </Link>
           </li>
           <li>
             <Link href="/clients/gallery" className="hover:text-blue-500 transition-colors">
-              Gallery
+              ဓာတ်ပုံ
             </Link>
           </li>
-           <li><Link href={`/clients/Information`} className="hover:text-stone-800 transition">Information</Link></li>
-          <li>
-            <Link href="/clients/reviews" className="hover:text-blue-500 transition-colors">
-              Reviews
-            </Link>
-          </li>
-          <li>
-            <Link href="/clients/votes" className="hover:text-blue-500 transition-colors">
-              Votes
-            </Link>
-          </li>
+           <li><Link href={`/clients/Information`} className="hover:text-stone-800 transition">အချက်အလက်များ</Link></li>
+          
           {token && (
             <>
               <li>
                 <Link href="/clients/cards" className="hover:text-blue-500 transition-colors">
-                  Selection
+                  ဆန္ဒမဲ
                 </Link>
               </li>
               <li>
                 <Link href="/clients/history" className="hover:text-blue-500 transition-colors">
                   History
+                </Link>
+              </li>
+              <li>
+                <Link href="/clients/reviews" className="hover:text-blue-500 transition-colors">
+                  Reviews
+                </Link>
+              </li>
+              <li>
+                <Link href="/clients/votes" className="hover:text-blue-500 transition-colors">
+                  Votes
                 </Link>
               </li>
             </>
@@ -245,7 +246,7 @@ const StudentHeader = () => {
                   href="/clients/login"
                   className="underline cursor-pointer hover:text-blue-500 transition-colors"
                 >
-                  Login
+                  အကောင့်၀င်ရန်
                 </Link>
               </li>
               <li>
@@ -278,29 +279,19 @@ const StudentHeader = () => {
               className="block py-2 hover:text-blue-500 transition-colors"
               onClick={() => setMobileOpen(false)}
             >
-              Home
+              ပင်မစာမျက်နှာ
             </Link>
           </li>
-          <li><Link href={`/clients/Information`} className="hover:text-stone-800 transition">Information</Link></li>
+          <li><Link href={`/clients/Information`} className="hover:text-stone-800 transition">အချက်အလက်များ</Link></li>
           <li>
             <Link 
               href="/clients/gallery" 
               className="block py-2 hover:text-blue-500 transition-colors"
               onClick={() => setMobileOpen(false)}
             >
-              Gallery
+              ဓာတ်ပုံပြခန်း
             </Link>
           </li>
-          <li>
-            <Link 
-              href="/clients/votes" 
-              className="block py-2 hover:text-blue-500 transition-colors"
-              onClick={() => setMobileOpen(false)}
-            >
-              Votes
-            </Link>
-          </li>
-
           {token && (
             <>
               <li>
@@ -309,7 +300,16 @@ const StudentHeader = () => {
                   className="block py-2 hover:text-blue-500 transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
-                  Selection
+                  ဆန္ဒမဲ
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/clients/votes" 
+                  className="block py-2 hover:text-blue-500 transition-colors"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  votes
                 </Link>
               </li>
               <li>
