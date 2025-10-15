@@ -76,9 +76,7 @@ const DetailsSection = () => {
           <p className="text-3xl md:text-4xl font-bold break-words">
             {data?.elector_name}
           </p>
-          <p className="text-xl md:text-2xl text-gray-700">{data?.phone}</p>
           <p className="text-gray-600">{data?.address}</p>
-
           <div className="ProseMirror leading-relaxed text-gray-700 text-base md:text-lg">
             {parse(data?.description || "Hello")}
           </div>
