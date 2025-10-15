@@ -120,7 +120,7 @@
       "fields": {
         "name": "မဲဆန္ဒနာ့အမည်",
         "phone": "ဖုန်းနံပါတ်",
-        "gender": "လိင်",
+        "gender": "gender",
         "genderOptions": {
           "male": "ကျား",
           "female": "မ"
@@ -129,10 +129,10 @@
         "address": "လိပ်စာ",
         "wonStatus": "အနိုင်ရ status",
         "wonStatusOptions": {
-          "king": "ဘုရင်",
-          "queen": "မိဖုရား",
-          "prince": "မင်းသား",
-          "princess": "မင်းသမီး"
+          "king": "king",
+          "queen": "Queen",
+          "prince": "prince",
+          "princess": "princess"
         },
         "description": "ဖော်ပြချက်",
         "selectOption": "ရွေးချယ်ပါ..",

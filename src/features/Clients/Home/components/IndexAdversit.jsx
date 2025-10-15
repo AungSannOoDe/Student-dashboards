@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -53,7 +54,7 @@ const IndexAdversit = () => {
           ၄ နှစ် သင်တန်းတက်ရမယ်နော်
         </p>
         <div className="relative bottom-0 ">
-          <p className="tracking-widest underline  sm:text-sm  ">ဘာတွေသင်လဲဆိုတာဒီမှာဖတ်လို့ရပါတယ်</p>
+            <Link href={`/clients/Information`} className="tracking-widest underline  sm:text-sm  ">ဘာတွေသင်လဲဆိုတာဒီမှာဖတ်လို့ရပါတယ်</Link>
         </div>
       </div>
     </section>

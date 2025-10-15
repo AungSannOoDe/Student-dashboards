@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -37,9 +38,9 @@ const HistoryGallerySection = () => {
         UCS(Hpa-an) ရဲ့ ကောလိပ်အဆင့်မှ တက္ကသိုလ် အဆင့်သို့ တိုးမြှင့်လာခဲ့သော သမိုင်းကြောင်းမှတ်တမ်းပုံများ
       </p>
 
-      <p className="fade-in font-bold underline">
+      <Link href={`clients/Information`} className="fade-in font-bold underline">
         ထပ်သိချင်ရင်တော့ဒီကနေဖတ်လို့ရပါတယ်နော်
-      </p>
+      </Link>
 
       <div className="grid grid-cols-1 px-2 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-2">
         <img src="../images/Header.jpg" alt="" className="fade-in rounded-lg" />

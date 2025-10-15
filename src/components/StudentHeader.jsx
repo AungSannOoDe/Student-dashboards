@@ -282,6 +282,11 @@ const StudentHeader = () => {
               ပင်မစာမျက်နှာ
             </Link>
           </li>
+          <li>
+            <Link href="/clients/history" className="hover:text-blue-500 transition-colors">
+              နှစ်အလိုက် King Queen များ
+            </Link>
+          </li>
           <li><Link href={`/clients/Information`} className="hover:text-stone-800 transition">အချက်အလက်များ</Link></li>
           <li>
             <Link 
@@ -300,7 +305,7 @@ const StudentHeader = () => {
                   className="block py-2 hover:text-blue-500 transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
-                  ဆန္ဒမဲ ရလဒ်
+                   ဆန္ဒမဲပေးခြင်း
                 </Link>
               </li>
               <li>
@@ -309,7 +314,7 @@ const StudentHeader = () => {
                   className="block py-2 hover:text-blue-500 transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
-                  votes
+                   ဆန္ဒမဲ ရလဒ်
                 </Link>
               </li>
               <li>
