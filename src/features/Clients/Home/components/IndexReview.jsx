@@ -71,68 +71,93 @@ const IndexReview = () => {
   }
 
   return (
-    <section>
-      <h2 className="text-center font-bold text-3xl text-stone-600 mb-4 underline">အကြုံပြုစာများ</h2>
+  <section className="px-4 sm:px-6 lg:px-8 py-8 bg-gray-50">
+    <h2 className="text-center font-bold text-2xl sm:text-3xl lg:text-4xl text-stone-600 mb-8 sm:mb-12 underline decoration-2 decoration-blue-400">
+      အကြုံပြုစာများ
+    </h2>
+  
+    <div className="max-w-7xl mx-auto">
       <Swiper 
-        className="max-w-7xl mx-auto"
-        slidesPerView={3}
-        spaceBetween={30}
+        className="w-full"
+        slidesPerView={1}
+        spaceBetween={20}
         autoplay={{
-          delay: 2500,
+          delay: 3000,
           disableOnInteraction: false,
         }}
         modules={[Autoplay]}
         breakpoints={{
+          // Mobile first approach
           320: {
             slidesPerView: 1,
-            spaceBetween: 10,
+            spaceBetween: 16,
           },
-          640: {
-            slidesPerView: 2,
+          480: {
+            slidesPerView: 1,
             spaceBetween: 20,
           },
+          640: {
+            slidesPerView: 1.2, // Slight peek for tablets
+            spaceBetween: 24,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 24,
+          },
           1024: {
+            slidesPerView: 2,
+            spaceBetween: 28,
+          },
+          1280: {
             slidesPerView: 3,
             spaceBetween: 30,
           },
         }}
+        loop={true}
+        centeredSlides={false}
+        grabCursor={true}
       >
         {data?.data?.length > 0 ? (
           data.data.map((review) => (
-            <SwiperSlide key={review.id}>
-              <div className="bg-blue-400 h-50 px-6 py-4 shadow-xl rounded-sm mx-2 hover:transform hover:scale-105 transition-transform duration-300">
-                <div className="flex gap-4">
-                  <div className="self-center">
+            <SwiperSlide key={review.id} className="pb-2">
+              <div className="bg-gradient-to-br from-blue-500 to-blue-600 h-full px-4 sm:px-6 py-4 sm:py-6 shadow-lg rounded-lg mx-1 hover:transform hover:scale-105 transition-all duration-300 hover:shadow-xl border border-blue-300">
+                {/* Header with image and info */}
+                <div className="flex gap-3 sm:gap-4 items-start">
+                  <div className="flex-shrink-0">
                     <img 
                       src={review.image || "../images/5.png"} 
-                      width="80px" 
-                      height="80px"
+                      width="70px" 
+                      height="70px"
                       alt={review.reviewer_name || "Reviewer"} 
-                      className="rounded-full ring-4 ring-stone-500 object-cover" 
+                      className="rounded-full ring-3 ring-white ring-opacity-50 object-cover shadow-md" 
                       onError={(e) => {
                         e.target.src = "../images/5.png";
                       }}
                     />
                   </div>
-                  <div className="text-white">
-                    <div className="">
-                      <h1 className="text-xl font-semibold">
+                  <div className="text-white flex-1 min-w-0">
+                    <div className="mb-1">
+                      <h1 className="text-lg sm:text-xl font-semibold truncate">
                         {review.reviewer_name || "Anonymous"}
                       </h1>
                     </div>
-                    <div className="-mb-4">
-                       <StarRating rating={review.rating}/>
+                    <div className="mb-2">
+                      <StarRating rating={review.rating}/>
                     </div>
                   </div>
                 </div>
-                <div className="mt-3 leading-5 text-white">
-                  <p className="text-sm">
+              
+                {/* Review Message */}
+                <div className="mt-3 sm:mt-4">
+                  <p className="text-white text-sm sm:text-base leading-6 sm:leading-7 line-clamp-4">
                     {review.message || "No message available."}
                   </p>
                 </div>
+              
+                {/* Date */}
                 {review.created_at && (
-                  <div className="mt-3 text-right">
-                    <p className=" opacity-80 text-white text-lg">
+                  <div className="mt-4 sm:mt-5 pt-3 border-t border-white border-opacity-20">
+                    <p className="text-white text-opacity-90 text-sm sm:text-base text-right">
                       {new Date(review.created_at).toLocaleDateString()}
                     </p>
                   </div>
@@ -141,10 +166,13 @@ const IndexReview = () => {
             </SwiperSlide>
           ))
         ) : (
-        <p>There is no reviews</p>
+          <div className="text-center py-12">
+            <p className="text-gray-500 text-lg">There are no reviews yet</p>
+          </div>
         )}
       </Swiper>
-    </section>
+    </div>
+  </section>
   );
 };
 

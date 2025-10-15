@@ -3,7 +3,6 @@ import React from "react";
 const TermSection = () => {
   return (
     <section className="max-w-7xl mx-auto mt-10  ">
-      <p className="text-6xl font-bold">Terms and Condition</p>
       <div className="ml-1 mt-2 space-y-10">
         <dl>
           <dt className="text-4xl ml-3">"ပင်မစာမျက်နှာ"ဆိုတာဘာလဲ</dt>

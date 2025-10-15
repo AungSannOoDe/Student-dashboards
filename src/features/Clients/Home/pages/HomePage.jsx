@@ -37,6 +37,7 @@ const HomePage = () => {
      <HistoryGallerySection/>
     <IndexSelectionBoys/>
     <IndexSelectionGril/>
+    <IndexReview/>
     <Footer/>
     </>
    </HomeLayout>

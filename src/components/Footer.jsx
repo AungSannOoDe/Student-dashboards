@@ -22,8 +22,8 @@ const Footer = () => {
           </ul>
           <ul className="flex flex-col space-y-3">
             <li className="font-bold text-2xl">စည်းမျဉ်းများ</li>
-            <li>Licnces</li>
-            <li> <Link  href={"/clients/aboutus"}>About us</Link></li>
+             <li> <Link  href={"/clients/aboutus"}>About us</Link></li>
+            <li><Link href={"/clients/privacy"}>Privacy and Policy </Link>  </li>
             <li>
               {" "}
               <Link href="/clients/terms">Terms and Conditions</Link>{" "}

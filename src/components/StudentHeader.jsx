@@ -125,12 +125,12 @@ const StudentHeader = () => {
             <>
               <li>
                 <Link href="/clients/cards" className="hover:text-blue-500 transition-colors">
-                  ဆန္ဒမဲ
+                  ဆန္ဒမဲပေးခြင်း
                 </Link>
               </li>
               <li>
                 <Link href="/clients/history" className="hover:text-blue-500 transition-colors">
-                  History
+                  နှစ်အလိုက် King Queen များ
                 </Link>
               </li>
               <li>
@@ -140,7 +140,7 @@ const StudentHeader = () => {
               </li>
               <li>
                 <Link href="/clients/votes" className="hover:text-blue-500 transition-colors">
-                  Votes
+                  ဆန္ဒမဲ ရလဒ်
                 </Link>
               </li>
             </>
@@ -300,7 +300,7 @@ const StudentHeader = () => {
                   className="block py-2 hover:text-blue-500 transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
-                  ဆန္ဒမဲ
+                  ဆန္ဒမဲ ရလဒ်
                 </Link>
               </li>
               <li>

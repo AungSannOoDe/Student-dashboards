@@ -31,22 +31,6 @@ const ClientHeader = () => {
     { revalidateOnFocus: true, refreshWhenHidden: true }
   );
 
-  const handletoggle = () => setIsHover(!hover);
-
-  const subMenuAnimate = {
-    enter: {
-      opacity: 1,
-      rotateX: 0,
-      transition: { duration: 0.4 },
-      display: "block",
-    },
-    exist: {
-      opacity: 0,
-      rotateX: -15,
-      transition: { duration: 0.4 },
-      transitionEnd: { display: "none" },
-    },
-  };
 
   useEffect(() => {
     account.vote_male === 1 ? setVoteMale(1) : setVoteMale(0);
@@ -63,96 +47,157 @@ const ClientHeader = () => {
 
     return () => ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
   }, [account.vote_male, account.vote_female]);
-
-  const handlelogout = () => logout();
-
+  const handleToggle = () => setIsHover(!hover);
+  const handleLogout = () => logout();
+  const subMenuAnimate = {
+    enter: {
+      opacity: 1,
+      rotateX: 0,
+      transition: { duration: 0.4 },
+      display: "block",
+    },
+    exist: {
+      opacity: 0,
+      rotateX: -15,
+      transition: { duration: 0.4 },
+      transitionEnd: { display: "none" },
+    },
+  };
   return (
-    <header className="fixed bg-stone-50/10 backdrop-blur-sm w-full z-20 shadow-sm">
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6 py-3 lg:py-4">
+     <header className="fixed  top-0 bg-stone-50/10  backdrop-blur-sm w-full z-30 shadow-sm">
+      <div className=" mx-auto flex  justify-between items-center  sm:px-6 py-3 lg:py-4">
         {/* Logo */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 ">
           <img
-            src="../images/Culogo-removebg-preview.png"
+            src="/images/Culogo-removebg-preview.png"
             ref={headerRef}
             className="h-10 sm:h-12 object-contain"
             alt="Logo"
           />
         </div>
-
+        <ul className="hidden lg:flex gap-6 text-sm font-medium  ">
+          <li>
+            <Link href="/clients/home" className="hover:text-blue-500 transition-colors">
+              ပင်မစာမျက်နှာ
+            </Link>
+          </li>
+          <li>
+            <Link href="/clients/gallery" className="hover:text-blue-500 transition-colors">
+              ဓာတ်ပုံ
+            </Link>
+          </li>
+           <li><Link href={`/clients/Information`} className="hover:text-stone-800 transition">အချက်အလက်များ</Link></li>
+          
+          {token && (
+            <>
+              <li>
+                <Link href="/clients/cards" className="hover:text-blue-500 transition-colors">
+                  ဆန္ဒမဲပေးခြင်း
+                </Link>
+              </li>
+              <li>
+                <Link href="/clients/history" className="hover:text-blue-500 transition-colors">
+                  နှစ်အလိုက် King Queen များ
+                </Link>
+              </li>
+              <li>
+                <Link href="/clients/reviews" className="hover:text-blue-500 transition-colors">
+                  Reviews
+                </Link>
+              </li>
+              <li>
+                <Link href="/clients/votes" className="hover:text-blue-500 transition-colors">
+                  ဆန္ဒမဲ ရလဒ်
+                </Link>
+              </li>
+            </>
+          )}
+        </ul>
         {/* Desktop Menu */}
-        <nav className="hidden lg:flex lg:items-center lg:gap-6">
-          <ul className="flex gap-6 text-sm font-medium">
-            <li><Link href={`/clients/home`}>ပင်မစာမျက်နှာ</Link></li>
-            <li><Link href={`/clients/gallery`}>ဓာတ်ပုံ</Link></li>
-            <li><Link href={`/clients/Information`} className="hover:text-stone-800 transition">Information</Link></li>
-            {!token && <li><Link href={`/dashboard`}>Admin</Link></li>}
-            {token && (
-              <>
-                <li><Link href={`/clients/votes`}>Votes</Link></li>
-                <li><Link href={`/clients/cards`}>Selection</Link></li>
-                <li><Link href={`/clients/history`}>History</Link></li>
-              </>
-            )}
-          </ul>
-
-          {/* Right Side */}
+        <nav className="hidden  lg:flex  lg:items-center lg:gap-6">
+          {/* Right Section (Desktop) */}
           {token ? (
             <ul className="flex gap-5 items-center">
               <li>
-                <Link href={`/clients/success`}><Crown className="text-amber-400" /></Link>
+                <Link href="/clients/success" className="hover:scale-110 transition-transform">
+                  <Crown className="text-amber-400 size-6" />
+                </Link>
               </li>
 
-              {/* Hover Dropdown */}
+              {/* Hover Menu */}
               <motion.li
-                onHoverStart={handletoggle}
-                onHoverEnd={handletoggle}
+                onHoverStart={handleToggle}
+                onHoverEnd={handleToggle}
                 className="relative"
               >
-                <Link href={`/clients/tempo`}><BookMarked className="size-7" /></Link>
+                <Link href="/clients/tempo" className="hover:scale-110 transition-transform">
+                  <BookMarked className="size-6" />
+                </Link>
+
                 <motion.div
                   initial="exist"
                   animate={hover ? "enter" : "exist"}
                   variants={subMenuAnimate}
-                  className="absolute right-0 top-[3.2rem] w-80 p-4 bg-white shadow-md rounded-md space-y-4 origin-[50%,-170px] z-50"
+                  className="absolute w-80 cursor-pointer right-0 backdrop-blur-sm bg-white rounded-md shadow-md origin-top space-y-3 top-[3.2rem] p-4 z-50"
                 >
                   {isLoading ? (
                     <div className="text-center py-2">Loading...</div>
                   ) : error ? (
-                    <div className="text-center py-2 text-red-500">Error loading data</div>
+                    <div className="text-center py-2 text-red-500">
+                      Error loading data
+                    </div>
                   ) : data?.data?.length > 0 ? (
                     data.data.map((temp) => (
-                      <div key={temp.id} className="hover:bg-gray-50 p-2 rounded flex justify-between items-center">
-                        <p className="text-sm">{temp.id}</p>
-                        <div className="w-8 h-8 rounded-full bg-amber-100"></div>
-                        <p className="text-xs">{temp.elector?.elector_name || "Unknown"}</p>
-                        <p className="text-xs">{temp.elector?.gender}</p>
-                        <button onClick={() => console.log("Delete", temp.id)}>
-                          <X className="size-5 text-red-500 cursor-pointer" />
+                      <div
+                        key={temp.id}
+                        className="hover:bg-gray-50 p-3 rounded flex justify-between items-center text-sm border-b"
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center">
+                            <span className="text-xs font-semibold">
+                              {temp.elector?.elector_name?.charAt(0) || "U"}
+                            </span>
+                          </div>
+                          <div>
+                            <p className="font-semibold text-gray-700 text-xs">
+                              {temp.elector?.elector_name || "Unknown"}
+                            </p>
+                            <p className="text-xs text-gray-500 capitalize">
+                              {temp.elector?.gender}
+                            </p>
+                          </div>
+                        </div>
+                        <button 
+                          onClick={() => handleDelete(temp.id)}
+                          className="p-1 hover:bg-red-50 rounded transition-colors"
+                        >
+                          <X className="size-4 text-red-500" />
                         </button>
                       </div>
                     ))
                   ) : (
-                    <p className="text-center py-2">No data available</p>
+                    <p className="text-center py-2 text-gray-500">No temporary selections</p>
                   )}
                 </motion.div>
               </motion.li>
 
+              {/* Profile */}
               <li>
                 <DropdownMenu>
-                  <DropdownMenuTrigger>
+                  <DropdownMenuTrigger className="hover:scale-105 transition-transform">
                     <img
                       src={account.profile_image || "/images/user.png"}
-                      alt="Profile"
-                      className="w-10 h-10 rounded-full object-cover border"
+                      alt="User"
+                      className="object-cover w-10 h-10 rounded-full border"
                     />
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end" className="w-48">
-                    <DropdownMenuLabel className="flex flex-col space-y-2 p-4">
-                      <p className="text-lg font-semibold">{account.voter_name}</p>
+                    <DropdownMenuLabel className="flex flex-col space-y-3 p-4">
+                      <p className="font-semibold text-lg">{account.voter_name}</p>
                       <p className="text-xs text-gray-500">{account.voter_email}</p>
                       <button
-                        className="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600 transition"
-                        onClick={handlelogout}
+                        className="bg-blue-500 text-white px-3 py-2 rounded-md hover:bg-blue-600 transition-colors w-full"
+                        onClick={handleLogout}
                       >
                         Logout
                       </button>
@@ -163,14 +208,23 @@ const ClientHeader = () => {
             </ul>
           ) : (
             <ul className="flex gap-4 items-center">
-              <li><Link href={"/clients/login"} className="underline">အကောင့်၀င်ရန်</Link></li>
-              <li><LoginButton /></li>
+              <li className="self-center">
+                <Link
+                  href="/clients/login"
+                  className="underline cursor-pointer hover:text-blue-500 transition-colors"
+                >
+                  အကောင့်၀င်ရန်
+                </Link>
+              </li>
+              <li>
+                <LoginButton />
+              </li>
             </ul>
           )}
         </nav>
 
         {/* Mobile Hamburger */}
-         <button
+        <button
           className="lg:hidden p-2 rounded-md hover:bg-stone-200/30 transition"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
@@ -178,12 +232,12 @@ const ClientHeader = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Dropdown Menu */}
       <motion.div
         initial={{ height: 0, opacity: 0 }}
         animate={mobileOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
         transition={{ duration: 0.3 }}
-        className="lg:hidden bg-white/80 dark:bg-stone-900/70 backdrop-blur-md  shadow-sm fixed z-10 w-full  border-t border-gray-200  overflow-hidden"
+        className="lg:hidden bg-white fixed z-10 w-full  border-t border-gray-200 shadow-inner overflow-hidden"
       >
         <ul className="flex flex-col gap-4 py-6 px-6 text-gray-700 text-base">
           <li>
@@ -202,19 +256,9 @@ const ClientHeader = () => {
               className="block py-2 hover:text-blue-500 transition-colors"
               onClick={() => setMobileOpen(false)}
             >
-               ဓာတ်ပုံပြခန်း
+              ဓာတ်ပုံပြခန်း
             </Link>
           </li>
-          <li>
-            <Link 
-              href="/clients/votes" 
-              className="block py-2 hover:text-blue-500 transition-colors"
-              onClick={() => setMobileOpen(false)}
-            >
-              Votes
-            </Link>
-          </li>
-
           {token && (
             <>
               <li>
@@ -223,7 +267,16 @@ const ClientHeader = () => {
                   className="block py-2 hover:text-blue-500 transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
-                  Selection
+                  ဆန္ဒမဲ ရလဒ်
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/clients/votes" 
+                  className="block py-2 hover:text-blue-500 transition-colors"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  votes
                 </Link>
               </li>
               <li>
@@ -232,17 +285,8 @@ const ClientHeader = () => {
                   className="block py-2 hover:text-blue-500 transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
-                  ဓာတ်ပုံပြခန်း
+                  History
                 </Link>
-              </li>
-               <li>
-                <Link 
-                  href="/clients/information" 
-                  className=" py-2 hover:text-blue-500 transition-colors flex items-center gap-2"
-                  onClick={() => setMobileOpen(false)}
-                >
-                    အချက်အလက်များ
-                  </Link>
               </li>
               <li>
                 <Link 
@@ -286,7 +330,7 @@ const ClientHeader = () => {
                   className="block py-2 hover:text-blue-500 transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
-                  အကောင့်၀င်ရန်
+                  Login
                 </Link>
               </li>
               <li>
@@ -299,6 +343,7 @@ const ClientHeader = () => {
         </ul>
       </motion.div>
     </header>
+    
   );
 };
 

@@ -35,7 +35,6 @@ const IndexPage = () => {
      <NotiForLate/>
      <HistoryGallerySection/>
     <IndexSelectionBoys/>
-   
     <IndexSelectionGril/>
      <IndexReview/>
     <Footer/>

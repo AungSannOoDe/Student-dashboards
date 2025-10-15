@@ -304,12 +304,12 @@ const IndexPosterSection = () => {
           >
             <div className="text-center max-w-6xl myanmar-text">
               <p className="text-4xl md:text-6xl text-gray-900 mb-8">
-                <span className="text-block">ကို </span>
+                <span className="text-block">သင်တန်းကို </span>
                 <span 
                   ref={el => charactersRef.current[0] = el}
                   className="text-block bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent font-bold"
                 >
-                  personality
+                
                 </span>
                 <span className="text-block"> တက်ရောက်လာကြသော </span>
               </p>
@@ -353,9 +353,9 @@ const IndexPosterSection = () => {
                   gradient="linear-gradient(135deg, #7C3AED, #8B5CF6)"
                   className="text-5xl md:text-7xl font-bold"
                 />
-                <span className="text-5xl md:text-7xl text-gray-900">-and-</span>
+                <span className="text-5xl md:text-7xl text-gray-900">နှင့်</span>
                 <GradientText 
-                  text="ညီမငယ်" 
+                  text="ညီမငယ် များကို" 
                   gradient="linear-gradient(135deg, #7C3AED, #8B5CF6)"
                   className="text-5xl md:text-7xl font-bold"
                 />
@@ -369,20 +369,20 @@ const IndexPosterSection = () => {
             className="w-screen flex items-center justify-center px-8"
           >
             <div className="text-center max-w-6xl myanmar-text">
-              <p className="text-4xl md:text-6xl text-gray-900 mb-8">
-                <span className="text-block">များကို ကွန်ပျုတာကျောင်းရှိ </span>
+              <p className="text-4xl md:text-6xl text-gray-900 mb-8 leading-25">
+                <span className="text-block"> ကွန်ပျုတာတက္ကသိုလ်(ဘားအံ)ရှိ </span>
                 <span 
                   ref={el => charactersRef.current[1] = el}
-                  className="text-block bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-bold"
+                  className="text-block bg-gradient-to-r   from-purple-600 to-pink-600 bg-clip-text text-transparent font-bold"
                 >
-                  ကျောင်းအုပ်ကြီးနှင့်ဆရာမ
+                  ပါမောက္ခချုပ်၊ ဒုတိယပါမောက္ခချုပ်နှင့် ဆရာ/ဆရာမ များနှင့်
                 </span>
                 <span className="text-block"> </span>
                 <span 
                   ref={el => charactersRef.current[2] = el}
                   className="text-block bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent font-bold"
                 >
-                  များနှင့် senior
+                   senior
                 </span>
               </p>
             </div>
@@ -400,7 +400,7 @@ const IndexPosterSection = () => {
                 className="text-7xl md:text-9xl font-bold block mb-4"
               />
               <GradientText 
-                text="မမများမှ" 
+                text="မမ များမှ" 
                 gradient="linear-gradient(135deg, #059669, #10B981)"
                 className="text-5xl md:text-7xl font-bold block mb-4"
               />

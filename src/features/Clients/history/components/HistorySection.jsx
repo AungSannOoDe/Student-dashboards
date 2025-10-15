@@ -48,7 +48,10 @@ const HistorySection = () => {
     <section className='max-w-7xl mx-auto'>
       <div className="">
         <h1 className='text-center font-bold'>History of Section</h1>
-        <p className="text-stone-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi assumenda praesentium quas rem eveniet eum aut repudiandae, natus est modi provident, suscipit, tempora corporis facere? Tenetur qui consequuntur eius deleniti error fugit officiis provident aut esse aperiam ipsa, accusamus rerum vero cumque vel! Hic quam minima incidunt rerum, qui perferendis, autem pariatur illum soluta quibusdam voluptatem animi commodi provident, natus at iusto! Laudantium iste totam obcaecati magni illo, earum perferendis itaque rerum suscipit eligendi! Sunt beatae temporibus recusandae eveniet veritatis ex rem doloribus expedita enim labore ad corporis, similique laudantium quas corrupti laboriosam nemo quo id hic quae facilis. Officia.</p>
+        <p className="text-stone-600"> aperiam ipsa, accusamus rerum vero cumque vel! Hic quam minima incidunt rerum, qui perferendis,
+           autem pariatur illum soluta quibusdam voluptatem animi commodi provident, natus at iusto! L
+           audantium iste totam obcaecati magni illo, earum perferendis itaque rerum suscipit eligendi!
+            Sunt beatae temporibus recusandae eveniet veritatis ex rem doloribus expedita enim labore ad corporis, similique laudantium quas corrupti laboriosam nemo quo id hic quae facilis. Officia.</p>
       </div>
       
       <div className="w-3/4 mx-auto flex text-lg pointer-events-auto text-stone-500 justify-around mt-4">
