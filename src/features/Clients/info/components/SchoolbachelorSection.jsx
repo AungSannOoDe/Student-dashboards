@@ -57,7 +57,7 @@ const SchoolbachelorSection = () => {
       )
 
       // Cards animation (staggered)
-      gsap.fromTo(cardsRef.current.children,
+      gsap.fromTo(cardsRef.current?.children || [],
         { 
           y: 60, 
           opacity: 0 
@@ -116,45 +116,53 @@ const SchoolbachelorSection = () => {
       <div className="relative mb-12 md:mb-16 lg:mb-20">
         <p 
           ref={titleRef} 
-          className='text-center text-4xl sm:text-5xl md:text-6xl lg:text-6xl text-stone-600 font-bold opacity-0 px-4'
+          className='text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-stone-600 font-bold opacity-0 px-2 sm:px-4'
         >
           Graduation
         </p>
         <div 
           ref={underlineRef} 
-          className="w-40 sm:w-48 md:w-56 lg:w-64 xl:w-[300px] h-1 bg-blue-400 left-1/2 -translate-x-1/2 absolute mt-2 sm:mt-3"
+          className="w-32 sm:w-40 md:w-48 lg:w-56 xl:w-64 h-1 sm:h-1.5 bg-blue-400 left-1/2 -translate-x-1/2 absolute mt-2 sm:mt-3 md:mt-4"
         />
       </div>    
 
       {/* Cards Section */}
       <div 
         ref={cardsRef} 
-        className="flex flex-col lg:flex-row justify-center gap-6 sm:gap-8 lg:gap-12 xl:gap-20 mt-8 sm:mt-10 lg:mt-12"
+        className="flex flex-col lg:flex-row justify-center items-center gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-12 mt-6 sm:mt-8 md:mt-10 lg:mt-12"
       >
         {/* B.C.SC Card */}
-        <div className="flex w-full lg:w-[450px] xl:w-[500px] bg-white/50 h-auto min-h-[160px] sm:min-h-[140px] gap-3 sm:gap-4 px-4 sm:px-6 py-4 sm:py-5 border border-stone-300 rounded-lg shadow-sm opacity-0">
-          <div className="bg-green-300 w-10 h-10 sm:w-12 sm:h-12 self-start rounded-full flex items-center justify-center flex-shrink-0">
-            <GraduationCap className='text-green-500 w-5 h-5 sm:w-6 sm:h-6'/>  
+        <div className="flex w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl bg-white/50 h-auto min-h-[120px] sm:min-h-[130px] md:min-h-[140px] gap-3 sm:gap-4 px-4 sm:px-5 md:px-6 py-3 sm:py-4 md:py-5 border border-stone-300 rounded-lg shadow-sm opacity-0 hover:shadow-md transition-shadow duration-300">
+          <div className="bg-green-300 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 self-start rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+            <GraduationCap className='text-green-500 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6'/>  
           </div>
           <div className="flex-1 min-w-0">
-            <p className="font-semibold text-base sm:text-lg lg:text-xl text-stone-800 leading-tight">
+            <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl text-stone-800 leading-tight sm:leading-snug md:leading-relaxed">
               Bachelor of Computer Science (B.C.Sc.)
+            </p>
+            <p className="text-xs sm:text-sm md:text-base text-stone-600 mt-2 sm:mt-3 leading-relaxed">
+              4-year comprehensive computer science program focusing on software development, algorithms, and computer systems.
             </p>
           </div>
         </div>
         
         {/* B.C.T Card */}
-        <div className="flex w-full lg:w-[450px] xl:w-[500px] bg-white/50 h-auto min-h-[160px] sm:min-h-[140px] gap-3 sm:gap-4 px-4 sm:px-6 py-4 sm:py-5 border border-stone-300 rounded-lg shadow-sm opacity-0">
-          <div className="bg-purple-300 w-10 h-10 sm:w-12 sm:h-12 self-start rounded-full flex items-center justify-center flex-shrink-0">
-            <GraduationCap className='text-purple-500 w-5 h-5 sm:w-6 sm:h-6'/>  
+        <div className="flex w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl bg-white/50 h-auto min-h-[120px] sm:min-h-[130px] md:min-h-[140px] gap-3 sm:gap-4 px-4 sm:px-5 md:px-6 py-3 sm:py-4 md:py-5 border border-stone-300 rounded-lg shadow-sm opacity-0 hover:shadow-md transition-shadow duration-300">
+          <div className="bg-purple-300 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 self-start rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+            <GraduationCap className='text-purple-500 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6'/>  
           </div>
           <div className="flex-1 min-w-0">
-            <p className="font-semibold text-base sm:text-lg lg:text-xl text-stone-800 leading-tight">
+            <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl text-stone-800 leading-tight sm:leading-snug md:leading-relaxed">
               Bachelor of Computer Technology (B.C.Tech.)
+            </p>
+            <p className="text-xs sm:text-sm md:text-base text-stone-600 mt-2 sm:mt-3 leading-relaxed">
+              4-year technology-focused program emphasizing practical applications, hardware systems, and emerging technologies.
             </p>
           </div>
         </div>
       </div>
+
+     
     </section>
   )
 }

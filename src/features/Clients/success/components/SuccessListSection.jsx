@@ -34,7 +34,7 @@ const SuccessListSection = () => {
     <section className='max-w-7xl mx-auto mt-10 mb-20 '>
     <div className="mt-20 ">
         <h1 className='text-center font-bold'>Success of Section</h1>
-    <p className="text-stone-600 px-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi assumenda praesentium quas rem eveniet eum aut repudiandae, natus est modi provident, suscipit, tempora corporis facere? Tenetur qui consequuntur eius deleniti error fugit officiis provident aut esse aperiam ipsa, accusamus rerum vero cumque vel! Hic quam minima incidunt rerum, qui perferendis, autem pariatur illum soluta quibusdam voluptatem animi commodi provident, natus at iusto! Laudantium iste totam obcaecati magni illo, earum perferendis itaque rerum suscipit eligendi! Sunt beatae temporibus recusandae eveniet veritatis ex rem doloribus expedita enim labore ad corporis, similique laudantium quas corrupti laboriosam nemo quo id hic quae facilis. Officia.</p>
+    <p className="text-stone-600 px-3">ပဏာမရွေးချယ်ခြင်းခံရသော ကျောင်းသားကျောင်းသူများကို မဲစနစ်ဖြင့်စီစစ်၍ ရရှိလာသောရလဒ်အရ King, Queen, Prince, Princess များ၏ ဓါတ်ပုံများ</p>
     </div>
     <div className="mt-10 space-y-10">
         <div className="grid lg:grid-cols-3   xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-10  space-y-20  px-6">

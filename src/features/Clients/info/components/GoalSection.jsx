@@ -59,7 +59,6 @@ export const GoalSection = () => {
     return () => ctx.revert()
   }, [])
 
-  // Helper function to add refs to list items
   const addToRefs = (el) => {
     if (el && !listItemsRef.current.includes(el)) {
       listItemsRef.current.push(el)
@@ -67,23 +66,19 @@ export const GoalSection = () => {
   }
 
   return (
-    <section ref={sectionRef} className='max-w-7xl mx-auto px-4 py-20'>
-      <div className="relative inline-block mb-16 md:mb-20">
-        <p ref={titleRef} className='text-stone-500 text-4xl sm:text-5xl md:text-6xl font-bold opacity-0'>
+    <section ref={sectionRef} className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24'>
+      {/* Header */}
+      <div className="relative inline-block mb-12 md:mb-16">
+        <p ref={titleRef} className='text-stone-500 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold opacity-0'>
           တက္ကသိုလ်၏ရည်မှန်းချက်
         </p>
-        <div 
-          ref={underlineRef} 
-          className=" w-60 sm:w-60 md:w-[570px] h-2 bg-blue-400 absolute -bottom-3 sm:-bottom-4 md:-bottom-6 left-0"
-        />
       </div>
 
-      <ul className='list-none leading-14 text-lg pl-6 md:pl-8'>
-        <li ref={addToRefs} className="text-stone-700 text-justify leading-relaxed md:leading-loose text-base md:text-lg mb-4 opacity-0">
-
-         "လျင်မြန်စွာ ပြောင်းလဲနေသော ဒစ်ဂျစ်တယ်ကမ္ဘာတွင် ဆန်းသစ်တီထွင်မှုနှင့် ရေရှည်တည်တံ့သော တိုးတက်မှုကို တွန်းအားပေးသည့် ကျင့်ဝတ်အရ အခြေခံပြီး နည်းပညာဆိုင်ရာကျွမ်းကျင်မှုနှင့် လူမှုရေးအရ တာဝန်ယူမှုရှိသည့် အနာဂတ်ကွန်ပျူတာပညာရှင်မျိုးဆက်သစ်များကို ပြုစုပျိုးထောင်ရန်။"
+      {/* List */}
+      <ul className='list-disc pl-5 sm:pl-6 md:pl-8 space-y-4'>
+        <li ref={addToRefs} className="text-stone-700 text-justify text-base sm:text-base md:text-lg lg:text-xl leading-relaxed sm:leading-loose md:leading-loose opacity-0">
+          လျင်မြန်စွာ ပြောင်းလဲနေသော ဒစ်ဂျစ်တယ်ကမ္ဘာတွင် ဆန်းသစ်တီထွင်မှုနှင့် ရေရှည်တည်တံ့သော တိုးတက်မှုကို တွန်းအားပေးသည့် ကျင့်ဝတ်အရ အခြေခံပြီး နည်းပညာဆိုင်ရာကျွမ်းကျင်မှုနှင့် လူမှုရေးအရ တာဝန်ယူမှုရှိသည့် အနာဂတ်ကွန်ပျူတာပညာရှင်မျိုးဆက်သစ်များကို ပြုစုပျိုးထောင်ရန်။
         </li>
-       
         {/* Add more list items as needed */}
       </ul>
     </section>
