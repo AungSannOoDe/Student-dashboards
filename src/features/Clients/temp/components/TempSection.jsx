@@ -5,10 +5,12 @@ import usetemp from '../hooks/usetemp'
 import Tempskeleton from './Tempskeleton'
 import { destorytemp } from '@/services/tempo'
 import { toast } from 'sonner'
+import { useState } from 'react'
 
 const TempSection = () => {
    const{data,isLoading,selectAllItems,selectedItems,toggleSelectItem,handleVote,refreshVote,
   triggerVote,mutate,register,reset,handleSubmit,onSubmit}=usetemp()
+  const[click,setClick]=useState(1)
    const handleDelete=async(id)=>{
     try{
        const res=await destorytemp(id)
@@ -16,9 +18,11 @@ const TempSection = () => {
        if(!res.ok){
         throw new Error(`${json.message}`||"Undeined Error")
        }
+       
        toast.success("BookMareked deleletedsuccessfully")
        triggerVote(refreshVote)
        mutate()
+       setClick(0)
     }
     catch(error){
       toast.error(error.message)
@@ -42,15 +46,19 @@ const TempSection = () => {
                   </th>
                 ) :(
                     <th  className="px-4 py-2 font-extrabold">
-                    <label className="flex items-center">
-                      <input
-                        type="checkbox"
-                        checked={selectedItems.length === data.data.length && data.data.length > 0}
-                        onChange={selectAllItems}
-                        className="mr-2"
-                      />
-                      Select All
-                    </label>
+                      {
+                         click==1  &&  (
+                          <label className="flex items-center">
+                          <input
+                            type="checkbox"
+                            checked={selectedItems.length === data.data.length && data.data.length > 0}
+                            onChange={selectAllItems}
+                            className="mr-2"
+                          />
+                          Select All
+                        </label>
+                         )
+                      }
                   </th>
                 )
             }
@@ -76,17 +84,20 @@ const TempSection = () => {
             isLoading ? <Tempskeleton/>  :data?.data?.length > 0 ? (
                 data.data.map((temp) => (
                     <tr key={temp.id} className={selectedItems.includes(temp.id) ? 'bg-blue-50' : ''}>
-                    <td className="px-4 py-3">
-                    <input type="hidden" {...register('elector_id')} value={temp.elector_id} />
-                        <p>{temp.elector_id}</p>
-                        <input
-                          type="checkbox"
-                          checked={selectedItems.some(item => item.tempId === temp.id)}
-                           onChange={() => toggleSelectItem(temp.elector.id, temp.id,temp?.elector?.gender)}
-                          className="mr-2"
-                        />
-                      </td>
-                    
+                      {
+                        click==1 &&(
+                          <td className="px-4 py-3">
+                          <input type="hidden" {...register('elector_id')} value={temp.elector_id} />
+                              <p>{temp.elector_id}</p>
+                              <input
+                                type="checkbox"
+                                checked={selectedItems.some(item => item.tempId === temp.id)}
+                                 onChange={() => toggleSelectItem(temp.elector.id, temp.id,temp?.elector?.gender)}
+                                className="mr-2"
+                              />
+                            </td>
+                        )
+                      }
                     <th scope="col" className="px-4 py-3 md:text-sm lg:text-md ">{temp.elector?.elector_name || 'Unknown'}</th>
                     <th scope="col" className="px-4 py-3 md:text-sm lg:text-md">images</th>
                     <th scope="col" className="px-4 py-3 md:text-sm lg:text-md">
