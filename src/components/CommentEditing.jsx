@@ -9,7 +9,7 @@ import Highlight from '@tiptap/extension-highlight';
 import Paragraph from '@tiptap/extension-paragraph';
 import MenuBar from './MenuBar';
 
-const CommentEditing = forwardRef(({ onChange,address }, ref) => {
+const CommentEditing = forwardRef(({ onChange,description }, ref) => {
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -18,7 +18,7 @@ const CommentEditing = forwardRef(({ onChange,address }, ref) => {
       TextAlign.configure({ types: ['heading', 'paragraph'] }),
       Highlight.configure({ multicolor: true }),
     ],
-    content: address || '', 
+    content: description || '', 
     editorProps: {
       attributes: {
         class: "min-h-[165px] border border-stone-500 bg-slate-50 y-2 px-3",

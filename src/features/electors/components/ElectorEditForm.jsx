@@ -158,14 +158,13 @@ const onSubmit=async(data)=>{
                 message: 'address is at  least 3 lengths',
               },
             })} 
-            value={address}
             className="block w-full border border-stone-200 py-1 px-3" 
           />
           {errors.address && (
             <span className="text-red-500 text-xs">{errors.address.message}</span>
           )}
         </div>
-        <div className='col-start-1 col-span-2'>
+        <div className=' col-span-2'>
           <label htmlFor="" className="block">
             Won Status
           </label>
@@ -182,10 +181,11 @@ const onSubmit=async(data)=>{
            <label htmlFor="" className="font-bold">
            Description
           </label>
-          <CommentEditing  ref={editorRef} address={description}  onChange={(value) => setValue("description", value)} />
+          <CommentEditing  ref={editorRef} description={description}  onChange={(value) => setValue("description", value)} />
           <input
             type="hidden"
             {...register("description", { required: "description is required" })}
+            value={description}
           />
           {errors.description && (
             <span className="text-red-500 text-xs">{errors.description.message}</span>
