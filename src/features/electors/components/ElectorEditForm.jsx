@@ -152,10 +152,10 @@ const onSubmit=async(data)=>{
           <input 
             type="text" 
             {...register("address", {
-              required: t('errors.addressRequired'),
+              required: "address is required",
               minLength: {
                 value: 3,
-                message: t('errors.addressMinLength'),
+                message: 'address is at  least 3 lengths',
               },
             })} 
             value={address}
