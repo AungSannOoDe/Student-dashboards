@@ -11,7 +11,8 @@ import IndexPage from "../pages/IndexPage";
 
 export default function HomeLayout({ children }) {
   const router = useRouter();
-  const { logout,token,Part,account,setVoteMale, setVoteFemale,SpecifyId} = useAccountStore();
+  const { logout,token,Part,account,setVoteMale, setVoteFemale,SpecifyId, setMaleFinal,
+    setVoteFinal} = useAccountStore();
   const [isLoading, setIsLoading] = useState(true);
   console.log(SpecifyId);
   const autoLogoutIfTokenExpire = async (currentToken) => {
@@ -27,10 +28,23 @@ export default function HomeLayout({ children }) {
   const autoGenderateFemaleVote=()=>{
     account.vote_female==0  && setVoteFemale(0)
  }
+  const  autoGenerateFinal=()=>{
+
+    if(account.vote_female==0)
+    setVoteFinal(0)
+  else if(account.vote_male==0){
+    setMaleFinal(0)
+  }
+  else {
+    setVoteFinal(0)
+    setMaleFinal(0)
+  }
+  }
   useEffect(() => {
     const currentToken = useAccountStore.getState().token;
      autoGenderateMaleVote()
      autoGenderateFemaleVote()
+     autoGenerateFinal()
     if (!currentToken) {
       router.push("/");
     } else {

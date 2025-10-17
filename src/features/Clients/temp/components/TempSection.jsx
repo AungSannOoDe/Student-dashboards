@@ -104,9 +104,11 @@ const TempSection = () => {
                        {temp?.elector?.phone}
                     </th>
                     <th  scope="col" className="px-4 py-3 md:text-sm lg:text-md">
-                      <button onClick={()=>handleDelete(temp.id)}>
-                         <X/>
-                      </button>
+                    {selectedItems.length ==0 && (
+                        <button onClick={() => handleDelete(temp.id)}>
+                          <X />
+                        </button>
+                      )}
                     </th>
                   </tr>
                 ))

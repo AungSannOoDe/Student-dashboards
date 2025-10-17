@@ -9,7 +9,7 @@ const useRegister = () => {
  const {formState:{
     errors,isSubmitting,
 },register,reset,handleSubmit,setError,control}=useForm();
-const{SpecifyId,setSpecifyId,setToken,setAccount,setPart}=useAccountStore();
+const{SpecifyId,setSpecifyId,setVoteFinal,setToken,setAccount,setPart,setVoteFemale, setVoteMale, setMaleFinal}=useAccountStore();
 const password = useWatch({ control, name: "password" });
 const router=useRouter();
  console.log(SpecifyId);
@@ -28,6 +28,10 @@ const router=useRouter();
     reset();
      setToken(json.token)
     setAccount(json?.voters)
+    setMaleFinal(0)
+    setVoteFinal(0)
+    setVoteFemale(0)
+    setVoteMale(0)
     setPart(2)
     router.push(`/clients/home`)
   }
