@@ -114,7 +114,7 @@ const FemaleDetailSection = () => {
                         {parse(data?.description || "No description available")}
                     </div>
                     {/* Submit Button */}
-                    {!VoteFemale == 1  (
+                    {!VoteFemale == 1 && (
                         <button 
                             type='submit' 
                             disabled={isSubmitting}

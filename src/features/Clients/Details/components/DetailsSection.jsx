@@ -19,7 +19,7 @@ const DetailsSection = () => {
     id,
     VoteMale,
   } = useDetails();
-
+ console.log(VoteMale);
   const {
     data: votes,
     isLoading: voteLoading,
@@ -82,7 +82,7 @@ const DetailsSection = () => {
           </div>
         </div>
 
-        {VoteMale !== "1" && (
+        {!VoteMale == "1" && (
           <button
             type="submit"
             disabled={isSubmitting}
