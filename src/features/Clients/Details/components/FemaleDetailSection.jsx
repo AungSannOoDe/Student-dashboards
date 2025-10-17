@@ -10,7 +10,7 @@ import DetailSkeleton from './DetailSkeleton'
 const FemaleDetailSection = () => {
     const { data, isLoading, isSubmitting, register, handleSubmit, onSubmit, account, id, VoteFemale } = useFemaleDetails()
     const { data: votes, isLoading: voteLoading, error } = useSWR(`${voteapiUrl}/${useAccountStore.getState().account.id}`, fetchvote)
-    
+     console.log(VoteFemale);
     if (isLoading || voteLoading) {
         return <DetailSkeleton />
     }
