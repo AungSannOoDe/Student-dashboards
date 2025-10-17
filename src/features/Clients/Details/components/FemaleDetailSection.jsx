@@ -10,7 +10,6 @@ import DetailSkeleton from './DetailSkeleton'
 const FemaleDetailSection = () => {
     const { data, isLoading, isSubmitting, register, handleSubmit, onSubmit, account, id, VoteFemale } = useFemaleDetails()
     const { data: votes, isLoading: voteLoading, error } = useSWR(`${voteapiUrl}/${useAccountStore.getState().account.id}`, fetchvote)
-     console.log(VoteFemale);
     if (isLoading || voteLoading) {
         return <DetailSkeleton />
     }
@@ -115,7 +114,7 @@ const FemaleDetailSection = () => {
                         {parse(data?.description || "No description available")}
                     </div>
                     {/* Submit Button */}
-                    {!VoteFemale === "1"  (
+                    {!VoteFemale == 1  (
                         <button 
                             type='submit' 
                             disabled={isSubmitting}
