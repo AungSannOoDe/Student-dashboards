@@ -15,7 +15,6 @@ const MaleCard = ({male:{id:elector_id,
   console.log(
   VoteMale,VoteFinal
   );
-   
   return (
     <div className="  w-full  ">
       <form  onSubmit={handleSubmit(onSubmit)}>

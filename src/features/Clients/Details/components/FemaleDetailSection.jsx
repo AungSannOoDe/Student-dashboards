@@ -114,14 +114,8 @@ const FemaleDetailSection = () => {
                     <div className="ProseMirror text-sm sm:text-base lg:text-lg leading-relaxed sm:leading-loose text-gray-700">
                         {parse(data?.description || "No description available")}
                     </div>
-
                     {/* Submit Button */}
-                    {VoteFemale === "1" ? (
-                        <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg text-center">
-                            <p className="font-medium">Already Selected</p>
-                            <p className="text-sm mt-1">You have already voted for this candidate</p>
-                        </div>
-                    ) : (
+                    {!VoteFemale === "1"  (
                         <button 
                             type='submit' 
                             disabled={isSubmitting}

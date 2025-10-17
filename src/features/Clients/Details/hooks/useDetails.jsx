@@ -13,7 +13,7 @@ const useDetails = () => {
     const {id}=useParams();
     const{mutate}=useSWRConfig();
     const  {data,isLoading,error}=useSWR(`${electorDeailsApiUrl}/${id}`,fetchElectors)
-    const{account,token,setAccount, setVoteMale, VoteMale,VoteFemale}=useAccountStore()
+    const{account,token,setAccount, setVoteMale, VoteMale,VoteFemale,setVoteFinal}=useAccountStore()
     const{handleSubmit,formState:{
       errors,isSubmitting
     },register,reset}=useForm();
@@ -33,6 +33,7 @@ const useDetails = () => {
         setAccount(json?.data.voter)
         triggerVote()
        setVoteMale(1)
+       setVoteFinal(1)
       mutate(`${voteapiUrl}/${id}`,fetchvote)
         }
         catch(error){
