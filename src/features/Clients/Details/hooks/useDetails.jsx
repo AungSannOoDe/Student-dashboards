@@ -13,7 +13,7 @@ const useDetails = () => {
     const {id}=useParams();
     const{mutate}=useSWRConfig();
     const  {data,isLoading,error}=useSWR(`${electorDeailsApiUrl}/${id}`,fetchElectors)
-    const{account,token,setAccount, setVoteMale, VoteMale,VoteFemale,setVoteFinal}=useAccountStore()
+    const{account,token,setAccount, setVoteMale, VoteMale,VoteFemale,setVoteFinal,MaleFinal,setMaleFinal}=useAccountStore()
     const{handleSubmit,formState:{
       errors,isSubmitting
     },register,reset}=useForm();
@@ -50,6 +50,7 @@ const useDetails = () => {
   account,
   id,
    VoteMale,
+   setMaleFinal,
   data,
  isLoading
  }
