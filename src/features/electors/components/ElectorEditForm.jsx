@@ -10,7 +10,7 @@ import { useSWRConfig } from 'swr';
 import { json } from 'zod';
 
 const ElectorEditForm = ({elector:{
-  elector_name,id,years,phone,gender,won_status,address
+  elector_name,id,years,phone,gender,won_status,address,description
 }}) => {
   const editorRef = useRef();
   const { mutate } = useSWRConfig();
@@ -145,6 +145,26 @@ const onSubmit=async(data)=>{
                 <span className="text-red-500 text-xs">{errors.years.message}</span>
               )}
         </div>
+        <div className="col-start-1">
+          <label htmlFor="" className="block">
+           address
+          </label>
+          <input 
+            type="text" 
+            {...register("address", {
+              required: t('errors.addressRequired'),
+              minLength: {
+                value: 3,
+                message: t('errors.addressMinLength'),
+              },
+            })} 
+            value={address}
+            className="block w-full border border-stone-200 py-1 px-3" 
+          />
+          {errors.address && (
+            <span className="text-red-500 text-xs">{errors.address.message}</span>
+          )}
+        </div>
         <div className='col-start-1 col-span-2'>
           <label htmlFor="" className="block">
             Won Status
@@ -160,15 +180,15 @@ const onSubmit=async(data)=>{
         </div>
         <div className="col-start-1 col-span-2 row-span-5">
            <label htmlFor="" className="font-bold">
-            Address
+           Description
           </label>
-          <CommentEditing  ref={editorRef} address={address}  onChange={(value) => setValue("address", value)} />
+          <CommentEditing  ref={editorRef} address={description}  onChange={(value) => setValue("description", value)} />
           <input
             type="hidden"
-            {...register("address", { required: "Address is required" })}
+            {...register("description", { required: "description is required" })}
           />
-          {errors.address && (
-            <span className="text-red-500 text-xs">{errors.address.message}</span>
+          {errors.description && (
+            <span className="text-red-500 text-xs">{errors.description.message}</span>
           )}
         </div>
         <div className="col-span-full mt-5">
