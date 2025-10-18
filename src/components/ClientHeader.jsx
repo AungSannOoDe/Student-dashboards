@@ -174,6 +174,7 @@ const ClientHeader = () => {
                             <p className="text-xs text-gray-500 capitalize">
                               {temp.elector?.gender}
                             </p>
+                             <Link className="" href={`/clients/profile`}>profile</Link>
                           </div>
                         </div>
                         <button 
@@ -203,6 +204,7 @@ const ClientHeader = () => {
                     <DropdownMenuLabel className="flex flex-col space-y-2 lg:space-y-3 p-3 lg:p-4">
                       <p className="font-semibold text-sm lg:text-lg truncate">{account.voter_name}</p>
                       <p className="text-xs text-gray-500 truncate">{account.voter_email}</p>
+                      <Link className="" href={`/clients/profile`}>profile</Link>
                       <button
                         className="bg-blue-500 text-white px-3 py-2 rounded-md hover:bg-blue-600 transition-colors w-full text-sm"
                         onClick={handleLogout}
@@ -332,15 +334,7 @@ const ClientHeader = () => {
               {/* User Info Mobile */}
               <div className="px-4 py-3">
                 <div className="flex items-center gap-3 mb-3">
-                  <img
-                    src={account.profile_image || "/images/user.png"}
-                    alt="User"
-                    className="object-cover w-10 h-10 rounded-full border"
-                  />
-                  <div className="flex-1 min-w-0">
-                    <p className="font-semibold text-gray-800 truncate text-sm">{account.voter_name}</p>
-                    <p className="text-gray-500 truncate text-xs">{account.voter_email}</p>
-                  </div>
+                   <Link className="hover:text-blue-600 transition-colors w-full font-medium" href={`/clients/profile`}>profile</Link>
                 </div>
                 <button
                   className="bg-blue-500 text-white px-4 py-3 rounded-lg hover:bg-blue-600 transition-colors w-full font-medium"

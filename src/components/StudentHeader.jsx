@@ -156,7 +156,6 @@ const StudentHeader = () => {
                   <Crown className="text-amber-400 size-6" />
                 </Link>
               </li>
-
               {/* Hover Menu */}
               <motion.li
                 onHoverStart={handleToggle}
@@ -198,6 +197,7 @@ const StudentHeader = () => {
                             <p className="text-xs text-gray-500 capitalize">
                               {temp.elector?.gender}
                             </p>
+                             <Link className="text-white" href={`/`}>profile</Link>
                           </div>
                         </div>
                         <button 
@@ -219,7 +219,7 @@ const StudentHeader = () => {
                 <DropdownMenu>
                   <DropdownMenuTrigger className="hover:scale-105 transition-transform">
                     <img
-                      src={account.profile_image || "/images/user.png"}
+                      src={"https://studentvoting.store/storage/"+account.profile_image || "/images/user.png"}
                       alt="User"
                       className="object-cover w-10 h-10 rounded-full border"
                     />
@@ -228,6 +228,7 @@ const StudentHeader = () => {
                     <DropdownMenuLabel className="flex flex-col space-y-3 p-4">
                       <p className="font-semibold text-lg">{account.voter_name}</p>
                       <p className="text-xs text-gray-500">{account.voter_email}</p>
+                       <p> <Link className="" href={`/clients/profile`}>profile</Link></p> 
                       <button
                         className="bg-blue-500 text-white px-3 py-2 rounded-md hover:bg-blue-600 transition-colors w-full"
                         onClick={handleLogout}
@@ -345,6 +346,16 @@ const StudentHeader = () => {
                   <BookMarked className="size-5" />
                   Temporary
                 </Link>
+              </li>
+              <li className="pt-2">
+                <Link 
+                  href="/clients/ptofile" 
+                  className=" py-2 hover:text-blue-500 transition-colors flex items-center gap-2"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  profile
+                </Link>
+
               </li>
               <li className="pt-2">
                 <button

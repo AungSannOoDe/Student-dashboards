@@ -10,6 +10,7 @@ import { useTranslations } from 'next-intl';
 
 const ProfileSection = () => {
   const {account:{id,name,email,created_at,image}}=useAccountStore();
+  
  const t=useTranslations("ProfilePage")
   return (
 <section className="pl-10 flex flex-col space-y-10">

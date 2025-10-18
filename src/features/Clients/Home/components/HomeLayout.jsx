@@ -8,6 +8,7 @@ import { checkProfile } from "@/services/voters";
 import { toast } from "sonner";
 import NotFound from "@/components/NotFound";
 import IndexPage from "../pages/IndexPage";
+import { checkClientProfile } from "@/services/profile";
 
 export default function HomeLayout({ children }) {
   const router = useRouter();
@@ -16,7 +17,7 @@ export default function HomeLayout({ children }) {
   const [isLoading, setIsLoading] = useState(true);
   console.log(SpecifyId);
   const autoLogoutIfTokenExpire = async (currentToken) => {
-    const res = await checkProfile(currentToken);
+    const res = await checkClientProfile(currentToken);
     if (res.status === 401) {
       toast.error("Your token has expired, please login again");
       logout();
@@ -29,7 +30,6 @@ export default function HomeLayout({ children }) {
     account.vote_female==0  && setVoteFemale(0)
  }
   const  autoGenerateFinal=()=>{
-
     if(account.vote_female==0)
     setVoteFinal(0)
   else if(account.vote_male==0){
