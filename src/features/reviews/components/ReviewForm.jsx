@@ -3,12 +3,11 @@ import StarRatingComponent from '@/components/StarRatingComponent'
 import React from 'react'
 import { useForm } from 'react-hook-form';
 import useReview from '../hooks/useReview';
+import useAccountStore from '@/stores/useAccountStore';
 
 const ReviewForm = () => {
   const{register,reset,currentRating,errors,handleSubmit,onSubmit,setValue,watch}=useReview()
-
-  
-
+   const {account:{voter_name,voter_email}}=useAccountStore()
   return (
     <section className='bg-stone-100 px-6 py-4 rounded-lg'>
       <p className='text-3xl text-center'>Reviews</p>
@@ -26,6 +25,7 @@ const ReviewForm = () => {
                 minLength: { value: 4, message: "Name must be at least 4 characters" }
               })}
               id="name"
+              value={voter_name}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
               placeholder="Enter name..."
             />
@@ -46,6 +46,7 @@ const ReviewForm = () => {
                   message: "Invalid email address"
                 }
               })}
+              value={voter_email}
               id="email"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
               placeholder="Enter email..."

@@ -93,7 +93,7 @@ const SchoolHistorySection = () => {
         {/* Image */}
         <div ref={imageRef} className="w-full lg:w-1/3 h-64 sm:h-80 lg:h-96 flex-shrink-0 opacity-0">
           <img
-            src="/images/Header.jpg"
+            src="/images/photo_1.jpeg"
             alt="School History"
             className="w-full h-full object-cover rounded-lg shadow-lg"
           />

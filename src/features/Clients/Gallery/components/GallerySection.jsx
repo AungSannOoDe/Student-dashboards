@@ -24,7 +24,7 @@ const GallerySection = () => {
   return (
  <main className="main mt-10 ">
 
-  <div className="gallery">
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 mb-10">
     {
       data && data?.data.length > 0 ? data?.data.map((item)=>(
         <figure key={item.id}>

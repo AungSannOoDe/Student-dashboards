@@ -38,14 +38,14 @@ const HistoryGallerySection = () => {
         UCS(Hpa-an) ရဲ့ ကောလိပ်အဆင့်မှ တက္ကသိုလ် အဆင့်သို့ တိုးမြှင့်လာခဲ့သော သမိုင်းကြောင်းမှတ်တမ်းပုံများ
       </p>
 
-      <Link href={`clients/Information`} className="fade-in font-bold underline">
+      <Link href={`Information`} className="fade-in font-bold underline">
         ထပ်သိချင်ရင်တော့ဒီကနေဖတ်လို့ရပါတယ်နော်
       </Link>
 
       <div className="grid grid-cols-1 px-2 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-2">
-        <img src="../images/Header.jpg" alt="" className="fade-in rounded-lg" />
-        <img src="../images/Header.jpg" alt="" className="fade-in rounded-lg" />
-        <img src="../images/Header.jpg" alt="" className="fade-in rounded-lg" />
+        <img src="../images/photo_1.jpeg" alt="" className="fade-in rounded-lg h-60" />
+        <img src="../images/photo_2.jpeg" alt="" className="fade-in rounded-lg h-60" />
+        <img src="../images/photo_3.jpeg" alt="" className="fade-in rounded-lg h-60" />
       </div>
     </div>
   );

@@ -22,7 +22,7 @@ const CardSection = () => {
       {/* Male Section */}
       <div className="mt-6 sm:mt-10 space-y-8 sm:space-y-12">
         <h1 className="text-center font-bold text-3xl sm:text-4xl text-gray-800">
-          Select for Male
+          ပဏာမရွေးချယ်ခြင်းခံရသော ကျောင်းသားများ
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-10">
           {males?.length > 0 ? (
@@ -38,7 +38,7 @@ const CardSection = () => {
       {/* Female Section */}
       <div className="mt-16 sm:mt-20 space-y-8 sm:space-y-12">
         <h1 className="text-center font-bold text-3xl sm:text-4xl text-gray-800">
-          Select for Female
+           ပဏာမရွေးချယ်ခြင်းခံရသော ကျောင်းသူများ
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-10">
           {females?.length > 0 ? (

@@ -120,7 +120,11 @@ const StudentHeader = () => {
             </Link>
           </li>
            <li><Link href={`/clients/Information`} className="hover:text-stone-800 transition">အချက်အလက်များ</Link></li>
-          
+           {
+            !token && (
+            <li><Link href={`/login`} className="hover:text-stone-800 transition">Admin</Link></li>)
+           }
+           
           {token && (
             <>
               <li>

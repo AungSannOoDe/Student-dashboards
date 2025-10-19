@@ -33,8 +33,8 @@ const SuccessListSection = () => {
   return (
     <section className='max-w-7xl mx-auto mt-10 mb-20 '>
     <div className="mt-20 ">
-        <h1 className='text-center font-bold'>Success of Section</h1>
-    <p className="text-stone-600 px-3">ပဏာမရွေးချယ်ခြင်းခံရသော ကျောင်းသားကျောင်းသူများကို မဲစနစ်ဖြင့်စီစစ်၍ ရရှိလာသောရလဒ်အရ King, Queen, Prince, Princess များ၏ ဓါတ်ပုံများ</p>
+        <h1 className='text-center font-bold'> ဆန္ဒမဲ ရလဒ်</h1>
+    <p className="text-stone-600 px-3 text-center">ပဏာမရွေးချယ်ခြင်းခံရသော ကျောင်းသားကျောင်းသူများကို မဲစနစ်ဖြင့်စီစစ်၍ ရရှိလာသောရလဒ်အရ King, Queen, Prince, Princess များ၏ ဓါတ်ပုံများ</p>
     </div>
     <div className="mt-10 space-y-10">
         <div className="grid lg:grid-cols-3   xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-10  space-y-20  px-6">

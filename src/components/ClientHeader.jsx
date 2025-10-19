@@ -79,9 +79,8 @@ const ClientHeader = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex lg:items-center lg:gap-8">
-          {/* Navigation Links */}
-          <ul className="flex gap-6 text-sm font-medium">
+        <nav className=" hidden lg:flex  justify-start lg:items-center lg:gap-8">
+           <ul className="flex gap-6 text-sm   justify-self-start font-medium">
             <li>
               <Link href="/clients/home" className="hover:text-blue-500 transition-colors duration-200">
                 ပင်မစာမျက်နှာ
@@ -97,7 +96,12 @@ const ClientHeader = () => {
                 အချက်အလက်များ
               </Link>
             </li>
-          
+            {
+              !token &&(
+              <li><Link href={`/login`} className="hover:text-stone-800 transition">Admin</Link></li>
+              )
+            }
+             
             {token && (
               <>
                 <li>
@@ -123,9 +127,11 @@ const ClientHeader = () => {
               </>
             )}
           </ul>
-
           {/* Right Section (Desktop) */}
-          {token ? (
+         
+        </nav>
+        <div className="hidden lg:flex  justify-start lg:items-center lg:gap-8">
+           {token ? (
             <ul className="flex gap-4 items-center">
               <li>
                 <Link href="/clients/success" className="hover:scale-110 transition-transform duration-200">
@@ -195,7 +201,7 @@ const ClientHeader = () => {
                 <DropdownMenu>
                   <DropdownMenuTrigger className="hover:scale-105 transition-transform duration-200">
                     <img
-                      src={account.profile_image || "/images/user.png"}
+                      src={ "https://studentvoting.store/storage/"+account.profile_image || "/images/user.png"}
                       alt="User"
                       className="object-cover w-8 h-8 lg:w-10 lg:h-10 rounded-full border"
                     />
@@ -231,7 +237,7 @@ const ClientHeader = () => {
               </li>
             </ul>
           )}
-        </nav>
+        </div>
 
         {/* Mobile Hamburger */}
         <button

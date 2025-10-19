@@ -3,7 +3,7 @@ import React from 'react'
 const GallerySectionSkeleton = () => {
   return (
 <main className="main mt-10 mb-10">
-    <div className="gallery">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4">
         {
             Array(4).fill(0).map((_,index)=>(
              <figure

@@ -14,13 +14,12 @@ const HistorySection = () => {
   const router = useRouter();
   const [fetchUrl, setFetchUrl] = useState(historyApiUrl);
   const currentYear = searchParams.get('year') || "All";
-  const years = ["All","2020", "2021", "2022", "2023", "2024"];
+  const years = ["All","2022", "2023", "2024"];
   const updateUrlParams = (newParams) => {
     const updatedSearch = new URLSearchParams(newParams).toString();
     router.push(`?${updatedSearch}`);
     setFetchUrl(`${historyApiUrl}?${updatedSearch}`);
   };
-
   useEffect(() => {
     const currentParams = convertSearchPramsToObject(searchParams);
     const queries = new URLSearchParams(currentParams).toString();
@@ -47,11 +46,8 @@ const HistorySection = () => {
   return (
     <section className='max-w-7xl mx-auto'>
       <div className="">
-        <h1 className='text-center font-bold'>History of Section</h1>
-        <p className="text-stone-600"> aperiam ipsa, accusamus rerum vero cumque vel! Hic quam minima incidunt rerum, qui perferendis,
-           autem pariatur illum soluta quibusdam voluptatem animi commodi provident, natus at iusto! L
-           audantium iste totam obcaecati magni illo, earum perferendis itaque rerum suscipit eligendi!
-            Sunt beatae temporibus recusandae eveniet veritatis ex rem doloribus expedita enim labore ad corporis, similique laudantium quas corrupti laboriosam nemo quo id hic quae facilis. Officia.</p>
+        <h1 className='text-center font-bold'>နှစ်အလိုက်King Queen selection များ</h1>
+        <p className="text-stone-600 text-center"> အောက်ပါတို့သည်2022 2023 2024တို့တွင်ရရှိခဲ့သော king Queen Prince Princess များကိုအစဉ်လိုက်ဖော်ပြထားပါသည်။ပေးထားသော  ခုနှစ်ကိုနှိပ်၍ကြည့်ရှုနိုင်ပါသည်။</p>
       </div>
       
       <div className="w-3/4 mx-auto flex text-lg pointer-events-auto text-stone-500 justify-around mt-4">
