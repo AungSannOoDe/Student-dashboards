@@ -33,14 +33,14 @@ const Footer = () => {
             <p className="text-3xl font-bold">ဆက်သွယ်ရန်</p>
             <div className="flex flex-col space-y-2">
               <p className="text-2xl font-bold">Admin အသင်း</p>
-              <div className="flex space-x-9">
+              <div className="flex md:flex-row flex-col space-x-9">
                 <p className="text-sm">09-677513378</p>
                 <p className="text-sm">aungsannoo962@gmail.com</p>
               </div>
             </div>
             <div className="flex flex-col space-y-2">
               <p className="text-2xl font-bold">ကျောင်းသားရေးရာ</p>
-              <div className="flex space-x-9">
+              <div className="flex  md:flex-row flex-col space-x-9">
                 <p className="text-sm">09-677513378</p>
                 <p className="text-sm">aungsannoo962@gmail.com</p>
               </div>
@@ -51,9 +51,6 @@ const Footer = () => {
               <i className="fa-brands fa-tiktok text-xl" />
               <i className="fa-brands fa-google text-xl" />
               <i className="fa-brands fa-paypal text-xl" />
-            </div>
-            <div className="text-left">
-              <h1>2025 © Group2™ All right Reversed</h1>
             </div>
           </div>
         </div>

@@ -81,11 +81,22 @@ const ClientHeader = () => {
         {/* Desktop Navigation */}
         <nav className=" hidden lg:flex  justify-start lg:items-center lg:gap-8">
            <ul className="flex gap-6 text-sm   justify-self-start font-medium">
-            <li>
-              <Link href="/clients/home" className="hover:text-blue-500 transition-colors duration-200">
-                ပင်မစာမျက်နှာ
-              </Link>
-            </li>
+            {
+              token ? (
+                <li>
+                <Link href="/" className="hover:text-blue-500 transition-colors duration-200">
+                  ပင်မစာမျက်နှာ
+                </Link>
+              </li>
+              ):(
+                <li>
+                <Link href="/clients/home" className="hover:text-blue-500 transition-colors duration-200">
+                  ပင်မစာမျက်နှာ
+                </Link>
+              </li>
+              )
+            }
+           
             <li>
               <Link href="/clients/gallery" className="hover:text-blue-500 transition-colors duration-200">
                 ဓာတ်ပုံ
@@ -247,7 +258,6 @@ const ClientHeader = () => {
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
-
       {/* Mobile Dropdown Menu */}
       <motion.div
         initial={{ height: 0, opacity: 0 }}
@@ -258,7 +268,7 @@ const ClientHeader = () => {
         <div className="flex flex-col gap-1 py-4 px-4">
           {/* Main Links */}
           <Link 
-            href="/clients/home" 
+            href="/" 
             className="block py-3 px-4 hover:bg-blue-50 rounded-lg transition-colors duration-200 text-gray-700"
             onClick={() => setMobileOpen(false)}
           >

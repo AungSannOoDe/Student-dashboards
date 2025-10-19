@@ -33,11 +33,7 @@ const TokenCreateSection = () => {
                           {...register('algorithm')}
                           className="w-full p-2 border rounded"
                         >
-                          <option value="">Random</option>
-                          <option value="sha256">SHA-256</option>
-                          <option value="sha512">SHA-512</option>
-                          <option value="ripemd160">RIPEMD-160</option>
-                          <option value="whirlpool">Whirlpool</option>
+                          <option value="sha256">Random</option>
                         </select>
                       </div>
                     </div>

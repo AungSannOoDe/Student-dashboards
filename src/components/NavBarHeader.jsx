@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from 'next/link';
 import LoginButton from './LoginButton';
 import { useTranslations } from "next-intl";
+import useAccountStore from "@/stores/useAccountStore";
 
 const NavBarHeader = () => {
   const headerRef = useRef(null);
@@ -14,7 +15,7 @@ const NavBarHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
   const mobileMenuRef = useRef(null);
   const [headerHeight, setHeaderHeight] = useState(0);
-
+  const { account, token, logout, setVoteMale, setVoteFemale } = useAccountStore();
   // GSAP scroll animation
   useEffect(() => {
     if (!headerRef.current) return;
@@ -53,7 +54,21 @@ const NavBarHeader = () => {
 
         {/* Desktop Menu */}
         <ul className="hidden lg:flex gap-6 text-lg">
-          <li><Link href={`/clients/home`} className="hover:text-stone-800 transition">ပင်မစာမျက်နှာ</Link></li>
+        {
+            token ? (
+              <li>
+              <Link href="/" className="hover:text-blue-500 transition-colors duration-200">
+                ပင်မစာမျက်နှာ
+              </Link>
+            </li>
+            ):(
+              <li>
+              <Link href="/clients/home" className="hover:text-blue-500 transition-colors duration-200">
+                ပင်မစာမျက်နှာ
+              </Link>
+            </li>
+            )
+          }
           <li><Link href={`/clients/guest/gallery`} className="hover:text-stone-800 transition"> ဓာတ်ပုံပြခန်း</Link></li>
           <li><Link href={`/login`} className="hover:text-stone-800 transition">Admin</Link></li>
           <li><Link href={`/clients/Information`} className="hover:text-stone-800 transition">အချက်အလက်များ</Link></li>
@@ -86,7 +101,7 @@ const NavBarHeader = () => {
             className="lg:hidden fixed mt-8 left-0 w-full h-65 bg-white/30 backdrop-blur-lg z-30 border-t border-slate-200"
           >
             <ul ref={mobileMenuRef}  className="flex flex-col items-center text-stone-600 gap-4 py-4 text-lg">
-              <li><Link href="/clients/home" onClick={() => setIsOpen(false)}>ပင်မစာမျက်နှာ</Link></li>
+              <li><Link href="/" onClick={() => setIsOpen(false)}>ပင်မစာမျက်နှာ</Link></li>
               <li><Link href="/clients/guest/gallery" onClick={() => setIsOpen(false)}> ဓာတ်ပုံပြခန်း</Link></li>
               <li><Link href="/dashboard" onClick={() => setIsOpen(false)}>Admin</Link></li>
               <li><Link href={`/clients/Information`} className="hover:text-stone-800 transition">အချက်အလက်များ</Link></li>

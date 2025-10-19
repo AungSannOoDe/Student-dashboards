@@ -148,7 +148,7 @@ const InformationSection = () => {
             <div className="lg:hidden space-y-8">
               <div className="text-center">
                 <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 tracking-tight mb-4">
-                  {yearItem.year_name} Year
+                  {yearItem.year_name} 
                 </h2>
                 <div className="w-20 sm:w-24 h-1 bg-gray-900 mx-auto"></div>
               </div>

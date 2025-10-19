@@ -110,7 +110,7 @@ const StudentHeader = () => {
         </div>
         <ul className="hidden lg:flex gap-6 text-sm font-medium  ">
           <li>
-            <Link href="/clients/home" className="hover:text-blue-500 transition-colors">
+            <Link href="/" className="hover:text-blue-500 transition-colors">
               ပင်မစာမျက်နှာ
             </Link>
           </li>
@@ -153,6 +153,11 @@ const StudentHeader = () => {
         {/* Desktop Menu */}
         <nav className="hidden  lg:flex  lg:items-center lg:gap-6">
           {/* Right Section (Desktop) */}
+          <li>
+            <Link href="/clients/success" className="hover:scale-110 transition-transform duration-200">
+              <Crown className="text-amber-400 size-5 lg:size-6" />
+            </Link>
+          </li>
           {token ? (
             <ul className="flex gap-5 items-center">
               <li>
@@ -246,6 +251,11 @@ const StudentHeader = () => {
             </ul>
           ) : (
             <ul className="flex gap-4 items-center">
+               <li>
+                <Link href="/clients/success" className="hover:scale-110 transition-transform duration-200">
+                  <Crown className="text-amber-400 size-5 lg:size-6" />
+                </Link>
+              </li>
               <li className="self-center">
                 <Link
                   href="/clients/login"
@@ -278,15 +288,21 @@ const StudentHeader = () => {
         className="lg:hidden bg-white fixed z-10 w-full  border-t border-gray-200 shadow-inner overflow-hidden"
       >
         <ul className="flex flex-col gap-4 py-6 px-6 text-gray-700 text-base">
-          <li>
-            <Link 
-              href="/clients/home" 
-              className="block py-2 hover:text-blue-500 transition-colors"
-              onClick={() => setMobileOpen(false)}
-            >
-              ပင်မစာမျက်နှာ
-            </Link>
-          </li>
+        {
+            token ? (
+              <li>
+              <Link href="/" className="hover:text-blue-500 transition-colors duration-200">
+                ပင်မစာမျက်နှာ
+              </Link>
+            </li>
+            ):(
+              <li>
+              <Link href="/clients/home" className="hover:text-blue-500 transition-colors duration-200">
+                ပင်မစာမျက်နှာ
+              </Link>
+            </li>
+            )
+          }
           <li>
             <Link href="/clients/history" className="hover:text-blue-500 transition-colors">
               နှစ်အလိုက် King Queen များ
@@ -375,8 +391,14 @@ const StudentHeader = () => {
             </>
           )}
 
+
           {!token && (
             <>
+              <li>
+                <Link href="/clients/success" className="hover:scale-110 transition-transform duration-200">
+                  <Crown className="text-amber-400 size-5 lg:size-6" />
+                </Link>
+              </li>
               <li>
                 <Link 
                   href="/clients/login" 
