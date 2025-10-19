@@ -291,13 +291,13 @@ const StudentHeader = () => {
         {
             token ? (
               <li>
-              <Link href="/" className="hover:text-blue-500 transition-colors duration-200">
+              <Link href="/" onClick={() => setMobileOpen(false)} className="hover:text-blue-500 transition-colors duration-200">
                 ပင်မစာမျက်နှာ
               </Link>
             </li>
             ):(
               <li>
-              <Link href="/clients/home" className="hover:text-blue-500 transition-colors duration-200">
+              <Link href="/clients/home" onClick={() => setMobileOpen(false)} className="hover:text-blue-500 transition-colors duration-200">
                 ပင်မစာမျက်နှာ
               </Link>
             </li>
@@ -394,11 +394,6 @@ const StudentHeader = () => {
 
           {!token && (
             <>
-              <li>
-                <Link href="/clients/success" className="hover:scale-110 transition-transform duration-200">
-                  <Crown className="text-amber-400 size-5 lg:size-6" />
-                </Link>
-              </li>
               <li>
                 <Link 
                   href="/clients/login" 

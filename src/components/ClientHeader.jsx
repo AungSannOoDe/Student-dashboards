@@ -267,13 +267,21 @@ const ClientHeader = () => {
       >
         <div className="flex flex-col gap-1 py-4 px-4">
           {/* Main Links */}
-          <Link 
-            href="/" 
-            className="block py-3 px-4 hover:bg-blue-50 rounded-lg transition-colors duration-200 text-gray-700"
-            onClick={() => setMobileOpen(false)}
-          >
-            ပင်မစာမျက်နှာ
-          </Link>
+          {
+            token ? (
+              <li>
+              <Link href="/"  onClick={() => setMobileOpen(false)} className="hover:text-blue-500 transition-colors duration-200">
+                ပင်မစာမျက်နှာ
+              </Link>
+            </li>
+            ):(
+              <li>
+              <Link href="/clients/home"  onClick={() => setMobileOpen(false)} className="hover:text-blue-500 transition-colors duration-200">
+                ပင်မစာမျက်နှာ
+              </Link>
+            </li>
+            )
+          }
           
           <Link 
             href="/clients/Information" 
