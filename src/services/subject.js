@@ -14,6 +14,7 @@ export const storeyear=(payload)=>{
       });
 }
 
+
 export const  fetchyear=(...args)=>{
   return  fetch(...args,{
     method:"GET",
@@ -48,6 +49,17 @@ export const   storesubject=(formData)=>{
       Authorization: useAccountStore.getState().token,
     },
   })
+}
+export const yearUpdate=(data,id)=>{
+  return  fetch(`${yearApiUrl}/${id}`, {
+    method: "PUT",
+    body:JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: useAccountStore.getState().token,
+    },
+  });
 }
 export const updateSubject=(formData,id)=>{
   const submitData=new FormData()

@@ -7,12 +7,13 @@ import { useRouter } from "next/navigation";
 import { storeyear } from '@/services/subject';
 import { toast } from 'sonner';
 import { useTranslations } from 'next-intl';
+import YearSection from './YearSection';
 
 const SubjectCreateSection = () => {
   const { register, formState: { errors, isSubmitting }, handleSubmit, reset } = useForm();
   const router = useRouter();
   const t = useTranslations('SubjectCreateForm')
-
+   
   const handleName = async (data) => {
     try {
       const res = await storeyear({
@@ -37,7 +38,8 @@ const SubjectCreateSection = () => {
 
   return (
     <>
-      <p className='text-5xl'>{t('title')}</p>
+       <YearSection/>
+      <p className='text-5xl'>{t('title')}</p> 
       <form onSubmit={handleSubmit(handleName)}>
         <div className="w-full grid grid-cols-3 gap-x-5 gap-y-3">
           <div className=" col-span-1">
