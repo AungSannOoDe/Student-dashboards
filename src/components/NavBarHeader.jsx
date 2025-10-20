@@ -15,7 +15,7 @@ const NavBarHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
   const mobileMenuRef = useRef(null);
   const [headerHeight, setHeaderHeight] = useState(0);
-  const { account, token, logout, setVoteMale, setVoteFemale } = useAccountStore();
+  const { account, token, logout, setVoteMale, setVoteFemale,Nothing } = useAccountStore();
   // GSAP scroll animation
   useEffect(() => {
     if (!headerRef.current) return;
@@ -106,7 +106,11 @@ const NavBarHeader = () => {
               <li><Link href="/dashboard" onClick={() => setIsOpen(false)}>Admin</Link></li>
               <li><Link href={`/clients/Information`} className="hover:text-stone-800 transition">အချက်အလက်များ</Link></li>
               <li><Link href="/clients/login" className="underline" onClick={() => setIsOpen(false)}>အကောင့်၀င်ရန်</Link></li>
-              <li><LoginButton /></li>
+              <li>
+                {
+                  Nothing==1 ? " ": <LoginButton />
+                }
+               </li>
             </ul>
           </motion.div>
         )}

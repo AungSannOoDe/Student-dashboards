@@ -23,7 +23,8 @@ const EventListSection = () => {
         throw new Error(json.message || 'Failed to update success');
       }
       setVoteFinal(1);
-       setSlideShow(1);
+      setSlideShow(1);
+      setNothing(1);
     }catch(error){
       console.error('Error updating success:', error.message);
     }

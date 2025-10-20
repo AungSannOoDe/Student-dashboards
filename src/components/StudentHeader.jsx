@@ -26,7 +26,7 @@ const StudentHeader = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const { refreshTrigger } = useTempStore();
-  const { account, token, logout, setVoteMale, setVoteFemale } = useAccountStore();
+  const { account, token, logout, setVoteMale, setVoteFemale,Nothing } = useAccountStore();
   const { mutate } = useSWRConfig();
 
   const { data, isLoading, error } = useSWR(
@@ -153,11 +153,6 @@ const StudentHeader = () => {
         {/* Desktop Menu */}
         <nav className="hidden  lg:flex  lg:items-center lg:gap-6">
           {/* Right Section (Desktop) */}
-          <li>
-            <Link href="/clients/success" className="hover:scale-110 transition-transform duration-200">
-              <Crown className="text-amber-400 size-5 lg:size-6" />
-            </Link>
-          </li>
           {token ? (
             <ul className="flex gap-5 items-center">
               <li>
@@ -251,11 +246,6 @@ const StudentHeader = () => {
             </ul>
           ) : (
             <ul className="flex gap-4 items-center">
-               <li>
-                <Link href="/clients/success" className="hover:scale-110 transition-transform duration-200">
-                  <Crown className="text-amber-400 size-5 lg:size-6" />
-                </Link>
-              </li>
               <li className="self-center">
                 <Link
                   href="/clients/login"
@@ -265,7 +255,9 @@ const StudentHeader = () => {
                 </Link>
               </li>
               <li>
-                <LoginButton />
+              {
+                Nothing==1 ? " " : <LoginButton />
+              }
               </li>
             </ul>
           )}

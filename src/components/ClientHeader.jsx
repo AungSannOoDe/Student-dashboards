@@ -22,7 +22,7 @@ const ClientHeader = () => {
   const [hover, setIsHover] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const headerRef = useRef(null);
-  const { account, token, logout, setVoteMale, setVoteFemale } = useAccountStore();
+  const { account, token, logout, setVoteMale, setVoteFemale, Nothing } = useAccountStore();
   const { mutate } = useSWRConfig();
 
   const { data, isLoading, error } = useSWR(
@@ -244,7 +244,9 @@ const ClientHeader = () => {
                 </Link>
               </li>
               <li>
-                <LoginButton />
+                {
+                  Nothing==1 ? " ":<LoginButton />
+                }
               </li>
             </ul>
           )}

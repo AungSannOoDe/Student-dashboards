@@ -218,7 +218,7 @@ const InformationSection = () => {
             <div className="hidden lg:flex justify-between">
               <div className="mb-16 text-center self-center flex-1 max-w-md">
                 <h2 className="text-6xl xl:text-7xl font-bold text-gray-900 tracking-tight mb-4">
-                  {yearItem.year_name} Year
+                  {yearItem.year_name} 
                 </h2>
                 <div className="w-24 h-1 bg-gray-900 mx-auto"></div>
               </div>
