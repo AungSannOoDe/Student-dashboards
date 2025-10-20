@@ -201,7 +201,7 @@ const StudentHeader = () => {
                             <p className="text-xs text-gray-500 capitalize">
                               {temp.elector?.gender}
                             </p>
-                             <Link className="text-white" href={`/`}>profile</Link>
+                             <Link className="text-white" href={`/clients/profile`}>profile</Link>
                           </div>
                         </div>
                         <button 
@@ -232,7 +232,7 @@ const StudentHeader = () => {
                     <DropdownMenuLabel className="flex flex-col space-y-3 p-4">
                       <p className="font-semibold text-lg">{account.voter_name}</p>
                       <p className="text-xs text-gray-500">{account.voter_email}</p>
-                       <p> <Link className="" href={`/clients/profile`}>profile</Link></p> 
+                       <p> <Link className="text-xs text-gray-500" href={`/clients/profile`}>profile</Link></p> 
                       <button
                         className="bg-blue-500 text-white px-3 py-2 rounded-md hover:bg-blue-600 transition-colors w-full"
                         onClick={handleLogout}
@@ -361,7 +361,7 @@ const StudentHeader = () => {
               </li>
               <li className="pt-2">
                 <Link 
-                  href="/clients/ptofile" 
+                  href="/clients/profile" 
                   className=" py-2 hover:text-blue-500 transition-colors flex items-center gap-2"
                   onClick={() => setMobileOpen(false)}
                 >
